@@ -1,0 +1,45 @@
+{
+	"id": "office",
+	"value": "office",
+	"label": { "jp": "室・営業所", "en": "Office" },
+	"list": [
+		{
+			"id": "soundproof-technology-office",
+			"value": "防音技術室",
+			"label": { "jp": "防音技術室", "en": "防音技術室" }
+		},
+		{
+			"id": "soundproof-technology-development-office",
+			"value": "防音技術開発室",
+			"label": { "jp": "防音技術開発室", "en": "防音技術開発室" }
+		},
+		{
+			"id": "highway-railroad-project-office",
+			"value": "道路・鉄道プロジェクト営業室",
+			"label": {
+				"jp": "道路・鉄道プロジェクト営業室",
+				"en": "道路・鉄道プロジェクト営業室"
+			}
+		},
+		{
+			"id": "architect-material-office",
+			"value": "建築建材室",
+			"label": { "jp": "建築建材室", "en": "建築建材室" }
+		},
+		{
+			"id": "civil-material-office",
+			"value": "土木建材室",
+			"label": { "jp": "土木建材室", "en": "土木建材室" }
+		},
+		{
+			"id": "north-tohoku-office",
+			"value": "北東北営業所",
+			"label": { "jp": "北東北営業所", "en": "北東北営業所" }
+		},
+		{
+			"id": "okinawa-office",
+			"value": "沖縄営業所",
+			"label": { "jp": "沖縄営業所", "en": "沖縄営業所" }
+		}
+	]
+}

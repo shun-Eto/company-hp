@@ -1,0 +1,62 @@
+{
+	"id": "steelShape",
+	"value": "steelShape",
+	"label": { "jp": "支柱形状", "en": "支柱形状" },
+	"list": [
+		{
+			"id": "panel-No.0",
+			"value": "天端BasePL式",
+			"label": { "jp": "天端BasePL式", "en": "天端BasePL式" }
+		},
+		{
+			"id": "panel-No.1",
+			"value": "側壁BasePL式",
+			"label": { "jp": "側壁BasePL式", "en": "側壁BasePL式" }
+		},
+		{
+			"id": "panel-No.2",
+			"value": "直柱(通し)",
+			"label": { "jp": "直柱(通し)", "en": "直柱(通し)" }
+		},
+		{
+			"id": "panel-No.3",
+			"value": "直柱(接合)",
+			"label": { "jp": "直柱(接合)", "en": "直柱(接合)" }
+		},
+		{
+			"id": "panel-No.4",
+			"value": "R柱(通し)",
+			"label": { "jp": "R柱(通し)", "en": "R柱(通し)" }
+		},
+		{
+			"id": "panel-No.5",
+			"value": "R柱(接合)",
+			"label": { "jp": "R柱(接合)", "en": "R柱(接合)" }
+		},
+		{
+			"id": "panel-No.6",
+			"value": "忍び柱",
+			"label": { "jp": "忍び柱", "en": "忍び柱" }
+		},
+		{
+			"id": "panel-No.7",
+			"value": "添接継手",
+			"label": { "jp": "添接継手", "en": "添接継手" }
+		},
+		{
+			"id": "panel-No.8",
+			"value": "受け桁",
+			"label": { "jp": "受け桁", "en": "受け桁" }
+		},
+		{
+			"id": "panel-No.9",
+			"value": "半壁高欄一体型",
+			"label": { "jp": "半壁高欄一体型", "en": "半壁高欄一体型" }
+		},
+		{
+			"id": "panel-No.10",
+			"value": "ｼｪﾙﾀｰ型",
+			"label": { "jp": "ｼｪﾙﾀｰ型", "en": "ｼｪﾙﾀｰ型" }
+		}
+	]
+}

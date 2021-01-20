@@ -1,0 +1,846 @@
+{
+	"id": "owner-2",
+	"value": "owner-2",
+	"label": { "jp": "発注者", "en": "Owner" },
+	"list": [
+		{
+			"id": "owner-2-No.0",
+			"value": "本社",
+			"label": { "jp": "本社", "en": "本社" },
+			"factor-1": "1",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.1",
+			"value": "関東支社",
+			"label": { "jp": "関東支社", "en": "関東支社" },
+			"factor-1": "1",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.2",
+			"value": "北海道支社",
+			"label": { "jp": "北海道支社", "en": "北海道支社" },
+			"factor-1": "1",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.3",
+			"value": "東北支社",
+			"label": { "jp": "東北支社", "en": "東北支社" },
+			"factor-1": "1",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.4",
+			"value": "新潟支社",
+			"label": { "jp": "新潟支社", "en": "新潟支社" },
+			"factor-1": "1",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.5",
+			"value": "本社",
+			"label": { "jp": "本社", "en": "本社" },
+			"factor-1": "2",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.6",
+			"value": "東京支社",
+			"label": { "jp": "東京支社", "en": "東京支社" },
+			"factor-1": "2",
+			"factor-2": "1"
+		},
+		{
+			"id": "owner-2-No.7",
+			"value": "名古屋支社",
+			"label": { "jp": "名古屋支社", "en": "名古屋支社" },
+			"factor-1": "2",
+			"factor-2": "2"
+		},
+		{
+			"id": "owner-2-No.8",
+			"value": "八王子支社",
+			"label": { "jp": "八王子支社", "en": "八王子支社" },
+			"factor-1": "2",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.9",
+			"value": "金沢支社",
+			"label": { "jp": "金沢支社", "en": "金沢支社" },
+			"factor-1": "2",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.10",
+			"value": "本社",
+			"label": { "jp": "本社", "en": "本社" },
+			"factor-1": "3",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.11",
+			"value": "関西支社",
+			"label": { "jp": "関西支社", "en": "関西支社" },
+			"factor-1": "3",
+			"factor-2": "3"
+		},
+		{
+			"id": "owner-2-No.12",
+			"value": "中国支社",
+			"label": { "jp": "中国支社", "en": "中国支社" },
+			"factor-1": "3",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.13",
+			"value": "四国支社",
+			"label": { "jp": "四国支社", "en": "四国支社" },
+			"factor-1": "3",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.14",
+			"value": "九州支社",
+			"label": { "jp": "九州支社", "en": "九州支社" },
+			"factor-1": "3",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.15",
+			"value": "本社",
+			"label": { "jp": "本社", "en": "本社" },
+			"factor-1": "4",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.16",
+			"value": "東京西局",
+			"label": { "jp": "東京西局", "en": "東京西局" },
+			"factor-1": "4",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.17",
+			"value": "東京東局",
+			"label": { "jp": "東京東局", "en": "東京東局" },
+			"factor-1": "4",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.18",
+			"value": "神奈川管理局",
+			"label": { "jp": "神奈川管理局", "en": "神奈川管理局" },
+			"factor-1": "4",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.19",
+			"value": "神奈川建設局",
+			"label": { "jp": "神奈川建設局", "en": "神奈川建設局" },
+			"factor-1": "4",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.20",
+			"value": "プロジェクト本部",
+			"label": { "jp": "プロジェクト本部", "en": "プロジェクト本部" },
+			"factor-1": "4",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.21",
+			"value": "関東地方整備局",
+			"label": { "jp": "関東地方整備局", "en": "関東地方整備局" },
+			"factor-1": "5",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.22",
+			"value": "近畿地方整備局",
+			"label": { "jp": "近畿地方整備局", "en": "近畿地方整備局" },
+			"factor-1": "5",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.23",
+			"value": "中部地方整備局",
+			"label": { "jp": "中部地方整備局", "en": "中部地方整備局" },
+			"factor-1": "5",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.24",
+			"value": "九州地方整備局",
+			"label": { "jp": "九州地方整備局", "en": "九州地方整備局" },
+			"factor-1": "5",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.25",
+			"value": "北陸地方整備局",
+			"label": { "jp": "北陸地方整備局", "en": "北陸地方整備局" },
+			"factor-1": "5",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.26",
+			"value": "中国地方整備局",
+			"label": { "jp": "中国地方整備局", "en": "中国地方整備局" },
+			"factor-1": "5",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.27",
+			"value": "四国地方整備局",
+			"label": { "jp": "四国地方整備局", "en": "四国地方整備局" },
+			"factor-1": "5",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.28",
+			"value": "北海道開発局",
+			"label": { "jp": "北海道開発局", "en": "北海道開発局" },
+			"factor-1": "5",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.29",
+			"value": "名古屋高速道路公社",
+			"label": { "jp": "名古屋高速道路公社", "en": "名古屋高速道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.30",
+			"value": "広島高速道路公社",
+			"label": { "jp": "広島高速道路公社", "en": "広島高速道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.31",
+			"value": "福岡北九州高速道路公社",
+			"label": {
+				"jp": "福岡北九州高速道路公社",
+				"en": "福岡北九州高速道路公社"
+			},
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.32",
+			"value": "神戸市道路公社",
+			"label": { "jp": "神戸市道路公社", "en": "神戸市道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.33",
+			"value": "北九州市道路公社",
+			"label": { "jp": "北九州市道路公社", "en": "北九州市道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.34",
+			"value": "青森県道路公社",
+			"label": { "jp": "青森県道路公社", "en": "青森県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.35",
+			"value": "宮城県道路公社",
+			"label": { "jp": "宮城県道路公社", "en": "宮城県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.36",
+			"value": "山形県道路公社",
+			"label": { "jp": "山形県道路公社", "en": "山形県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.37",
+			"value": "福島県道路公社",
+			"label": { "jp": "福島県道路公社", "en": "福島県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.38",
+			"value": "茨城県道路公社",
+			"label": { "jp": "茨城県道路公社", "en": "茨城県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.39",
+			"value": "栃木県道路公社",
+			"label": { "jp": "栃木県道路公社", "en": "栃木県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.40",
+			"value": "埼玉県道路公社",
+			"label": { "jp": "埼玉県道路公社", "en": "埼玉県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.41",
+			"value": "千葉県道路公社",
+			"label": { "jp": "千葉県道路公社", "en": "千葉県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.42",
+			"value": "神奈川県道路公社",
+			"label": { "jp": "神奈川県道路公社", "en": "神奈川県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.43",
+			"value": "長野県道路公社",
+			"label": { "jp": "長野県道路公社", "en": "長野県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.44",
+			"value": "山梨県道路公社",
+			"label": { "jp": "山梨県道路公社", "en": "山梨県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.45",
+			"value": "静岡県道路公社",
+			"label": { "jp": "静岡県道路公社", "en": "静岡県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.46",
+			"value": "愛知県道路公社",
+			"label": { "jp": "愛知県道路公社", "en": "愛知県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.47",
+			"value": "富山県道路公社",
+			"label": { "jp": "富山県道路公社", "en": "富山県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.48",
+			"value": "福井県道路公社",
+			"label": { "jp": "福井県道路公社", "en": "福井県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.49",
+			"value": "滋賀県道路公社",
+			"label": { "jp": "滋賀県道路公社", "en": "滋賀県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.50",
+			"value": "京都府道路公社",
+			"label": { "jp": "京都府道路公社", "en": "京都府道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.51",
+			"value": "大阪府道路公社",
+			"label": { "jp": "大阪府道路公社", "en": "大阪府道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.52",
+			"value": "兵庫県道路公社",
+			"label": { "jp": "兵庫県道路公社", "en": "兵庫県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.53",
+			"value": "奈良県道路公社",
+			"label": { "jp": "奈良県道路公社", "en": "奈良県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.54",
+			"value": "広島県道路公社",
+			"label": { "jp": "広島県道路公社", "en": "広島県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.55",
+			"value": "福岡県道路公社",
+			"label": { "jp": "福岡県道路公社", "en": "福岡県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.56",
+			"value": "佐賀県道路公社",
+			"label": { "jp": "佐賀県道路公社", "en": "佐賀県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.57",
+			"value": "長崎県道路公社",
+			"label": { "jp": "長崎県道路公社", "en": "長崎県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.58",
+			"value": "熊本県道路公社",
+			"label": { "jp": "熊本県道路公社", "en": "熊本県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.59",
+			"value": "宮崎県道路公社",
+			"label": { "jp": "宮崎県道路公社", "en": "宮崎県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.60",
+			"value": "鹿児島県道路公社",
+			"label": { "jp": "鹿児島県道路公社", "en": "鹿児島県道路公社" },
+			"factor-1": "6",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.61",
+			"value": "(民間の施主を登録してください。)",
+			"label": {
+				"jp": "(民間の施主を登録してください。)",
+				"en": "(民間の施主を登録してください。)"
+			},
+			"factor-1": "7",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.62",
+			"value": "北海道",
+			"label": { "jp": "北海道", "en": "北海道" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.63",
+			"value": "青森県",
+			"label": { "jp": "青森県", "en": "青森県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.64",
+			"value": "岩手県",
+			"label": { "jp": "岩手県", "en": "岩手県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.65",
+			"value": "宮城県",
+			"label": { "jp": "宮城県", "en": "宮城県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.66",
+			"value": "秋田県",
+			"label": { "jp": "秋田県", "en": "秋田県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.67",
+			"value": "山形県",
+			"label": { "jp": "山形県", "en": "山形県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.68",
+			"value": "福島県",
+			"label": { "jp": "福島県", "en": "福島県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.69",
+			"value": "茨城県",
+			"label": { "jp": "茨城県", "en": "茨城県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.70",
+			"value": "栃木県",
+			"label": { "jp": "栃木県", "en": "栃木県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.71",
+			"value": "群馬県",
+			"label": { "jp": "群馬県", "en": "群馬県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.72",
+			"value": "埼玉県",
+			"label": { "jp": "埼玉県", "en": "埼玉県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.73",
+			"value": "千葉県",
+			"label": { "jp": "千葉県", "en": "千葉県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.74",
+			"value": "東京都",
+			"label": { "jp": "東京都", "en": "東京都" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.75",
+			"value": "神奈川県",
+			"label": { "jp": "神奈川県", "en": "神奈川県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.76",
+			"value": "新潟件",
+			"label": { "jp": "新潟件", "en": "新潟件" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.77",
+			"value": "山梨県",
+			"label": { "jp": "山梨県", "en": "山梨県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.78",
+			"value": "長野県",
+			"label": { "jp": "長野県", "en": "長野県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.79",
+			"value": "富山県",
+			"label": { "jp": "富山県", "en": "富山県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.80",
+			"value": "石川県",
+			"label": { "jp": "石川県", "en": "石川県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.81",
+			"value": "福井県",
+			"label": { "jp": "福井県", "en": "福井県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.82",
+			"value": "岐阜県",
+			"label": { "jp": "岐阜県", "en": "岐阜県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.83",
+			"value": "静岡県",
+			"label": { "jp": "静岡県", "en": "静岡県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.84",
+			"value": "愛知県",
+			"label": { "jp": "愛知県", "en": "愛知県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.85",
+			"value": "三重県",
+			"label": { "jp": "三重県", "en": "三重県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.86",
+			"value": "滋賀県",
+			"label": { "jp": "滋賀県", "en": "滋賀県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.87",
+			"value": "京都府",
+			"label": { "jp": "京都府", "en": "京都府" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.88",
+			"value": "大阪府",
+			"label": { "jp": "大阪府", "en": "大阪府" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.89",
+			"value": "兵庫県",
+			"label": { "jp": "兵庫県", "en": "兵庫県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.90",
+			"value": "奈良県",
+			"label": { "jp": "奈良県", "en": "奈良県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.91",
+			"value": "和歌山県",
+			"label": { "jp": "和歌山県", "en": "和歌山県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.92",
+			"value": "鳥取県",
+			"label": { "jp": "鳥取県", "en": "鳥取県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.93",
+			"value": "島根県",
+			"label": { "jp": "島根県", "en": "島根県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.94",
+			"value": "岡山県",
+			"label": { "jp": "岡山県", "en": "岡山県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.95",
+			"value": "広島県",
+			"label": { "jp": "広島県", "en": "広島県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.96",
+			"value": "山口県",
+			"label": { "jp": "山口県", "en": "山口県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.97",
+			"value": "徳島県",
+			"label": { "jp": "徳島県", "en": "徳島県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.98",
+			"value": "香川県",
+			"label": { "jp": "香川県", "en": "香川県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.99",
+			"value": "愛媛県",
+			"label": { "jp": "愛媛県", "en": "愛媛県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.100",
+			"value": "高知県",
+			"label": { "jp": "高知県", "en": "高知県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.101",
+			"value": "福岡県",
+			"label": { "jp": "福岡県", "en": "福岡県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.102",
+			"value": "佐賀県",
+			"label": { "jp": "佐賀県", "en": "佐賀県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.103",
+			"value": "長崎県",
+			"label": { "jp": "長崎県", "en": "長崎県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.104",
+			"value": "熊本県",
+			"label": { "jp": "熊本県", "en": "熊本県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.105",
+			"value": "大分県",
+			"label": { "jp": "大分県", "en": "大分県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.106",
+			"value": "宮崎県",
+			"label": { "jp": "宮崎県", "en": "宮崎県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.107",
+			"value": "鹿児島県",
+			"label": { "jp": "鹿児島県", "en": "鹿児島県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.108",
+			"value": "沖縄県",
+			"label": { "jp": "沖縄県", "en": "沖縄県" },
+			"factor-1": "8",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.109",
+			"value": "札幌競馬場",
+			"label": { "jp": "札幌競馬場", "en": "札幌競馬場" },
+			"factor-1": "9",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.110",
+			"value": "函館競馬場",
+			"label": { "jp": "函館競馬場", "en": "函館競馬場" },
+			"factor-1": "9",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.111",
+			"value": "福島競馬場",
+			"label": { "jp": "福島競馬場", "en": "福島競馬場" },
+			"factor-1": "9",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.112",
+			"value": "中山競馬場",
+			"label": { "jp": "中山競馬場", "en": "中山競馬場" },
+			"factor-1": "9",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.113",
+			"value": "東京競馬場",
+			"label": { "jp": "東京競馬場", "en": "東京競馬場" },
+			"factor-1": "9",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.114",
+			"value": "新潟競馬場",
+			"label": { "jp": "新潟競馬場", "en": "新潟競馬場" },
+			"factor-1": "9",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.115",
+			"value": "中京競馬場",
+			"label": { "jp": "中京競馬場", "en": "中京競馬場" },
+			"factor-1": "9",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.116",
+			"value": "京都競馬場",
+			"label": { "jp": "京都競馬場", "en": "京都競馬場" },
+			"factor-1": "9",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.117",
+			"value": "阪神競馬場",
+			"label": { "jp": "阪神競馬場", "en": "阪神競馬場" },
+			"factor-1": "9",
+			"factor-2": ""
+		},
+		{
+			"id": "owner-2-No.118",
+			"value": "小倉競馬場",
+			"label": { "jp": "小倉競馬場", "en": "小倉競馬場" },
+			"factor-1": "9",
+			"factor-2": ""
+		}
+	]
+}

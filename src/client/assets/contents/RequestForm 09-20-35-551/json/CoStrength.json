@@ -1,0 +1,27 @@
+{
+	"id": "CoType",
+	"value": "CoType",
+	"label": { "jp": "コンクリート強度", "en": "コンクリート強度" },
+	"list": [
+		{
+			"id": "CoType-No.0",
+			"value": "18N/mm2",
+			"label": { "jp": "18N/mm2", "en": "18N/mm2" }
+		},
+		{
+			"id": "CoType-No.1",
+			"value": "21N/mm2",
+			"label": { "jp": "21N/mm2", "en": "21N/mm2" }
+		},
+		{
+			"id": "CoType-No.2",
+			"value": "24N/mm2",
+			"label": { "jp": "24N/mm2", "en": "24N/mm2" }
+		},
+		{
+			"id": "CoType-No.3",
+			"value": "30N/mm2",
+			"label": { "jp": "30N/mm2", "en": "30N/mm2" }
+		}
+	]
+}

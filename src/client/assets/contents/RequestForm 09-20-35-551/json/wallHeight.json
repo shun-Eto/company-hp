@@ -1,0 +1,127 @@
+{
+	"id": "wallHeight",
+	"value": "wallHeight",
+	"label": { "jp": "遮音壁高さ", "en": "遮音壁高さ" },
+	"list": [
+		{
+			"id": "panel-No.0",
+			"value": "H=2m",
+			"label": { "jp": "H=2m", "en": "H=2m" }
+		},
+		{
+			"id": "panel-No.1",
+			"value": "H=2.5m",
+			"label": { "jp": "H=2.5m", "en": "H=2.5m" }
+		},
+		{
+			"id": "panel-No.2",
+			"value": "H=3m",
+			"label": { "jp": "H=3m", "en": "H=3m" }
+		},
+		{
+			"id": "panel-No.3",
+			"value": "H=3.5m",
+			"label": { "jp": "H=3.5m", "en": "H=3.5m" }
+		},
+		{
+			"id": "panel-No.4",
+			"value": "H=4m",
+			"label": { "jp": "H=4m", "en": "H=4m" }
+		},
+		{
+			"id": "panel-No.5",
+			"value": "H=4.5m",
+			"label": { "jp": "H=4.5m", "en": "H=4.5m" }
+		},
+		{
+			"id": "panel-No.6",
+			"value": "H=5m",
+			"label": { "jp": "H=5m", "en": "H=5m" }
+		},
+		{
+			"id": "panel-No.7",
+			"value": "H=5.5m",
+			"label": { "jp": "H=5.5m", "en": "H=5.5m" }
+		},
+		{
+			"id": "panel-No.8",
+			"value": "H=6m",
+			"label": { "jp": "H=6m", "en": "H=6m" }
+		},
+		{
+			"id": "panel-No.9",
+			"value": "H=6.5m",
+			"label": { "jp": "H=6.5m", "en": "H=6.5m" }
+		},
+		{
+			"id": "panel-No.10",
+			"value": "H=7m",
+			"label": { "jp": "H=7m", "en": "H=7m" }
+		},
+		{
+			"id": "panel-No.11",
+			"value": "H=7.5m",
+			"label": { "jp": "H=7.5m", "en": "H=7.5m" }
+		},
+		{
+			"id": "panel-No.12",
+			"value": "H=8.0m",
+			"label": { "jp": "H=8.0m", "en": "H=8.0m" }
+		},
+		{
+			"id": "panel-No.13",
+			"value": "H=9.0m",
+			"label": { "jp": "H=9.0m", "en": "H=9.0m" }
+		},
+		{
+			"id": "panel-No.14",
+			"value": "H=10.0m",
+			"label": { "jp": "H=10.0m", "en": "H=10.0m" }
+		},
+		{
+			"id": "panel-No.15",
+			"value": "H=15.0m",
+			"label": { "jp": "H=15.0m", "en": "H=15.0m" }
+		},
+		{
+			"id": "panel-No.16",
+			"value": "H=3+3R",
+			"label": { "jp": "H=3+3R", "en": "H=3+3R" }
+		},
+		{
+			"id": "panel-No.17",
+			"value": "H=3+4R",
+			"label": { "jp": "H=3+4R", "en": "H=3+4R" }
+		},
+		{
+			"id": "panel-No.18",
+			"value": "H=3+5R",
+			"label": { "jp": "H=3+5R", "en": "H=3+5R" }
+		},
+		{
+			"id": "panel-No.19",
+			"value": "H=4+3R",
+			"label": { "jp": "H=4+3R", "en": "H=4+3R" }
+		},
+		{
+			"id": "panel-No.20",
+			"value": "H=4+4R",
+			"label": { "jp": "H=4+4R", "en": "H=4+4R" }
+		},
+		{
+			"id": "panel-No.21",
+			"value": "H=4+5R",
+			"label": { "jp": "H=4+5R", "en": "H=4+5R" }
+		},
+		{
+			"id": "panel-No.22",
+			"value": "低層H=1m",
+			"label": { "jp": "低層H=1m", "en": "低層H=1m" }
+		},
+		{
+			"id": "panel-No.23",
+			"value": "低層H=1.5m",
+			"label": { "jp": "低層H=1.5m", "en": "低層H=1.5m" }
+		}
+	]
+}

@@ -1,0 +1,27 @@
+{
+	"id": "windLoad",
+	"value": "windLoad",
+	"label": { "jp": "風荷重", "en": "風荷重" },
+	"list": [
+		{
+			"id": "windLoad-No.0",
+			"value": "1.5kN/m2",
+			"label": { "jp": "1.5kN/m2", "en": "1.5kN/m2" }
+		},
+		{
+			"id": "windLoad-No.1",
+			"value": "2.0kN/m2",
+			"label": { "jp": "2.0kN/m2", "en": "2.0kN/m2" }
+		},
+		{
+			"id": "windLoad-No.2",
+			"value": "3.0kN/m2",
+			"label": { "jp": "3.0kN/m2", "en": "3.0kN/m2" }
+		},
+		{
+			"id": "windLoad-No.3",
+			"value": "建築基準法",
+			"label": { "jp": "建築基準法", "en": "建築基準法" }
+		}
+	]
+}
