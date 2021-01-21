@@ -40,7 +40,6 @@ export const RootLg = (params: {
 }) =>
 	makeStyles((theme: Theme) => {
 		const { header, nav, footer } = params;
-		console.log(footer);
 
 		return createStyles({
 			Root: {
