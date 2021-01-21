@@ -32,6 +32,7 @@ export interface MenuItem {
 	theme?: Theme;
 	list?: MenuItem[];
 	pathname?: string;
+	img?: string;
 	onClick?: () => void;
 }
 
