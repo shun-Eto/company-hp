@@ -976,4 +976,13 @@ export default class {
 	transition(property: string) {
 		return `${property} 500ms ease-out 0s,-webkit-transform 500ms ease-out 0s`;
 	}
+	backdropFilter(): CSSProperties {
+		return {
+			"-webkit-backdrop-filter": "saturate(180%) blur(8px)",
+			backdropFilter: "saturate(180%) blur(8px)",
+		};
+	}
+	dropShadow(color: string): string {
+		return `drop-shadow(3px 3px 5px ${color})`;
+	}
 }

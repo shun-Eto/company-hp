@@ -7,12 +7,15 @@ import {
 } from "react-router-dom";
 
 //	components
+import Header from "./components/Header/_index";
+import Navigator from "./components/Navigator/_index";
+import Footer from "./components/Footer/_index";
 
 //	route components
 import Home from "@src/client/route/Home/_index";
 
 //	materials
-import { Container, Hidden, Toolbar } from "@material-ui/core";
+import { Hidden } from "@material-ui/core";
 
 //	modules
 
@@ -54,7 +57,6 @@ const Component: React.FC<Props> = (props) => {
 			<Switch>
 				{/*-*-*-*-* Home *-*-*-*-*/}
 				<Route exact path={"/"} component={Home} />
-
 			</Switch>
 		</Root>
 	);
@@ -100,12 +102,54 @@ const RootSm: React.FC<ComnProps> = (props) => {
 /*-*-*-*-* large : Root *-*-*-*-*/
 const RootLg: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
+	//	states
+	const [header, setHeader] = React.useState<HTMLDivElement>();
+	const [nav, setNav] = React.useState<HTMLDivElement>();
+	const [footer, setFooter] = React.useState<HTMLDivElement>();
+	//	refs
+	const headerRef = React.useRef<HTMLDivElement>(null);
+	const navRef = React.useRef<HTMLDivElement>(null);
+	const footerRef = React.useRef<HTMLDivElement>(null);
 	//	styles
-	const classes = useStyles.RootLg({});
+	const classes = useStyles.RootLg({ header, nav, footer });
+
+	/*-*-*-*-* lifeCycles *-*-*-*-*/
+	//	headerRef , navRef , footerRef
+	React.useEffect(() => {
+		if (headerRef.current && navRef.current && footerRef.current) {
+			setHeader(headerRef.current);
+			setNav(navRef.current);
+			setFooter(footerRef.current);
+		}
+	}, [headerRef, navRef, footerRef]);
 
 	/*-*-*-*-* component *-*-*-*-*/
 	return (
 		<div className={classes.Root}>
+			{/*-*-*-*-* header *-*-*-*-*/}
+			<div className={classes.header} ref={headerRef}>
+				<Header />
+			</div>
+
+			{/*-*-*-*-* body *-*-*-*-*/}
+			<div className={classes.body}>
+				<div>
+					test
+					<div
+						style={{ height: "150vh", width: 100, backgroundColor: "black" }}
+					></div>
+				</div>
+			</div>
+
+			{/*-*-*-*-* navigator *-*-*-*-*/}
+			<div className={classes.navigator} ref={navRef}>
+				<Navigator />
+			</div>
+
+			{/*-*-*-*-* footer *-*-*-*-*/}
+			<div className={classes.footer} ref={footerRef}>
+				<Footer />
+			</div>
 		</div>
 	);
 };
