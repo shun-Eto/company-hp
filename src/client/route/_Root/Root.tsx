@@ -17,10 +17,13 @@ import Home from "@src/client/route/Home/_index";
 //	materials
 import { Hidden } from "@material-ui/core";
 
-//	modules
-
 //	styles
 import * as useStyles from "./_useStyles";
+import * as OrigStyles from "@src/client/assets/styles/origStyles";
+
+//	assets
+import * as LoadingWindow from "@src/client/assets/items/LoadingWindow/Component";
+import Img_SopherreIcon from "@src/client/assets/images/sopherre-icon.png";
 
 //	actions
 import * as RootAction from "@src/client/redux/actions/rootAction";
@@ -30,6 +33,9 @@ import * as RootReducer from "@src/client/redux/reducers/rootReducer";
 
 //	types
 import * as EnvTypes from "@src/types/environment";
+
+const origStyles = new OrigStyles.default();
+const { colorPicker } = origStyles;
 
 //	props
 interface OwnProps extends RouteComponentProps {
@@ -132,14 +138,7 @@ const RootLg: React.FC<ComnProps> = (props) => {
 			</div>
 
 			{/*-*-*-*-* body *-*-*-*-*/}
-			<div className={classes.body}>
-				<div>
-					test
-					<div
-						style={{ height: "150vh", width: 100, backgroundColor: "black" }}
-					></div>
-				</div>
-			</div>
+			<div className={classes.body}>{props.children}</div>
 
 			{/*-*-*-*-* navigator *-*-*-*-*/}
 			<div className={classes.navigator} ref={navRef}>

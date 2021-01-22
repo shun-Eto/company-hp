@@ -1,5 +1,4 @@
 import { makeStyles, Theme, createStyles } from "@material-ui/core";
-import { basicStyles } from "@src/client/assets/styles/basicStyles.ts 09-37-15-132";
 
 //	modules
 import * as OrigStylesModule from "@src/client/assets/styles/origStyles";
@@ -60,7 +59,7 @@ export const RootLg = (params: {
 				height: "100%",
 				paddingTop: header?.clientHeight,
 				paddingBottom: (footer?.clientHeight || 0) + (nav?.clientHeight || 0),
-				...basicStyles.scrollInVisible({ scrollY: true }),
+				...origStylesClass.scrollVisibled({ scrollY: true }),
 			},
 
 			/*-*-*-*-* nav *-*-*-*-*/

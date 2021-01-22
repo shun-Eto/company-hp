@@ -5,6 +5,7 @@ import * as H from "history";
 //	components
 
 //	item compoentns
+import Item_Top from "./items/Top/Component";
 
 //	materials
 import { Fade, Hidden } from "@material-ui/core";
@@ -92,69 +93,20 @@ const HomeLg: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
 	const { navId, lang } = props;
 	//	states
-	const menuCount = 2;
-	const [height, setHeight] = React.useState(0);
-	const [scrooling, setScrooling] = React.useState(false);
 	//	memo
-	const endHeight = React.useMemo(() => {
-		return height * (menuCount - 1) - 100;
-	}, [height, menuCount]);
 	//	anchors
-	const anchor = React.useRef<HTMLDivElement>(null);
-	const anchorPhilosophy = React.useRef<HTMLDivElement>(null);
-	const anchorProfile = React.useRef<HTMLDivElement>(null);
 	//	styles
 	const classes = useStyles.HomeLg({});
 
 	/*-*-*-*-* handlers *-*-*-*-*/
-	const handleOnScroll_root = (e: React.UIEvent<HTMLDivElement>) => {
-		if (scrooling) return;
-
-		const scrollTop = e.currentTarget.scrollTop;
-		if (scrollTop < 100 && navId !== "philosophy") {
-			props.onChange_navId("philosophy");
-		} else if (
-			height - 100 < scrollTop &&
-			scrollTop < height + 100 &&
-			navId !== "profile"
-		) {
-			props.onChange_navId("profile");
-		}
-
-		const end = endHeight <= scrollTop && scrollTop <= height * (menuCount - 1);
-		props.onChange_footer(end);
-	};
 
 	/*-*-*-*-* lifeCycles *-*-*-*-*/
-	//	anchor
-	React.useEffect(() => {
-		if (anchor.current) setHeight(anchor.current.clientHeight);
-		props.onChange_navId("philosophy");
-	}, [anchor]);
-	//	navId
-	React.useEffect(() => {
-		setScrooling(true);
-
-		if (navId === "philosophy" && anchorPhilosophy.current) {
-			anchorPhilosophy.current.scrollIntoView(true);
-		} else if (navId === "profile" && anchorProfile.current) {
-			anchorProfile.current.scrollIntoView(true);
-		}
-
-		setTimeout(() => setScrooling(false), 500);
-	}, [navId]);
 
 	/*-*-*-*-* component *-*-*-*-*/
 	return (
-		<Fade in={true}>
-			<div
-				className={classes.Home}
-				ref={anchor}
-				//	handlers
-				onScroll={handleOnScroll_root}
-			>
-			</div>
-		</Fade>
+		<div className={classes.Home}>
+			<Item_Top />
+		</div>
 	);
 };
 
