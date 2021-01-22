@@ -1,5 +1,4 @@
 import { makeStyles, Theme, createStyles } from "@material-ui/core";
-import { basicStyles } from "@src/client/assets/styles/basicStyles.ts 09-37-15-132";
 
 //	modules
 import * as OrigStylesModule from "@src/client/assets/styles/origStyles";
@@ -65,13 +64,13 @@ export const OrigLink = (params: {}) =>
 				margin: theme.spacing(0, 2),
 				fontSize: fontSizePicker("sm"),
 				color: colorPicker("brandBlack", 0.8),
-				textDecoration: "underline",
-				textUnderlineOffset: "2px",
 				cursor: "pointer",
 				transition: "color 0.5s",
 				fontFamily: fontFamiPicker("basic"),
 				"&:hover": {
 					color: colorPicker("brandBlack", 1),
+					textDecoration: "underline",
+					textUnderlineOffset: "2px",
 				},
 			},
 
