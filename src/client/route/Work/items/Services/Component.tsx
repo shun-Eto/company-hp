@@ -6,6 +6,7 @@ import * as OrigDividier from "@src/client/assets/items/OrigDividers/Component";
 //	materials
 import {
 	Avatar,
+	ButtonBase,
 	Container,
 	Divider,
 	FormLabel,
@@ -45,11 +46,11 @@ interface Member {
 	form: {
 		icon?: string;
 		name?: EnvTypes.Languages;
-		position?: EnvTypes.Languages;
-		email?: string;
-		birthday?: Date;
+		appStore?: string;
+		playStore?: string;
+		gitHub?: string;
+		pathname?: string;
 		description?: string;
-		hobbies?: EnvTypes.Languages[];
 	};
 }
 const Component: React.FC<Props> = (props) => {
@@ -60,51 +61,49 @@ const Component: React.FC<Props> = (props) => {
 	const classes = useStyles.Item({});
 	const memberItems: Member[] = [
 		{
-			id: "eto",
+			id: "sopherre",
 			form: {
 				icon: Img_Member_Eto,
-				name: { jp: "江藤 駿", en: "Eto Shun" },
-				position: { jp: "代表執行役員 社長 | CTO", en: "President | CTO" },
-				email: "shun.prog0830@gmail.com",
-				birthday: new Date(1993, 8 - 1, 30),
-				hobbies: [
-					{ jp: "サッカー", en: "Soccer" },
-					{ jp: "ピアノ", en: "Piano" },
-					{ jp: "読書", en: "Reading Book" },
-					{ jp: "麻雀", en: "Mahjong" },
-				],
+				name: { jp: "Sopherre", en: "Sopherre" },
+				appStore: "https://www.apple.com/jp/app-store/",
+				playStore: "https://play.google.com/store?hl=ja&gl=US",
+				pathname: "https://www.sopherre.com/",
+				description:
+					"教育革新プラットフォーム。\nユーザビリティとコンテンツのクオリティを重視し改善を繰り返しています。\n",
 			},
 		},
 		{
-			id: "eto",
+			id: "sophic",
 			form: {
 				icon: Img_Member_Eto,
-				name: { jp: "江藤 駿", en: "Eto Shun" },
-				position: { jp: "代表執行役員 社長 | CTO", en: "President | CTO" },
-				email: "shun.prog0830@gmail.com",
-				birthday: new Date(1993, 8 - 1, 30),
-				hobbies: [
-					{ jp: "サッカー", en: "Soccer" },
-					{ jp: "ピアノ", en: "Piano" },
-					{ jp: "読書", en: "Reading Book" },
-					{ jp: "麻雀", en: "Mahjong" },
-				],
+				name: { jp: "Sophic", en: "Sophic" },
+				appStore: "https://www.apple.com/jp/app-store/",
+				playStore: "https://play.google.com/store?hl=ja&gl=US",
+				pathname: "https://sophic.sopherre.com/",
+				description:
+					"カードゲームを通して論理的思考を鍛える！\n子供から大人まで幅広い人に楽しんでもらえる仕様になっております。",
 			},
 		},
 		{
-			id: "eto",
+			id: "ledgerAble",
 			form: {
 				icon: Img_Member_Eto,
-				name: { jp: "江藤 駿", en: "Eto Shun" },
-				position: { jp: "代表執行役員 社長 | CTO", en: "President | CTO" },
-				email: "shun.prog0830@gmail.com",
-				birthday: new Date(1993, 8 - 1, 30),
-				hobbies: [
-					{ jp: "サッカー", en: "Soccer" },
-					{ jp: "ピアノ", en: "Piano" },
-					{ jp: "読書", en: "Reading Book" },
-					{ jp: "麻雀", en: "Mahjong" },
-				],
+				name: { jp: "LedgerAble", en: "LedgerAble" },
+				description:
+					"工数管理等、業務効率化システムの開発。\nダッシュボードやグラフィクスを多分に使い、他にはないオリジナルの付加価値を提供します。",
+			},
+		},
+		{
+			id: "corporate",
+			form: {
+				icon: Img_Member_Eto,
+				name: {
+					jp: "Webサイト作成",
+					en: "Corporate / Web Site",
+				},
+				gitHub: "https://github.com/shun-Eto/company-hp",
+				description:
+					"モダンなUI/UXのを意識し、永く利用され続けるサイトの作成・保守管理。\nコーポレイト作成等、幅広いWebサイトの製作を行っています。",
 			},
 		},
 	];
@@ -135,14 +134,7 @@ const MemberItem: React.FC<MemberItemProps> = (props) => {
 	const { lang, item } = props;
 	const { form } = item;
 	const name = React.useMemo(() => form.name?.[lang], [item]);
-	const position = React.useMemo(() => form.position?.[lang], [item]);
-	const birthday = React.useMemo(() => {
-		if (!form.birthday) return "";
-		const yearsOld = origClass.get_yearsOld(form.birthday);
-		const birth = origClass.format_Date(form.birthday, "YYYY年MM月DD日", lang);
-		return `${birth} ( ${yearsOld} )`;
-	}, [item]);
-	const email = React.useMemo(() => form.email, [item]);
+
 	//	styles
 	const classes = useStyles.MemberItem({});
 
@@ -168,74 +160,106 @@ const MemberItem: React.FC<MemberItemProps> = (props) => {
 						<Typography className={classes["form-name"]}>{name}</Typography>
 					)}
 
-					{/* position */}
-					{form.position && (
-						<Typography className={classes["form-position"]}>
-							{position}
-						</Typography>
-					)}
-
 					<OrigDividier.Mesh
 						color={origStyle.colorPicker("gray-300")}
 						style={{ margin: "4px 0 8px" }}
 					/>
 
-					{/* birthday */}
-					{form.birthday && (
-						<MemberFormItem
-							label={"Birthday"}
-							faIcon={{ icon: ["fas", "birthday-cake"] }}
-						>
-							<Typography className={classes["form-text"]}>
-								{birthday}
-							</Typography>
-						</MemberFormItem>
+					{form.pathname && (
+						<FormItem
+							faIcon={{ icon: ["fas", "link"] }}
+							label="Link"
+							type="link"
+							value={form.pathname}
+						/>
 					)}
 
-					{/* email */}
-					{form.email && (
-						<MemberFormItem
-							label={"Email"}
-							faIcon={{ icon: ["fas", "envelope"] }}
-							type="email"
-							value={email}
-						>
-							<Typography className={classes["form-text"]}>{email}</Typography>
-						</MemberFormItem>
+					{form.description && (
+						<FormItem
+							faIcon={{ icon: ["fas", "signature"] }}
+							label="Description"
+							value={form.description}
+							type="description"
+						/>
 					)}
 
-					{/* hobbies */}
-					{form.hobbies && (
-						<MemberFormItem label="Hobby" faIcon={{ icon: ["fas", "dice"] }}>
-							{form.hobbies.map((val, i) => (
-								<FormLabel key={i} className={classes["form-hobby"]}>
-									{val[lang]}
-								</FormLabel>
-							))}
-						</MemberFormItem>
-					)}
+					{/* actions */}
+					<div className={classes["form-actions"]}>
+						{form.playStore && (
+							<ActionItem
+								faIcon={{ icon: ["fab", "google-play"] }}
+								pathname={form.playStore}
+								type={"playStore"}
+							/>
+						)}
+
+						{form.appStore && (
+							<ActionItem
+								faIcon={{ icon: ["fab", "app-store"] }}
+								pathname={form.appStore}
+								type={"appStore"}
+							/>
+						)}
+
+						{form.gitHub && (
+							<ActionItem
+								faIcon={{ icon: ["fab", "github"] }}
+								pathname={form.gitHub}
+								type={"gitHub"}
+							/>
+						)}
+					</div>
 				</div>
 			</Paper>
 		</Grid>
 	);
 };
 
-interface MemberFormItemProps {
+/*-*-*-*-* ActionItem *-*-*-*-*/
+interface ActionItemProps {
+	faIcon: FontAwesomeIconProps;
+	pathname: string;
+	type?: string;
+}
+const ActionItem = (props: ActionItemProps) => {
+	/*-*-*-*-* properties *-*-*-*-*/
+	const { pathname, faIcon, type } = props;
+	//	styles
+	const classes = useStyles.ActionItem({ type });
+
+	/*-*-*-*-* handlers *-*-*-*-*/
+	const handleOnClick = () => {
+		const elm_a = document.createElement("a");
+		elm_a.setAttribute("target", "_blank");
+		elm_a.setAttribute("href", pathname);
+		elm_a.click();
+	};
+
+	/*-*-*-*-* render *-*-*-*-*/
+	return (
+		<ButtonBase
+			className={classes.ActionItem}
+			//	handlers
+			onClick={handleOnClick}
+		>
+			<Paper className={classes.Paper}>
+				<FontAwesomeIcon {...faIcon} fixedWidth className={classes.faIcon} />
+			</Paper>
+		</ButtonBase>
+	);
+};
+
+/*-*-*-*-* FormItem *-*-*-*-*/
+interface FormItemProps {
 	label: string;
 	faIcon: FontAwesomeIconProps;
-	type?: "email" | "tel";
+	type?: "link" | "description";
 	value?: string;
 }
-const MemberFormItem: React.FC<MemberFormItemProps> = (props) => {
+const FormItem: React.FC<FormItemProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
 	const { label, type, value } = props;
-	const classes = useStyles.MemberFormItem({});
-
-	const href = React.useMemo(() => {
-		if (type === "email" && value) return `mailto:${value}`;
-		if (type === "tel" && value) return `tel:${value}`;
-		return null;
-	}, [type]);
+	const classes = useStyles.FormItem({});
 
 	/*-*-*-*-* render *-*-*-*-*/
 	return (
@@ -257,12 +281,8 @@ const MemberFormItem: React.FC<MemberFormItemProps> = (props) => {
 
 				{/* children */}
 				<div className={classes["item-children"]}>
-					{href ? (
-						<Link
-							href={href}
-							type={type}
-							className={classes["item-children-link"]}
-						>
+					{type === "link" ? (
+						<Link href={value} className={classes["item-children-link"]}>
 							{value}
 						</Link>
 					) : (
@@ -270,6 +290,10 @@ const MemberFormItem: React.FC<MemberFormItemProps> = (props) => {
 					)}
 				</div>
 			</div>
+
+			{type === "description" && (
+				<Typography className={classes["item-description"]}>{value}</Typography>
+			)}
 
 			<Divider className={classes["item-divider"]} />
 		</React.Fragment>

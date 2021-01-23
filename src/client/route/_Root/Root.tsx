@@ -15,6 +15,7 @@ import Footer from "./components/Footer/_index";
 import Home from "@src/client/route/Home/_index";
 import AboutUs from "@src/client/route/AboutUs/_index";
 import Work from "@src/client/route/Work/_index";
+import Contact from "@src/client/route/Contact/_index";
 
 //	materials
 import { Hidden } from "@material-ui/core";
@@ -71,6 +72,9 @@ const Component: React.FC<Props> = (props) => {
 
 				{/*-*-*-*-* Work *-*-*-*-*/}
 				<Route exact path={"/work"} component={Work} />
+
+				{/*-*-*-*-* Contact *-*-*-*-*/}
+				<Route exact path={"/contact"} component={Contact} />
 			</Switch>
 		</Root>
 	);
