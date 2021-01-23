@@ -6,15 +6,14 @@ import * as H from "history";
 
 //	item compoentns
 import Item_Top from "./items/Top/Component";
+import Item_CompanyInfo from "./items/CompanyInfo/Component";
+import Item_Members from "./items/Members/Component";
 
 //	materials
-import { Fade, Hidden, Slide } from "@material-ui/core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Hidden, Slide } from "@material-ui/core";
+import {} from "@fortawesome/react-fontawesome";
 
-//	actions
-import * as RootAction from "@src/client/redux/actions/rootAction";
-
-//	reducers
+//	reudcers
 import * as RootReducer from "@src/client/redux/reducers/rootReducer";
 
 //	styles
@@ -22,45 +21,34 @@ import * as useStyles from "./_useStyles";
 
 //	types
 import * as EnvTypes from "@src/types/environment";
+import { CommonProps } from "@material-ui/core/OverridableComponent";
 
 /*-*-*-*-* component props *-*-*-*-*/
 interface OwnProps extends RouteComponentProps {
 	history: H.History;
 	root: RootReducer.StateProps;
-	//	actions
-	rootActions: {
-		update_navId: typeof RootAction.update_navId;
-		update_footer: typeof RootAction.update_footer;
-	};
 }
 interface ComponentProps {}
 type Props = OwnProps & ComponentProps;
 interface ComnProps {
 	lang: keyof EnvTypes.Languages;
-	navId: string;
-	//	handlers
-	onChange_navId: (nav: string) => void;
-	onChange_footer: (active: boolean) => void;
 }
 const Component: React.FC<Props> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
+	const {} = props;
 	const { root } = props;
-	const { lang, navId } = root.env;
+	const { lang } = root.env;
 	//	states
 	//	styles
+	const classes = useStyles.Root({});
 
 	/*-*-*-*-* handlers *-*-*-*-*/
 
 	/*-*-*-*-* lifeCycles *-*-*-*-*/
 
-	/*-*-*-*-* comnProps *-*-*-*-*/
+	/*-*-*-*-* comnPorps *-*-*-*-*/
 	const comnProps: ComnProps = {
 		lang,
-		navId,
-		//	handlers
-		onChange_navId: (nav: string) => props.rootActions.update_navId(nav),
-		onChange_footer: (active: boolean) =>
-			props.rootActions.update_footer(active),
 	};
 
 	/*-*-*-*-* component *-*-*-*-*/
@@ -68,47 +56,46 @@ const Component: React.FC<Props> = (props) => {
 		<React.Fragment>
 			{/*-*-*-*-* small *-*-*-*-*/}
 			<Hidden smUp>
-				<HomeSm {...comnProps} />
+				<AboutUsSm {...comnProps} />
 			</Hidden>
 
 			{/*-*-*-*-* large *-*-*-*-*/}
-			<Hidden xsDown>
-				<HomeLg {...comnProps} />
+			<Hidden>
+				<AboutUsLg {...comnProps} />
 			</Hidden>
 		</React.Fragment>
 	);
 };
 
-/*-*-*-*-* small Home *-*-*-*-*/
-const HomeSm: React.FC<ComnProps> = (props) => {
+const AboutUsSm: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
 	const {} = props;
+	//	styles
+	const classes = useStyles.AboutUsSm({});
 
-	/*-*-*-*-* component *-*-*-*-*/
+	/*-*-*-*-* render *-*-*-*-*/
 	return <div></div>;
 };
 
-/*-*-*-*-* large Home *-*-*-*-*/
-const HomeLg: React.FC<ComnProps> = (props) => {
+const AboutUsLg: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
-	const { navId, lang } = props;
-	//	states
-	//	memo
-	//	anchors
+	const { lang } = props;
 	//	styles
-	const classes = useStyles.HomeLg({});
+	const classes = useStyles.AboutUsLg({});
 
-	/*-*-*-*-* handlers *-*-*-*-*/
-
-	/*-*-*-*-* lifeCycles *-*-*-*-*/
-
-	/*-*-*-*-* component *-*-*-*-*/
+	/*-*-*-*-* render *-*-*-*-*/
 	return (
-		<Slide direction="left" in={true} timeout={1000}>
-			<div className={classes.Home}>
-				<Item_Top />
+		<React.Fragment>
+			<div className={classes.Top}>
+				<Item_Top lang={lang} />
 			</div>
-		</Slide>
+			<div className={classes.CompanyInfo}>
+				<Item_CompanyInfo lang={lang} />
+			</div>
+			<div className={classes.Members}>
+				<Item_Members lang={lang} />
+			</div>
+		</React.Fragment>
 	);
 };
 

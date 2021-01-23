@@ -67,7 +67,7 @@ export const RootLg = (params: {
 				position: "fixed",
 				bottom: 0,
 				left: 0,
-				paddingBottom: footer?.clientHeight,
+				marginBottom: footer?.clientHeight,
 				width: "100%",
 			},
 
