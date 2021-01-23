@@ -7,8 +7,8 @@ import * as OrigStylesModule from "@src/client/assets/styles/origStyles";
 import * as EnvTypes from "@src/types/environment";
 
 //	classes
-const origStylesClass = new OrigStylesModule.default();
-const { colorPicker, fontFamiPicker, fontSizePicker } = origStylesClass;
+const origStyles = new OrigStylesModule.default();
+const { colorPicker, fontFamiPicker, fontSizePicker } = origStyles;
 
 /*-*-*-*-* Root *-*-*-*-*/
 export const Root = (params: {}) =>
@@ -20,7 +20,7 @@ export const Root = (params: {}) =>
 		return createStyles({
 			AppBar: {
 				background: colorPicker("brandBlack", 0.9),
-				...origStylesClass.backdropFilter(),
+				...origStyles.backdropFilter(),
 			},
 			Toolbar: {},
 			Container: {
@@ -70,8 +70,27 @@ export const OrigMenu = (params: {}) =>
 				padding: 0,
 			},
 			"Menu-Paper": {
-				height: "100%",
 				padding: theme.spacing(1, 2),
+			},
+			"Menu-Paper-actions": {
+				textAlign: "center",
+			},
+			"actions-active": {
+				minWidth: 80,
+				...origStyles.btnColor({
+					color: colorPicker("brandWhite"),
+					backgroundColor: colorPicker("brandBlack"),
+				}),
+			},
+			"actions-inactive": {
+				minWidth: 80,
+				...origStyles.btnColor({
+					color: colorPicker("gray"),
+					backgroundColor: colorPicker("white"),
+				}),
+			},
+			"Menu-Paper-apps": {
+				height: "100%",
 				maxWidth: 80 * 3 + theme.spacing(2) * 4 + 16,
 				display: "flex",
 				flexDirection: "row",

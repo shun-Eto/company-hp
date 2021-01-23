@@ -1,3 +1,4 @@
+import { CSSProperties } from "@material-ui/core/styles/withStyles";
 import * as React from "react";
 
 //
@@ -48,13 +49,14 @@ export const BackSlash: React.FC<BackSlashProps> = (props) => {
 /*-*-*-*-* Mesh *-*-*-*-*/
 interface MeshProps {
 	color?: string;
+	style?: CSSProperties;
 }
 export const Mesh: React.FC<MeshProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
-	const { color } = props;
+	const { color, style } = props;
 	//	styles
 	const classes = useStyles.Mesh({ color });
 
 	/*-*-*-*-* component *-*-*-*-*/
-	return <div className={classes.Mesh}></div>;
+	return <div className={classes.Mesh} style={style}></div>;
 };

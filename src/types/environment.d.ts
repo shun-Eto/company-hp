@@ -33,6 +33,7 @@ export interface MenuItem {
 	list?: MenuItem[];
 	pathname?: string;
 	img?: string;
+	children?: JSX.Element;
 	onClick?: () => void;
 }
 

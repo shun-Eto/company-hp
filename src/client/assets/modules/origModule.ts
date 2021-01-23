@@ -248,4 +248,16 @@ export default class {
 			[{ text: "", count: 0 }]
 		);
 	}
+
+	get_yearsOld(date: Date): number {
+		const targetDate = new Date();
+		var age = targetDate.getFullYear() - date.getFullYear();
+		var birthday = new Date(
+			targetDate.getFullYear(),
+			date.getMonth(),
+			date.getDate()
+		);
+		if (targetDate < birthday) age--;
+		return age;
+	}
 }

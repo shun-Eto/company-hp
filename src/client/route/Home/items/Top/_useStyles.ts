@@ -25,13 +25,15 @@ export const Item = (params: {}) =>
 				justifyContent: "center",
 			},
 			wrapper: {
-				width: "80%",
-				maxWidth: 800,
+				width: "100%",
+				lineHeight: 1,
+				textAlign: "center",
 			},
 			img: {
 				display: "inline-block",
-				width: "100%",
 				objectFit: "cover",
+				width: "80%",
+				maxWidth: 600,
 			},
 		});
 	})();

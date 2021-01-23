@@ -51,22 +51,13 @@ const reducer = (
 ) => {
 	switch (action.type) {
 		/*-*-*-*-* actions **-*-*-*-*/
-		//	update_navigator
-		case RootAction.types.update_navId:
+		//	update_lang
+		case RootAction.types.update_lang:
 			return {
 				...state,
 				env: {
 					...state.env,
-					navId: action.payload.navId,
-				},
-			};
-		//
-		case RootAction.types.update_footer:
-			return {
-				...state,
-				env: {
-					...state.env,
-					footer: action.payload.footer,
+					lang: action.payload.lang,
 				},
 			};
 

@@ -6,33 +6,21 @@ import * as EnvTypes from "@src/types/environment";
 
 /*-*-*-*-* action types *-*-*-*-*/
 export const types = {
-	update_navId: "[ Root ] update_navId",
-	update_footer: "[ Root ] update_footer",
+	update_lang: "[ Root ] update_lang",
 };
 
 /*-*-*-*-* methods *-*-*-*-*/
-//	update_navId
-export interface Update_NavId {
-	type: typeof types.update_navId;
-	payload: { navId: string };
+//	Update_Lang
+export interface Update_Lang {
+	type: typeof types.update_lang;
+	payload: { lang: keyof EnvTypes.Languages };
 }
-export function update_navId(navId: string): Update_NavId {
+export function update_lang(lang: keyof EnvTypes.Languages): Update_Lang {
 	return {
-		type: types.update_navId,
-		payload: { navId },
-	};
-}
-//	update_footer
-export interface Update_Footer {
-	type: typeof types.update_footer;
-	payload: { footer: boolean };
-}
-export function update_footer(active: boolean): Update_Footer {
-	return {
-		type: types.update_footer,
-		payload: { footer: active },
+		type: types.update_lang,
+		payload: { lang },
 	};
 }
 
 /*-*-*-*-* ActionProps *-*-*-*-*/
-export type ActionProps = Update_NavId & Update_Footer;
+export type ActionProps = Update_Lang;
