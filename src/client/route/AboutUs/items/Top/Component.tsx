@@ -3,8 +3,11 @@ import * as React from "react";
 //	components
 
 //	materials
-import {} from "@material-ui/core";
+import { Fade, Slide } from "@material-ui/core";
 import {} from "@fortawesome/react-fontawesome";
+
+//	assets
+import Img_Main from "@src/client/assets/images/aboutUs-main.png";
 
 //	styles
 import * as useStyles from "./_useStyles";
@@ -29,7 +32,17 @@ const Component: React.FC<Props> = (props) => {
 	/*-*-*-*-* lifeCycles *-*-*-*-*/
 
 	/*-*-*-*-* component *-*-*-*-*/
-	return <div className={classes.Item}>Item</div>;
+	return (
+		<Slide direction="left" in={true} timeout={1000}>
+			<div className={classes.Item}>
+				<Fade in={true} timeout={3000}>
+					<div className={classes.wrapper}>
+						<img src={Img_Main} alt="" className={classes.img} />
+					</div>
+				</Fade>
+			</div>
+		</Slide>
+	);
 };
 
 /*-*-*-*-* default *-*-*-*-*/

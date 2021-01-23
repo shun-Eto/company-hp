@@ -17,7 +17,22 @@ export const Item = (params: {}) =>
 
 		/*-*-*-*-* component *-*-*-*-*/
 		return createStyles({
-			Item: {},
+			Item: {
+				height: "100%",
+				display: "flex",
+				flexDirection: "row",
+				alignItems: "center",
+				justifyContent: "center",
+			},
+			wrapper: {
+				width: "80%",
+				maxWidth: 600,
+			},
+			img: {
+				display: "inline-block",
+				width: "100%",
+				objectFit: "cover",
+			},
 		});
 	})();
 

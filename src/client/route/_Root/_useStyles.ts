@@ -52,6 +52,7 @@ export const RootLg = (params: {
 				top: 0,
 				left: 0,
 				width: "100%",
+				zIndex: 1000000,
 			},
 
 			/*-*-*-*-* body *-*-*-*-*/
