@@ -35,26 +35,36 @@ const Component: React.FC<Props> = (props) => {
 			id: "home",
 			value: "home",
 			label: { jp: "Home", en: "Home" },
+			pathname: "/",
+			onClick: () => props.history.push("/"),
 		},
 		{
 			id: "acount-us",
 			value: "acount-us",
 			label: { jp: "About Us", en: "About Us" },
+			pathname: "/about-us",
+			onClick: () => props.history.push("/about-us"),
 		},
 		{
 			id: "work",
 			value: "work",
 			label: { jp: "Work", en: "Work" },
+			pathname: "/work",
+			onClick: () => props.history.push("/work"),
 		},
 		{
 			id: "contact",
 			value: "contact",
 			label: { jp: "Contact", en: "Contact" },
+			pathname: "/contact",
+			onClick: () => props.history.push("/contact"),
 		},
 		{
 			id: "download",
 			value: "download",
 			label: { jp: "Download", en: "Download" },
+			pathname: "/download",
+			onClick: () => props.history.push("/download"),
 		},
 	];
 	//	styles
@@ -86,12 +96,18 @@ const NavItem = (props: NavItemProps) => {
 	//	styles
 	const classes = useStyles.NavItem({});
 
+	/*-*-*-*-* handlers *-*-*-*-*/
+	//	handleOnClick_btn
+	const handleOnClick_btn = () => {
+		if (item.onClick) item.onClick();
+	};
+
 	/*-*-*-*-* render *-*-*-*-*/
 	return (
 		<ButtonBase
 			className={classes.ButtonBase}
 			//	handlers
-			onClick={() => setActive(!active)}
+			onClick={handleOnClick_btn}
 		>
 			<div className={classes.NavItem}>
 				<Typography className={classes.Typography}>
