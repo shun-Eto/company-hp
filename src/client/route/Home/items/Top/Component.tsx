@@ -3,7 +3,7 @@ import * as React from "react";
 //	components
 
 //	materials
-import { Fade } from "@material-ui/core";
+import { Container, Fade, Paper, Slide } from "@material-ui/core";
 import {} from "@fortawesome/react-fontawesome";
 
 //	styles
@@ -21,28 +21,25 @@ type Props = ComponentProps;
 const Component: React.FC<Props> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
 	const {} = props;
-	const anchor = React.useRef<HTMLDivElement>(null);
 	//	states
-	const [active, setActive] = React.useState(false);
 	//	styles
 	const classes = useStyles.Item({});
 
 	/*-*-*-*-* handlers *-*-*-*-*/
 
 	/*-*-*-*-* lifeCycles *-*-*-*-*/
-	React.useEffect(() => {
-		if (anchor.current) setActive(true);
-	}, [anchor.current]);
 
 	/*-*-*-*-* component *-*-*-*-*/
 	return (
-		<div className={classes.Item} ref={anchor}>
-			<Fade in={active} timeout={3000}>
-				<div className={classes.wrapper}>
-					<img src={Img_homeMain} alt="" className={classes.img} />
-				</div>
-			</Fade>
-		</div>
+		<Slide direction="left" in={true} timeout={1000}>
+			<Container maxWidth="md" className={classes.Item}>
+				<Fade in={true} timeout={3000}>
+					<Paper className={classes.wrapper} elevation={10}>
+						<img src={Img_homeMain} alt="" className={classes.img} />
+					</Paper>
+				</Fade>
+			</Container>
+		</Slide>
 	);
 };
 

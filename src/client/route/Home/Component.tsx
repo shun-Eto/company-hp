@@ -104,11 +104,11 @@ const HomeLg: React.FC<ComnProps> = (props) => {
 
 	/*-*-*-*-* component *-*-*-*-*/
 	return (
-		<Slide direction="left" in={true} timeout={1000}>
+		<React.Fragment>
 			<div className={classes.Home}>
 				<Item_Top />
 			</div>
-		</Slide>
+		</React.Fragment>
 	);
 };
 

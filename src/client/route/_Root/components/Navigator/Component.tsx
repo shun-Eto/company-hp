@@ -59,13 +59,6 @@ const Component: React.FC<Props> = (props) => {
 			pathname: "/contact",
 			onClick: () => props.history.push("/contact"),
 		},
-		{
-			id: "download",
-			value: "download",
-			label: { jp: "Download", en: "Download" },
-			pathname: "/download",
-			onClick: () => props.history.push("/download"),
-		},
 	];
 	//	styles
 	const classes = useStyles.Root({});
@@ -92,7 +85,7 @@ const NavItem = (props: NavItemProps) => {
 	/*-*-*-*-* properties *-*-*-*-*/
 	const { lang, item } = props;
 	//	states
-	const [active, setActive] = React.useState(false);
+	const pathname = window.location.pathname;
 	//	styles
 	const classes = useStyles.NavItem({});
 
@@ -113,7 +106,7 @@ const NavItem = (props: NavItemProps) => {
 				<Typography className={classes.Typography}>
 					{item.label[lang]}
 				</Typography>
-				<Zoom in={active}>
+				<Zoom in={pathname === item.pathname}>
 					<Divider className={classes.Divider} />
 				</Zoom>
 			</div>

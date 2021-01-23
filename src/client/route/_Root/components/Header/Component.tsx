@@ -9,6 +9,7 @@ import {
 	AppBar,
 	Button,
 	ButtonBase,
+	ButtonGroup,
 	Container,
 	FormLabel,
 	Icon,
@@ -19,6 +20,9 @@ import {
 	Toolbar,
 } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+//	actions
+import * as RootAction from "@src/client/redux/actions/rootAction";
 
 //	reudcers
 import * as RootReducer from "@src/client/redux/reducers/rootReducer";
@@ -38,6 +42,10 @@ import * as EnvTypes from "@src/types/environment";
 interface OwnProps extends RouteComponentProps {
 	history: H.History;
 	root: RootReducer.StateProps;
+	//	actions
+	rootActions: {
+		update_lang: typeof RootAction.update_lang;
+	};
 }
 interface ComponentProps {}
 type Props = OwnProps & ComponentProps;
@@ -82,7 +90,12 @@ const Component: React.FC<Props> = (props) => {
 
 					{/*-*-*-*-* Menu *-*-*-*-*/}
 					<div className={classes.Menu}>
-						<OrigMenu lang={lang} menuItems={menuItems} />
+						<OrigMenu
+							lang={lang}
+							menuItems={menuItems}
+							//	handlers
+							onChange_lang={props.rootActions.update_lang}
+						/>
 					</div>
 				</Container>
 			</Toolbar>
@@ -103,6 +116,8 @@ const Logo = () => {
 interface OrigMenuProps {
 	lang: keyof EnvTypes.Languages;
 	menuItems: EnvTypes.MenuItem[];
+	//	handlers
+	onChange_lang: (lang: keyof EnvTypes.Languages) => void;
 }
 const OrigMenu = (props: OrigMenuProps) => {
 	/*-*-*-*-* properties *-*-*-*-*/
@@ -115,9 +130,13 @@ const OrigMenu = (props: OrigMenuProps) => {
 	//	styles
 	const classes = useStyles.OrigMenu({});
 
-	React.useEffect(() => {
-		console.log("itemRef", itemRef);
-	}, [itemRef]);
+	/*-*-*-*-* handlers *-*-*-*-*/
+	const handleOnClick_lang = (lang: keyof EnvTypes.Languages) => {
+		props.onChange_lang(lang);
+		setTimeout(() => {
+			setActive(false);
+		}, 250);
+	};
 
 	/*-*-*-*-* render *-*-*-*-*/
 	return (
@@ -151,9 +170,43 @@ const OrigMenu = (props: OrigMenuProps) => {
 				onClose={() => setActive(false)}
 			>
 				<Paper className={classes["Menu-Paper"]}>
-					{menuItems.map((item, i) => (
-						<MenuIcon key={i} item={item} lang={lang} />
-					))}
+					{/* actions */}
+					<div className={classes["Menu-Paper-actions"]}>
+						<ButtonGroup>
+							{/* jp */}
+							<Button
+								className={
+									lang === "jp"
+										? classes["actions-active"]
+										: classes["actions-inactive"]
+								}
+								//	handlers
+								onClick={() => handleOnClick_lang("jp")}
+							>
+								JP
+							</Button>
+
+							{/* en */}
+							<Button
+								className={
+									lang === "en"
+										? classes["actions-active"]
+										: classes["actions-inactive"]
+								}
+								//	handlers
+								onClick={() => handleOnClick_lang("en")}
+							>
+								EN
+							</Button>
+						</ButtonGroup>
+					</div>
+
+					{/* apps */}
+					<div className={classes["Menu-Paper-apps"]}>
+						{menuItems.map((item, i) => (
+							<MenuIcon key={i} item={item} lang={lang} />
+						))}
+					</div>
 				</Paper>
 			</Menu>
 		</React.Fragment>
