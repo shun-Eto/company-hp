@@ -49,7 +49,7 @@ export const MemberItem = (params: {}) =>
 			/*-*-*-*-* form *-*-*-*-*/
 			form: {
 				flexGrow: 1,
-				padding: theme.spacing(1.5, 1, 1, 0),
+				padding: theme.spacing(2, 2, 2, 0),
 			},
 			"form-divider": {
 				marginTop: theme.spacing(1),

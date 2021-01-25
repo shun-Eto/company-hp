@@ -7,7 +7,8 @@ import * as OrigStylesModule from "@src/client/assets/styles/origStyles";
 import * as EnvTypes from "@src/types/environment";
 
 //	classes
-const origStylesClass = new OrigStylesModule.default();
+const origStyles = new OrigStylesModule.default();
+const { colorPicker, fontFamiPicker, fontSizePicker } = origStyles;
 
 /*-*-*-*-* small *-*-*-*-*/
 export const ItemSm = (params: {}) =>

@@ -49,7 +49,7 @@ export const MemberItem = (params: {}) =>
 			/*-*-*-*-* form *-*-*-*-*/
 			form: {
 				flexGrow: 1,
-				padding: theme.spacing(1.5, 1, 1, 0),
+				padding: theme.spacing(2, 2, 2, 0),
 			},
 			"form-divider": {
 				marginTop: theme.spacing(1),
@@ -65,28 +65,19 @@ export const MemberItem = (params: {}) =>
 				fontWeight: "bold",
 				fontFamily: fontFamiPicker("basic"),
 				letterSpacing: 2,
+				textShadow: origStyles["textShadow-paleColor"](
+					colorPicker("brandBlack")
+				),
+				color: colorPicker("brandBlack"),
 			},
-			"form-position": {
-				fontSize: fontSizePicker("basic"),
-				fontFamily: fontFamiPicker("basic"),
-				letterSpacing: 1.5,
-			},
-			"form-birthday": {},
-			"form-hobby": {
-				color: "inherit",
-				border: `solid 1px ${colorPicker("gray-300")}`,
-				padding: theme.spacing(0.5, 1),
-				fontSize: fontSizePicker("sm"),
-				borderRadius: theme.shape.borderRadius,
-				margin: theme.spacing(0.5, 0.5, 0.5, 0),
-				whiteSpace: "nowrap",
-				display: "inline-block",
+			"form-actions": {
+				textAlign: "right",
 			},
 		});
 	})();
 
-/*-*-*-*-* MemberFormItem *-*-*-*-*/
-export const MemberFormItem = (params: {}) =>
+/*-*-*-*-* FormItem *-*-*-*-*/
+export const FormItem = (params: {}) =>
 	makeStyles((theme: Theme) => {
 		const {} = params;
 
@@ -96,7 +87,7 @@ export const MemberFormItem = (params: {}) =>
 				flexDirection: "row",
 				alignItems: "center",
 				fontFamily: fontFamiPicker("basic"),
-				margin: theme.spacing(0.5, 0, 0.5),
+				margin: theme.spacing(1, 0, 0.5),
 			},
 
 			"item-faIcon": {
@@ -115,9 +106,46 @@ export const MemberFormItem = (params: {}) =>
 				wordBreak: "break-all",
 				fontSize: fontSizePicker("sm"),
 				color: colorPicker("blue-700"),
+				...origStyles["ellipsis-multiLine"](1),
 			},
 			"item-divider": {
 				backgroundColor: colorPicker("gray-200"),
+			},
+			"item-description": {
+				fontFamily: fontFamiPicker("basic"),
+				fontSize: fontSizePicker("sm"),
+				padding: theme.spacing(0.5, 1),
+				whiteSpace: "break-spaces",
+			},
+		});
+	})();
+
+/*-*-*-*-* ActionItem *-*-*-*-*/
+export const ActionItem = (params: { type?: string }) =>
+	makeStyles((theme: Theme) => {
+		const { type } = params;
+
+		return createStyles({
+			ActionItem: {
+				margin: theme.spacing(0.5),
+			},
+			Paper: {
+				padding: theme.spacing(1),
+				borderRadius: "50%",
+				lineHeight: 1,
+				backgroundColor:
+					type === "appStore"
+						? colorPicker("blue-500")
+						: type === "playStore"
+						? colorPicker("red-400")
+						: type === "gitHub"
+						? colorPicker("blueGray-900")
+						: colorPicker("blueGray-600"),
+			},
+			faIcon: {
+				width: "20px !important",
+				height: "20px !important",
+				color: "white",
 			},
 		});
 	})();

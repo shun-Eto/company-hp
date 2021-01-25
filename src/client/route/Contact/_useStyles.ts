@@ -45,14 +45,12 @@ export const AboutUsLg = (params: {}) =>
 				height: "100%",
 			},
 
-			CompanyInfo: {
+			Form: {
 				padding: theme.spacing(5, 0),
-				marginBottom: theme.spacing(2),
 			},
 
-			Services: {
+			SNS: {
 				padding: theme.spacing(5, 0),
-				marginBottom: theme.spacing(2),
 			},
 		});
 	})();

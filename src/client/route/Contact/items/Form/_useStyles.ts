@@ -7,8 +7,7 @@ import * as OrigStylesModule from "@src/client/assets/styles/origStyles";
 import * as EnvTypes from "@src/types/environment";
 
 //	classes
-const origStyles = new OrigStylesModule.default();
-const { colorPicker, fontFamiPicker, fontSizePicker } = origStyles;
+const origStylesClass = new OrigStylesModule.default();
 
 /*-*-*-*-* Item *-*-*-*-*/
 export const Item = (params: {}) =>
@@ -18,7 +17,21 @@ export const Item = (params: {}) =>
 
 		/*-*-*-*-* component *-*-*-*-*/
 		return createStyles({
-			Item: {},
+			Item: {
+				textAlign: "center",
+			},
+
+			"item-root": {
+				margin: theme.spacing(2, 0),
+			},
+			"item-input": {
+				backgroundColor: "white",
+			},
+
+			submit: {
+				marginTop: theme.spacing(4),
+				minWidth: 200,
+			},
 		});
 	})();
 

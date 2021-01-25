@@ -6,7 +6,8 @@ import * as H from "history";
 
 //	item compoentns
 import Item_Top from "./items/Top/Component";
-import Item_Services from "./items/Services/Component";
+import Item_Form from "./items/Form/Component";
+import Item_SNS from "./items/SNS/Component";
 
 //	materials
 import {
@@ -30,10 +31,9 @@ import { CommonProps } from "@material-ui/core/OverridableComponent";
 
 const selfClass = new (class {
 	labels = {
-		service: {
-			jp: "サービス",
-			en: "Service",
-		},
+		form: { jp: "お問い合わせ", en: "Contact" },
+		sns: { jp: "SNS", en: "SNS" },
+		service: { jp: "サービス", en: "Service" },
 	};
 })();
 
@@ -105,10 +105,16 @@ const AboutUsLg: React.FC<ComnProps> = (props) => {
 				<Item_Top lang={lang} />
 			</div>
 
-			{/* Services */}
-			<div className={classes.Services}>
-				<CategoryLabel label={selfClass.labels.service[lang]} />
-				<Item_Services lang={lang} />
+			{/*-*-*-*-* Form *-*-*-*-*/}
+			<div className={classes.Form}>
+				<CategoryLabel label={selfClass.labels.form[lang]} />
+				<Item_Form lang={lang} />
+			</div>
+
+			{/*-*-*-*-* SNS *-*-*-*-*/}
+			<div className={classes.SNS}>
+				<CategoryLabel label={selfClass.labels.sns[lang]} />
+				<Item_SNS lang={lang} />
 			</div>
 		</React.Fragment>
 	);
