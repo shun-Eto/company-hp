@@ -33,7 +33,8 @@ const history = (() => {
 })();
 
 //	classes
-const origStylesClass = new OrigStylesModule.default();
+const origStyles = new OrigStylesModule.default();
+const { colorPicker } = origStyles;
 
 ReactDOM.render(
 	<Provider store={Store}>
@@ -41,7 +42,8 @@ ReactDOM.render(
 			<ThemeProvider
 				theme={createMuiTheme({
 					palette: {
-						secondary: { main: origStylesClass.colorPicker("brown-800") },
+						primary: { main: colorPicker("brandBlack") },
+						secondary: { main: colorPicker("brown-800") },
 					},
 				})}
 			>

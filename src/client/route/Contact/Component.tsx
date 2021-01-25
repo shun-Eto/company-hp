@@ -100,21 +100,21 @@ const AboutUsLg: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* render *-*-*-*-*/
 	return (
 		<React.Fragment>
-			{/*-*-*-*-* SNS *-*-*-*-*/}
-			<div className={classes.SNS}>
-				<CategoryLabel label={selfClass.labels.sns[lang]} />
-				<Item_SNS lang={lang} />
-			</div>
-
 			{/*-*-*-*-* Top *-*-*-*-*/}
 			<div className={classes.Top}>
 				<Item_Top lang={lang} />
 			</div>
 
-			{/*-*-*-*-* Services *-*-*-*-*/}
+			{/*-*-*-*-* Form *-*-*-*-*/}
 			<div className={classes.Form}>
 				<CategoryLabel label={selfClass.labels.form[lang]} />
 				<Item_Form lang={lang} />
+			</div>
+
+			{/*-*-*-*-* SNS *-*-*-*-*/}
+			<div className={classes.SNS}>
+				<CategoryLabel label={selfClass.labels.sns[lang]} />
+				<Item_SNS lang={lang} />
 			</div>
 		</React.Fragment>
 	);

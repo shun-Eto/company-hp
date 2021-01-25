@@ -17,7 +17,21 @@ export const Item = (params: {}) =>
 
 		/*-*-*-*-* component *-*-*-*-*/
 		return createStyles({
-			Item: {},
+			Item: {
+				textAlign: "center",
+			},
+
+			"item-root": {
+				margin: theme.spacing(2, 0),
+			},
+			"item-input": {
+				backgroundColor: "white",
+			},
+
+			submit: {
+				marginTop: theme.spacing(4),
+				minWidth: 200,
+			},
 		});
 	})();
 

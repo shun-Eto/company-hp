@@ -70,6 +70,7 @@ export const RootLg = (params: {
 				left: 0,
 				marginBottom: footer?.clientHeight,
 				width: "100%",
+				zIndex: 1000,
 			},
 
 			/*-*-*-*-* footer *-*-*-*-*/
@@ -78,6 +79,7 @@ export const RootLg = (params: {
 				bottom: 0,
 				left: 0,
 				width: "100%",
+				zIndex: 1000,
 			},
 		});
 	})();

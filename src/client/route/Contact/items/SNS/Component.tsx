@@ -23,10 +23,27 @@ interface ComponentProps {
 type Props = ComponentProps;
 const Component: React.FC<Props> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
-	const {} = props;
+	const { lang } = props;
 	//	states
 	//	styles
 	const classes = useStyles.Item({});
+	//	items
+	const snsItems: EnvTypes.MenuItem[] = [
+		{
+			id: "twitter",
+			value: "twitter",
+			label: { jp: "Twitter", en: "Twitter" },
+			pathname: "https://twitter.com/Sopherre_1111",
+			img: Img_SNS_Twitter,
+		},
+		{
+			id: "instagram",
+			value: "instagram",
+			label: { jp: "Instagram", en: "Instagram" },
+			pathname: "https://www.instagram.com/sopherre_1111/",
+			img: Img_SNS_Instagram,
+		},
+	];
 
 	/*-*-*-*-* handlers *-*-*-*-*/
 
@@ -36,24 +53,34 @@ const Component: React.FC<Props> = (props) => {
 	return (
 		<Container maxWidth="md" className={classes.Item}>
 			<Grid container className={classes["Grid-contaniner"]}>
-				<Grid item xs={6} className={classes["Grid-item"]}>
-					<ImgButton img={{ src: Img_SNS_Twitter, title: "Twitter" }} />
-				</Grid>
-				<Grid item xs={6} className={classes["Grid-item"]}>
-					<ImgButton img={{ src: Img_SNS_Instagram, title: "Instagram" }} />
-				</Grid>
+				{snsItems.map((item, i) => (
+					<Grid key={i} item xs={6} className={classes["Grid-item"]}>
+						<ImgButton lang={lang} item={item} />
+					</Grid>
+				))}
 			</Grid>
 		</Container>
 	);
 };
 
 interface ImgButtonProps {
-	img: { src: string; title: string };
+	lang: keyof EnvTypes.Languages;
+	item: EnvTypes.MenuItem;
 }
 const ImgButton: React.FC<ImgButtonProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
-	const { img } = props;
+	const { lang, item } = props;
 	const classes = useStyles.ImgButton({});
+
+	/*-*-*-*-* handlers *-*-*-*-*/
+	const handelOnClick_btn = () => {
+		if (item.pathname) {
+			const elem_a = document.createElement("a");
+			elem_a.setAttribute("target", "_blank");
+			elem_a.setAttribute("href", item.pathname);
+			elem_a.click();
+		}
+	};
 
 	/*-*-*-*-* render *-*-*-*-*/
 	return (
@@ -61,8 +88,10 @@ const ImgButton: React.FC<ImgButtonProps> = (props) => {
 			focusRipple
 			className={classes.image}
 			focusVisibleClassName={classes.focusVisible}
+			//	handlers
+			onClick={handelOnClick_btn}
 		>
-			<img src={img.src} alt="" className={classes.imageSrc} />
+			<img src={item.img} alt="" className={classes.imageSrc} />
 			<span className={classes.imageBackdrop} />
 			<span className={classes.imageButton}>
 				<Typography
@@ -71,7 +100,7 @@ const ImgButton: React.FC<ImgButtonProps> = (props) => {
 					color="inherit"
 					className={classes.imageTitle}
 				>
-					{img.title}
+					{item.label[lang]}
 					<span className={classes.imageMarked} />
 				</Typography>
 			</span>
