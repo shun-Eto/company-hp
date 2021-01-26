@@ -103,7 +103,7 @@ const Component: React.FC<Props> = (props) => {
 	/*-*-*-*-* component *-*-*-*-*/
 	return (
 		<Container className={classes.Item} maxWidth="md" ref={anchor}>
-			<Paper className={classes.Paper}>
+			<Paper className={classes.Paper} elevation={6}>
 				{infoItems.map((item, i) => (
 					<InfoItem key={i} lang={lang} item={item} children={item.children} />
 				))}

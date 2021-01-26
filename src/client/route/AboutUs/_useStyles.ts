@@ -54,6 +54,11 @@ export const AboutUsLg = (params: {}) =>
 				padding: theme.spacing(5, 0),
 				marginBottom: theme.spacing(2),
 			},
+
+			Collaborators: {
+				padding: theme.spacing(5, 0),
+				marginBottom: theme.spacing(2),
+			},
 		});
 	})();
 
@@ -74,6 +79,28 @@ export const CategoryLabel = (params: {}) =>
 				borderBottom: `double 3px ${colorPicker("gray")}`,
 				paddingBottom: theme.spacing(1),
 				color: colorPicker("brandBlack"),
+			},
+		});
+	})();
+
+/*-*-*-*-* Transition *-*-*-*-*/
+export const Transition = (params: {}) =>
+	makeStyles((theme: Theme) => {
+		const {} = params;
+
+		return createStyles({
+			Transition: {},
+			container: {
+				height: "100%",
+				display: "flex",
+				flexDirection: "row",
+				alignItems: "center",
+				justifyContent: "center",
+			},
+			wrapper: {
+				width: "100%",
+				lineHeight: 1,
+				textAlign: "center",
 			},
 		});
 	})();

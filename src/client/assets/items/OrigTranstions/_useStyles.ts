@@ -7,7 +7,8 @@ import * as OrigStylesModule from "@src/client/assets/styles/origStyles";
 import * as EnvTypes from "@src/types/environment";
 
 //	classes
-const origStylesClass = new OrigStylesModule.default();
+const origStyles = new OrigStylesModule.default();
+const { colorPicker, fontFamiPicker, fontSizePicker } = origStyles;
 
 /*-*-*-*-* Item *-*-*-*-*/
 export const Item = (params: {}) =>
@@ -17,24 +18,28 @@ export const Item = (params: {}) =>
 
 		/*-*-*-*-* component *-*-*-*-*/
 		return createStyles({
-			Item: {
+			Item: {},
+		});
+	})();
+
+/*-*-*-*-* SlideLeft *-*-*-*-*/
+export const SlideLeft = (params: {}) =>
+	makeStyles((theme: Theme) => {
+		const {} = params;
+
+		return createStyles({
+			SlideLeft: {},
+			container: {
+				height: "100%",
+				display: "flex",
+				flexDirection: "row",
+				alignItems: "center",
+				justifyContent: "center",
+			},
+			wrapper: {
+				width: "100%",
+				lineHeight: 1,
 				textAlign: "center",
-			},
-
-			"item-root": {
-				margin: theme.spacing(2, 0),
-			},
-			"item-input": {
-				backgroundColor: "white",
-				textAlign: "left",
-				"&:focus": {
-					backgroundColor: "white",
-				},
-			},
-
-			submit: {
-				marginTop: theme.spacing(4),
-				minWidth: 200,
 			},
 		});
 	})();
