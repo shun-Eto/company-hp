@@ -61,10 +61,13 @@ export const MemberItem = (params: {}) =>
 				fontSize: fontSizePicker("sm"),
 			},
 			"form-name": {
-				fontSize: fontSizePicker("lg"),
+				fontSize: fontSizePicker("md"),
 				fontWeight: "bold",
 				fontFamily: fontFamiPicker("basic"),
 				letterSpacing: 2,
+			},
+			"form-name-honorific": {
+				fontSize: fontSizePicker("basic"),
 			},
 			"form-position": {
 				fontSize: fontSizePicker("basic"),
@@ -85,8 +88,8 @@ export const MemberItem = (params: {}) =>
 		});
 	})();
 
-/*-*-*-*-* MemberFormItem *-*-*-*-*/
-export const MemberFormItem = (params: {}) =>
+/*-*-*-*-* FormItem *-*-*-*-*/
+export const FormItem = (params: {}) =>
 	makeStyles((theme: Theme) => {
 		const {} = params;
 
@@ -118,6 +121,12 @@ export const MemberFormItem = (params: {}) =>
 			},
 			"item-divider": {
 				backgroundColor: colorPicker("gray-200"),
+			},
+			"item-description": {
+				fontFamily: fontFamiPicker("basic"),
+				fontSize: fontSizePicker("sm"),
+				padding: theme.spacing(0.5, 1),
+				whiteSpace: "break-spaces",
 			},
 		});
 	})();

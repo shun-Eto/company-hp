@@ -75,38 +75,6 @@ const Component: React.FC<Props> = (props) => {
 				],
 			},
 		},
-		{
-			id: "eto",
-			form: {
-				icon: Img_Member_Eto,
-				name: { jp: "江藤 駿", en: "Eto Shun" },
-				position: { jp: "代表執行役員 社長 | CTO", en: "President | CTO" },
-				email: "shun.prog0830@gmail.com",
-				birthday: new Date(1993, 8 - 1, 30),
-				hobbies: [
-					{ jp: "サッカー", en: "Soccer" },
-					{ jp: "ピアノ", en: "Piano" },
-					{ jp: "読書", en: "Reading Book" },
-					{ jp: "麻雀", en: "Mahjong" },
-				],
-			},
-		},
-		{
-			id: "eto",
-			form: {
-				icon: Img_Member_Eto,
-				name: { jp: "江藤 駿", en: "Eto Shun" },
-				position: { jp: "代表執行役員 社長 | CTO", en: "President | CTO" },
-				email: "shun.prog0830@gmail.com",
-				birthday: new Date(1993, 8 - 1, 30),
-				hobbies: [
-					{ jp: "サッカー", en: "Soccer" },
-					{ jp: "ピアノ", en: "Piano" },
-					{ jp: "読書", en: "Reading Book" },
-					{ jp: "麻雀", en: "Mahjong" },
-				],
-			},
-		},
 	];
 
 	/*-*-*-*-* handlers *-*-*-*-*/

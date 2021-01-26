@@ -60,51 +60,15 @@ const Component: React.FC<Props> = (props) => {
 	const classes = useStyles.Item({});
 	const memberItems: Member[] = [
 		{
-			id: "eto",
+			id: "himeringo",
 			form: {
-				icon: Img_Member_Eto,
-				name: { jp: "江藤 駿", en: "Eto Shun" },
-				position: { jp: "代表執行役員 社長 | CTO", en: "President | CTO" },
-				email: "shun.prog0830@gmail.com",
-				birthday: new Date(1993, 8 - 1, 30),
-				hobbies: [
-					{ jp: "サッカー", en: "Soccer" },
-					{ jp: "ピアノ", en: "Piano" },
-					{ jp: "読書", en: "Reading Book" },
-					{ jp: "麻雀", en: "Mahjong" },
-				],
-			},
-		},
-		{
-			id: "eto",
-			form: {
-				icon: Img_Member_Eto,
-				name: { jp: "江藤 駿", en: "Eto Shun" },
-				position: { jp: "代表執行役員 社長 | CTO", en: "President | CTO" },
-				email: "shun.prog0830@gmail.com",
-				birthday: new Date(1993, 8 - 1, 30),
-				hobbies: [
-					{ jp: "サッカー", en: "Soccer" },
-					{ jp: "ピアノ", en: "Piano" },
-					{ jp: "読書", en: "Reading Book" },
-					{ jp: "麻雀", en: "Mahjong" },
-				],
-			},
-		},
-		{
-			id: "eto",
-			form: {
-				icon: Img_Member_Eto,
-				name: { jp: "江藤 駿", en: "Eto Shun" },
-				position: { jp: "代表執行役員 社長 | CTO", en: "President | CTO" },
-				email: "shun.prog0830@gmail.com",
-				birthday: new Date(1993, 8 - 1, 30),
-				hobbies: [
-					{ jp: "サッカー", en: "Soccer" },
-					{ jp: "ピアノ", en: "Piano" },
-					{ jp: "読書", en: "Reading Book" },
-					{ jp: "麻雀", en: "Mahjong" },
-				],
+				icon: "",
+				name: { jp: "ひめりんご", en: "Himeringo" },
+				position: { jp: "デザイナー", en: "Designer" },
+				birthday: new Date(1996, 1 - 1, 15),
+				hobbies: [{ jp: "絵描き", en: "Panting" }],
+				description:
+					"会社ロゴやアイコン、デザインに関しアドバイスや製作や協力をお願いしています。",
 			},
 		},
 	];
@@ -165,7 +129,14 @@ const MemberItem: React.FC<MemberItemProps> = (props) => {
 				<div className={classes.form}>
 					{/* name */}
 					{form.name && (
-						<Typography className={classes["form-name"]}>{name}</Typography>
+						<Typography className={classes["form-name"]}>
+							{name}
+							{lang === "jp" && (
+								<span
+									className={classes["form-name-honorific"]}
+								>{` さん`}</span>
+							)}
+						</Typography>
 					)}
 
 					{/* position */}
@@ -182,37 +153,46 @@ const MemberItem: React.FC<MemberItemProps> = (props) => {
 
 					{/* birthday */}
 					{form.birthday && (
-						<MemberFormItem
+						<FormItem
 							label={"Birthday"}
 							faIcon={{ icon: ["fas", "birthday-cake"] }}
 						>
 							<Typography className={classes["form-text"]}>
 								{birthday}
 							</Typography>
-						</MemberFormItem>
+						</FormItem>
 					)}
 
 					{/* email */}
 					{form.email && (
-						<MemberFormItem
+						<FormItem
 							label={"Email"}
 							faIcon={{ icon: ["fas", "envelope"] }}
 							type="email"
 							value={email}
 						>
 							<Typography className={classes["form-text"]}>{email}</Typography>
-						</MemberFormItem>
+						</FormItem>
 					)}
 
 					{/* hobbies */}
 					{form.hobbies && (
-						<MemberFormItem label="Hobby" faIcon={{ icon: ["fas", "dice"] }}>
+						<FormItem label="Hobby" faIcon={{ icon: ["fas", "dice"] }}>
 							{form.hobbies.map((val, i) => (
 								<FormLabel key={i} className={classes["form-hobby"]}>
 									{val[lang]}
 								</FormLabel>
 							))}
-						</MemberFormItem>
+						</FormItem>
+					)}
+
+					{form.description && (
+						<FormItem
+							faIcon={{ icon: ["fas", "signature"] }}
+							label="Description"
+							value={form.description}
+							type="description"
+						/>
 					)}
 				</div>
 			</Paper>
@@ -220,16 +200,17 @@ const MemberItem: React.FC<MemberItemProps> = (props) => {
 	);
 };
 
-interface MemberFormItemProps {
+/*-*-*-*-* FormItem *-*-*-*-*/
+interface FormItemProps {
 	label: string;
 	faIcon: FontAwesomeIconProps;
-	type?: "email" | "tel";
+	type?: "email" | "tel" | "description";
 	value?: string;
 }
-const MemberFormItem: React.FC<MemberFormItemProps> = (props) => {
+const FormItem: React.FC<FormItemProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
 	const { label, type, value } = props;
-	const classes = useStyles.MemberFormItem({});
+	const classes = useStyles.FormItem({});
 
 	const href = React.useMemo(() => {
 		if (type === "email" && value) return `mailto:${value}`;
@@ -270,6 +251,10 @@ const MemberFormItem: React.FC<MemberFormItemProps> = (props) => {
 					)}
 				</div>
 			</div>
+
+			{type === "description" && (
+				<Typography className={classes["item-description"]}>{value}</Typography>
+			)}
 
 			<Divider className={classes["item-divider"]} />
 		</React.Fragment>

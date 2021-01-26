@@ -26,6 +26,10 @@ export const Item = (params: {}) =>
 			},
 			"item-input": {
 				backgroundColor: "white",
+				textAlign: "left",
+				"&:focus": {
+					backgroundColor: "white",
+				},
 			},
 
 			submit: {

@@ -24,14 +24,13 @@ export const Item = (params: {}) =>
 			"Grid-item": {
 				position: "relative",
 				lineHeight: 0,
-				borderRadius: theme.shape.borderRadius,
 				"&:first-child": {
-					borderTopRightRadius: 0,
-					borderBottomRightRadius: 0,
+					borderTopLeftRadius: theme.shape.borderRadius,
+					borderBottomLeftRadius: theme.shape.borderRadius,
 				},
 				"&:last-child": {
-					borderTopLeftRadius: 0,
-					borderBottomLeftRadius: 0,
+					borderTopRightRadius: theme.shape.borderRadius,
+					borderBottomRightRadius: theme.shape.borderRadius,
 				},
 			},
 			"item-Paper": {
