@@ -25,8 +25,6 @@ import * as useStyles from "./_useStyles";
 import * as OrigStyles from "@src/client/assets/styles/origStyles";
 
 //	assets
-import * as LoadingWindow from "@src/client/assets/items/LoadingWindow/Component";
-import Img_SopherreIcon from "@src/client/assets/images/sopherre-icon.png";
 
 //	actions
 import * as RootAction from "@src/client/redux/actions/rootAction";
@@ -43,10 +41,11 @@ const { colorPicker } = origStyles;
 //	props
 interface OwnProps extends RouteComponentProps {
 	root: RootReducer.StateProps;
+	//	actions
+	rootActions: {};
 }
 interface FunctionProps {}
 type Props = OwnProps & FunctionProps;
-
 /*-*-*-*-* Component *-*-*-*-*/
 const Component: React.FC<Props> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
@@ -81,8 +80,9 @@ const Component: React.FC<Props> = (props) => {
 };
 
 /*-*-*-*-* Root *-*-*-*-*/
+interface RootProps {}
 interface ComnProps {}
-const Root: React.FC = (props) => {
+const Root: React.FC<RootProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
 
 	//	styles
@@ -120,6 +120,7 @@ const RootSm: React.FC<ComnProps> = (props) => {
 /*-*-*-*-* large : Root *-*-*-*-*/
 const RootLg: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
+	const {} = props;
 	//	states
 	const [header, setHeader] = React.useState<HTMLDivElement>();
 	const [nav, setNav] = React.useState<HTMLDivElement>();

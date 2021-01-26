@@ -4,6 +4,7 @@ import { Dispatch } from "redux";
 import { AppStateProps } from "@src/client/redux/store";
 
 //	actions
+import * as RootAction from "@src/client/redux/actions/rootAction";
 
 //	reudcers
 
@@ -18,9 +19,11 @@ const mapStateToProps = (state: AppStateProps) => {
 };
 
 /*-*-*-*-* Dispatch *-*-*-*-*/
-type DispatchProps = any;
+type DispatchProps = RootAction.Update_ScrollTop;
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
-	return {};
+	return {
+		rootActions: {},
+	};
 };
 
 /*-*-*-*-* default *-*-*-*-*/

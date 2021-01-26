@@ -7,7 +7,7 @@ import { Container, Fade, Paper, Slide } from "@material-ui/core";
 import {} from "@fortawesome/react-fontawesome";
 
 //	assets
-import Img_Main from "@src/client/assets/images/aboutUs-main.png";
+import Img_Main from "@src/client/assets/images/contact-main.png";
 
 //	styles
 import * as useStyles from "./_useStyles";

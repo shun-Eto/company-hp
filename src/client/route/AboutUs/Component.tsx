@@ -3,20 +3,16 @@ import { withRouter, RouteComponentProps } from "react-router";
 import * as H from "history";
 
 //	components
+import * as OrigTransitions from "@src/client/assets/items/OrigTranstions/Component";
 
 //	item compoentns
 import Item_Top from "./items/Top/Component";
 import Item_CompanyInfo from "./items/CompanyInfo/Component";
 import Item_Members from "./items/Members/Component";
+import Item_Collaborators from "./items/Collaborators/Component";
 
 //	materials
-import {
-	Container,
-	FormLabel,
-	Hidden,
-	Slide,
-	Typography,
-} from "@material-ui/core";
+import { Container, Fade, FormLabel, Hidden, Slide } from "@material-ui/core";
 import {} from "@fortawesome/react-fontawesome";
 
 //	reudcers
@@ -31,14 +27,9 @@ import { CommonProps } from "@material-ui/core/OverridableComponent";
 
 const selfClass = new (class {
 	labels = {
-		"company-info": {
-			jp: "会社概要",
-			en: "Overview",
-		},
-		member: {
-			jp: "メンバー",
-			en: "Members",
-		},
+		"company-info": { jp: "会社概要", en: "Overview" },
+		member: { jp: "メンバー", en: "Members" },
+		collaborators: { jp: "協力メンバー", en: "Collaborator" },
 	};
 })();
 
@@ -51,12 +42,13 @@ interface ComponentProps {}
 type Props = OwnProps & ComponentProps;
 interface ComnProps {
 	lang: keyof EnvTypes.Languages;
+	scrollTop: number;
 }
 const Component: React.FC<Props> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
 	const {} = props;
 	const { root } = props;
-	const { lang } = root.env;
+	const { lang, scrollTop } = root.env;
 	//	states
 	//	styles
 	const classes = useStyles.Root({});
@@ -66,9 +58,7 @@ const Component: React.FC<Props> = (props) => {
 	/*-*-*-*-* lifeCycles *-*-*-*-*/
 
 	/*-*-*-*-* comnPorps *-*-*-*-*/
-	const comnProps: ComnProps = {
-		lang,
-	};
+	const comnProps: ComnProps = { lang, scrollTop };
 
 	/*-*-*-*-* component *-*-*-*-*/
 	return (
@@ -98,28 +88,48 @@ const AboutUsSm: React.FC<ComnProps> = (props) => {
 
 const AboutUsLg: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
-	const { lang } = props;
+	const { lang, scrollTop } = props;
+	//	states
+	const [inTop, setInTop] = React.useState(true);
+	const [inComInfo, seInComInfo] = React.useState(true);
+	//	refs
+	const topRef = React.useRef<HTMLDivElement>(null);
 	//	styles
 	const classes = useStyles.AboutUsLg({});
+
+	/*-*-*-*-* lifeCyles *-*-*-*-*/
+	React.useEffect(() => {
+		console.log(topRef);
+	}, [scrollTop]);
 
 	/*-*-*-*-* render *-*-*-*-*/
 	return (
 		<React.Fragment>
 			{/*-*-*-*-* Top *-*-*-*-*/}
-			<div className={classes.Top}>
-				<Item_Top lang={lang} />
+			<div ref={topRef} className={classes.Top}>
+				<OrigTransitions.SlideLeft in={inTop}>
+					<Item_Top lang={lang} />
+				</OrigTransitions.SlideLeft>
 			</div>
 
 			{/*-*-*-*-* CompnayInfo *-*-*-*-*/}
 			<div className={classes.CompanyInfo}>
-				<CategoryLabel label={selfClass.labels["company-info"][lang]} />
-				<Item_CompanyInfo lang={lang} />
+				<OrigTransitions.SlideLeft in={inComInfo}>
+					<CategoryLabel label={selfClass.labels["company-info"][lang]} />
+					<Item_CompanyInfo lang={lang} />
+				</OrigTransitions.SlideLeft>
 			</div>
 
 			{/* Members */}
 			<div className={classes.Members}>
 				<CategoryLabel label={selfClass.labels.member[lang]} />
 				<Item_Members lang={lang} />
+			</div>
+
+			{/* Collaborators */}
+			<div className={classes.Collaborators}>
+				<CategoryLabel label={selfClass.labels.collaborators[lang]} />
+				<Item_Collaborators lang={lang} />
 			</div>
 		</React.Fragment>
 	);

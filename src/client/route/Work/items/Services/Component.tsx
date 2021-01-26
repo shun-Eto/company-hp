@@ -22,6 +22,10 @@ import {
 
 //	assets
 import Img_Member_Eto from "@src/client/assets/images/aboutUs-member-eto.png";
+import Img_Service_Sopherre from "@src/client/assets/images/work-service-sopherre.png";
+import Img_Service_Sophic from "@src/client/assets/images/work-service-sophic.png";
+import Img_Service_LedgerAble from "@src/client/assets/images/work-service-ledgerAble.png";
+import Img_Service_Web from "@src/client/assets/images/work-service-web.png";
 
 //	modules
 import * as OrigModule from "@src/client/assets/modules/origModule";
@@ -63,7 +67,7 @@ const Component: React.FC<Props> = (props) => {
 		{
 			id: "sopherre",
 			form: {
-				icon: Img_Member_Eto,
+				icon: Img_Service_Sopherre,
 				name: { jp: "Sopherre", en: "Sopherre" },
 				appStore: "https://www.apple.com/jp/app-store/",
 				playStore: "https://play.google.com/store?hl=ja&gl=US",
@@ -75,7 +79,7 @@ const Component: React.FC<Props> = (props) => {
 		{
 			id: "sophic",
 			form: {
-				icon: Img_Member_Eto,
+				icon: Img_Service_Sophic,
 				name: { jp: "Sophic", en: "Sophic" },
 				appStore: "https://www.apple.com/jp/app-store/",
 				playStore: "https://play.google.com/store?hl=ja&gl=US",
@@ -87,7 +91,7 @@ const Component: React.FC<Props> = (props) => {
 		{
 			id: "ledgerAble",
 			form: {
-				icon: Img_Member_Eto,
+				icon: Img_Service_LedgerAble,
 				name: { jp: "LedgerAble", en: "LedgerAble" },
 				description:
 					"工数管理等、業務効率化システムの開発。\nダッシュボードやグラフィクスを多分に使い、他にはないオリジナルの付加価値を提供します。",
@@ -96,10 +100,10 @@ const Component: React.FC<Props> = (props) => {
 		{
 			id: "corporate",
 			form: {
-				icon: Img_Member_Eto,
+				icon: Img_Service_Web,
 				name: {
 					jp: "Webサイト作成",
-					en: "Corporate / Web Site",
+					en: "Web Site",
 				},
 				gitHub: "https://github.com/shun-Eto/company-hp",
 				description:

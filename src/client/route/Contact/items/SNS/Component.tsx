@@ -3,7 +3,13 @@ import * as React from "react";
 //	components
 
 //	materials
-import { ButtonBase, Container, Grid, Typography } from "@material-ui/core";
+import {
+	ButtonBase,
+	Container,
+	Grid,
+	Paper,
+	Typography,
+} from "@material-ui/core";
 import {} from "@fortawesome/react-fontawesome";
 
 //	assets
@@ -55,7 +61,9 @@ const Component: React.FC<Props> = (props) => {
 			<Grid container className={classes["Grid-contaniner"]}>
 				{snsItems.map((item, i) => (
 					<Grid key={i} item xs={6} className={classes["Grid-item"]}>
-						<ImgButton lang={lang} item={item} />
+						<Paper elevation={10} className={classes["item-Paper"]}>
+							<ImgButton lang={lang} item={item} />
+						</Paper>
 					</Grid>
 				))}
 			</Grid>

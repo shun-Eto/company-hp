@@ -24,6 +24,19 @@ export const Item = (params: {}) =>
 			"Grid-item": {
 				position: "relative",
 				lineHeight: 0,
+				borderRadius: theme.shape.borderRadius,
+				"&:first-child": {
+					borderTopRightRadius: 0,
+					borderBottomRightRadius: 0,
+				},
+				"&:last-child": {
+					borderTopLeftRadius: 0,
+					borderBottomLeftRadius: 0,
+				},
+			},
+			"item-Paper": {
+				borderRadius: "inherit",
+				overflow: "hidden",
 			},
 			"item-img": {
 				width: "100%",

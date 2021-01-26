@@ -13,8 +13,7 @@ export interface Environment {
 	id: string;
 	token: string;
 	lang: keyof EnvTypes.Languages;
-	navId: string;
-	footer: boolean;
+	scrollTop: number;
 	device: {
 		sizeType: "sp" | "pc";
 	};
@@ -23,8 +22,7 @@ const initEnvironment: Environment = {
 	id: localStorage.getItem("id") || "",
 	token: localStorage.getItem("token") || "",
 	lang: "jp",
-	navId: "",
-	footer: false,
+	scrollTop: 0,
 	device: {
 		sizeType: navigator.userAgent.match(/iphone|ipad|ipod|android/i)
 			? "sp"
@@ -58,6 +56,15 @@ const reducer = (
 				env: {
 					...state.env,
 					lang: action.payload.lang,
+				},
+			};
+		//	update_scrollTop
+		case RootAction.types.update_scrollTop:
+			return {
+				...state,
+				env: {
+					...state.env,
+					scrollTop: action.payload.scrollTop,
 				},
 			};
 
