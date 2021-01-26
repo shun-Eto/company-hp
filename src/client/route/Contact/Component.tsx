@@ -1,8 +1,10 @@
 import * as React from "react";
 import { withRouter, RouteComponentProps } from "react-router";
 import * as H from "history";
+import queryString from "query-string";
 
 //	components
+import * as OrigTransitions from "@src/client/assets/items/OrigTranstions/Component";
 
 //	item compoentns
 import Item_Top from "./items/Top/Component";
@@ -10,25 +12,23 @@ import Item_Form from "./items/Form/Component";
 import Item_SNS from "./items/SNS/Component";
 
 //	materials
-import {
-	Container,
-	FormLabel,
-	Hidden,
-	Slide,
-	Typography,
-} from "@material-ui/core";
+import { Container, FormLabel, Hidden } from "@material-ui/core";
 import {} from "@fortawesome/react-fontawesome";
 
 //	reudcers
 import * as RootReducer from "@src/client/redux/reducers/rootReducer";
+
+//	modules
+import * as OrigModule from "@src/client/assets/modules/origModule";
 
 //	styles
 import * as useStyles from "./_useStyles";
 
 //	types
 import * as EnvTypes from "@src/types/environment";
-import { CommonProps } from "@material-ui/core/OverridableComponent";
 
+//	classes
+const origClass = new OrigModule.default();
 const selfClass = new (class {
 	labels = {
 		form: { jp: "お問い合わせ", en: "Contact" },
@@ -55,7 +55,6 @@ const Component: React.FC<Props> = (props) => {
 	//	states
 	//	styles
 	const classes = useStyles.Root({});
-
 	/*-*-*-*-* handlers *-*-*-*-*/
 
 	/*-*-*-*-* lifeCycles *-*-*-*-*/
@@ -96,25 +95,42 @@ const AboutUsLg: React.FC<ComnProps> = (props) => {
 	const { lang } = props;
 	//	styles
 	const classes = useStyles.AboutUsLg({});
+	const subject = origClass.get_query("subject");
+	//	refs
+	const formRef = React.useRef<HTMLDivElement>(null);
+
+	/*-*-*-*-* lifeCycles *-*-*-*-*/
+	//	subject
+	React.useEffect(() => {
+		if (subject && formRef.current) {
+			formRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+		}
+	}, [subject, formRef]);
 
 	/*-*-*-*-* render *-*-*-*-*/
 	return (
 		<React.Fragment>
 			{/*-*-*-*-* Top *-*-*-*-*/}
 			<div className={classes.Top}>
-				<Item_Top lang={lang} />
+				<OrigTransitions.SlideLeft in={true}>
+					<Item_Top lang={lang} />
+				</OrigTransitions.SlideLeft>
 			</div>
 
 			{/*-*-*-*-* Form *-*-*-*-*/}
-			<div className={classes.Form}>
-				<CategoryLabel label={selfClass.labels.form[lang]} />
-				<Item_Form lang={lang} />
+			<div ref={formRef} className={classes.Form}>
+				<OrigTransitions.SlideLeft in={true}>
+					<CategoryLabel label={selfClass.labels.form[lang]} />
+					<Item_Form lang={lang} />
+				</OrigTransitions.SlideLeft>
 			</div>
 
 			{/*-*-*-*-* SNS *-*-*-*-*/}
 			<div className={classes.SNS}>
-				<CategoryLabel label={selfClass.labels.sns[lang]} />
-				<Item_SNS lang={lang} />
+				<OrigTransitions.SlideLeft in={true}>
+					<CategoryLabel label={selfClass.labels.sns[lang]} />
+					<Item_SNS lang={lang} />
+				</OrigTransitions.SlideLeft>
 			</div>
 		</React.Fragment>
 	);

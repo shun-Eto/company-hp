@@ -21,11 +21,11 @@ import {
 } from "@fortawesome/react-fontawesome";
 
 //	assets
-import Img_Member_Eto from "@src/client/assets/images/aboutUs-member-eto.png";
 import Img_Service_Sopherre from "@src/client/assets/images/work-service-sopherre.png";
 import Img_Service_Sophic from "@src/client/assets/images/work-service-sophic.png";
 import Img_Service_LedgerAble from "@src/client/assets/images/work-service-ledgerAble.png";
 import Img_Service_Web from "@src/client/assets/images/work-service-web.png";
+import Img_Service_Education from "@src/client/assets/images/work-service-education.png";
 
 //	modules
 import * as OrigModule from "@src/client/assets/modules/origModule";
@@ -55,6 +55,7 @@ interface Member {
 		gitHub?: string;
 		pathname?: string;
 		description?: string;
+		"contact-pathname"?: string;
 	};
 }
 const Component: React.FC<Props> = (props) => {
@@ -108,6 +109,20 @@ const Component: React.FC<Props> = (props) => {
 				gitHub: "https://github.com/shun-Eto/company-hp",
 				description:
 					"モダンなUI/UXのを意識し、永く利用され続けるサイトの作成・保守管理。\nコーポレイト作成等、幅広いWebサイトの製作を行っています。",
+				"contact-pathname": "/contact?subject=web",
+			},
+		},
+		{
+			id: "education",
+			form: {
+				icon: Img_Service_Education,
+				name: {
+					jp: "学習支援活動",
+					en: "Education Support",
+				},
+				description:
+					"学校や企業に対し、プログラミング学習の支援活動を行っております。",
+				"contact-pathname": "/contact?subject=education",
 			},
 		},
 	];
@@ -169,6 +184,7 @@ const MemberItem: React.FC<MemberItemProps> = (props) => {
 						style={{ margin: "4px 0 8px" }}
 					/>
 
+					{/* pathname */}
 					{form.pathname && (
 						<FormItem
 							faIcon={{ icon: ["fas", "link"] }}
@@ -178,6 +194,7 @@ const MemberItem: React.FC<MemberItemProps> = (props) => {
 						/>
 					)}
 
+					{/* description */}
 					{form.description && (
 						<FormItem
 							faIcon={{ icon: ["fas", "signature"] }}
@@ -213,6 +230,13 @@ const MemberItem: React.FC<MemberItemProps> = (props) => {
 							/>
 						)}
 					</div>
+
+					{/* contact */}
+					{form["contact-pathname"] && (
+						<div className={classes["form-contactPath"]}>
+							<OrigPathLink lang={lang} pathname={form["contact-pathname"]} />
+						</div>
+					)}
 				</div>
 			</Paper>
 		</Grid>
@@ -265,6 +289,16 @@ const FormItem: React.FC<FormItemProps> = (props) => {
 	const { label, type, value } = props;
 	const classes = useStyles.FormItem({});
 
+	/*-*-*-*-* handlers *-*-*-*-*/
+	const handleOnClick_link = () => {
+		if (value && type === "link") {
+			const elem_a = document.createElement("a");
+			elem_a.setAttribute("target", "_blank");
+			elem_a.setAttribute("href", value);
+			elem_a.click();
+		}
+	};
+
 	/*-*-*-*-* render *-*-*-*-*/
 	return (
 		<React.Fragment>
@@ -286,7 +320,10 @@ const FormItem: React.FC<FormItemProps> = (props) => {
 				{/* children */}
 				<div className={classes["item-children"]}>
 					{type === "link" ? (
-						<Link href={value} className={classes["item-children-link"]}>
+						<Link
+							className={classes["item-children-link"]}
+							onClick={handleOnClick_link}
+						>
 							{value}
 						</Link>
 					) : (
@@ -301,6 +338,32 @@ const FormItem: React.FC<FormItemProps> = (props) => {
 
 			<Divider className={classes["item-divider"]} />
 		</React.Fragment>
+	);
+};
+
+/*-*-*-*-* OrigLink *-*-*-*-*/
+interface OrigPathLinkProps {
+	lang: keyof EnvTypes.Languages;
+	pathname: string;
+}
+const OrigPathLink: React.FC<OrigPathLinkProps> = (props) => {
+	/*-*-*-*-* properties *-*-*-*-*/
+	const { lang, pathname } = props;
+	const label: EnvTypes.Languages = {
+		jp: "お問い合わせはこちら",
+		en: "This is the contact details.",
+	};
+	const classes = useStyles.OrigPathLink({});
+
+	/*-*-*-*-* render *-*-*-*-*/
+	return (
+		<Link className={classes.Link} href={pathname}>
+			<FontAwesomeIcon
+				icon={["fas", "angle-right"]}
+				className={classes.faIcon}
+			/>
+			{label[lang]}
+		</Link>
 	);
 };
 

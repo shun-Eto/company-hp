@@ -73,6 +73,10 @@ export const MemberItem = (params: {}) =>
 			"form-actions": {
 				textAlign: "right",
 			},
+			"form-contactPath": {
+				textAlign: "right",
+				margin: theme.spacing(0.5, 0),
+			},
 		});
 	})();
 
@@ -106,6 +110,7 @@ export const FormItem = (params: {}) =>
 				wordBreak: "break-all",
 				fontSize: fontSizePicker("sm"),
 				color: colorPicker("blue-700"),
+				cursor: "pointer",
 				...origStyles["ellipsis-multiLine"](1),
 			},
 			"item-divider": {
@@ -147,6 +152,25 @@ export const ActionItem = (params: { type?: string }) =>
 				width: "20px !important",
 				height: "20px !important",
 				color: "white",
+			},
+		});
+	})();
+
+/*-*-*-*-* OrigPathLink *-*-*-*-*/
+export const OrigPathLink = (params: {}) =>
+	makeStyles((theme: Theme) => {
+		const {} = params;
+
+		return createStyles({
+			Link: {
+				color: colorPicker("blue-700"),
+				cursor: "pointer",
+				fontFamily: fontFamiPicker("basic"),
+				fontSize: fontSizePicker("sm"),
+				textUnderlineOffset: "2px",
+			},
+			faIcon: {
+				marginRight: theme.spacing(0.5),
 			},
 		});
 	})();

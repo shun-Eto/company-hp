@@ -90,8 +90,6 @@ const AboutUsLg: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
 	const { lang, scrollTop } = props;
 	//	states
-	const [inTop, setInTop] = React.useState(true);
-	const [inComInfo, seInComInfo] = React.useState(true);
 	//	refs
 	const topRef = React.useRef<HTMLDivElement>(null);
 	//	styles
@@ -107,14 +105,14 @@ const AboutUsLg: React.FC<ComnProps> = (props) => {
 		<React.Fragment>
 			{/*-*-*-*-* Top *-*-*-*-*/}
 			<div ref={topRef} className={classes.Top}>
-				<OrigTransitions.SlideLeft in={inTop}>
+				<OrigTransitions.SlideLeft in={true}>
 					<Item_Top lang={lang} />
 				</OrigTransitions.SlideLeft>
 			</div>
 
 			{/*-*-*-*-* CompnayInfo *-*-*-*-*/}
 			<div className={classes.CompanyInfo}>
-				<OrigTransitions.SlideLeft in={inComInfo}>
+				<OrigTransitions.SlideLeft in={true}>
 					<CategoryLabel label={selfClass.labels["company-info"][lang]} />
 					<Item_CompanyInfo lang={lang} />
 				</OrigTransitions.SlideLeft>

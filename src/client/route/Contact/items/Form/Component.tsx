@@ -14,11 +14,17 @@ import {
 } from "@material-ui/core";
 import {} from "@fortawesome/react-fontawesome";
 
+//	modules
+import * as OrigModule from "@src/client/assets/modules/origModule";
+
 //	styles
 import * as useStyles from "./_useStyles";
 
 //	types
 import * as EnvTypes from "@src/types/environment";
+
+//	classes
+const origClass = new OrigModule.default();
 
 /*-*-*-*-* component props *-*-*-*-*/
 interface ComponentProps {
@@ -31,7 +37,7 @@ const Component: React.FC<Props> = (props) => {
 	//	states
 	const [name, setName] = React.useState("");
 	const [email, setEmail] = React.useState("");
-	const [subject, setSubject] = React.useState("");
+	const [subject, setSubject] = React.useState(origClass.get_query("subject"));
 	const [message, setMessage] = React.useState("");
 	//	styles
 	const classes = useStyles.Item({});
@@ -104,6 +110,12 @@ const Component: React.FC<Props> = (props) => {
 					value={subject}
 					label={"Subject"}
 					classes={{ select: classes["item-input"] }}
+					MenuProps={{
+						getContentAnchorEl: null,
+						anchorOrigin: { horizontal: "left", vertical: "bottom" },
+						transformOrigin: { horizontal: "left", vertical: "top" },
+					}}
+					//	handlers
 					onChange={(e) => setSubject(e.target.value as string)}
 				>
 					{subjects.map((item, i) => (
