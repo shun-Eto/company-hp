@@ -69,7 +69,7 @@ const Component: React.FC<Props> = (props) => {
 			</Hidden>
 
 			{/*-*-*-*-* large *-*-*-*-*/}
-			<Hidden>
+			<Hidden xsDown>
 				<AboutUsLg {...comnProps} />
 			</Hidden>
 		</React.Fragment>
@@ -78,20 +78,60 @@ const Component: React.FC<Props> = (props) => {
 
 const AboutUsSm: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
-	const {} = props;
+	const { lang } = props;
+	//	refs
+	const topRef = React.useRef<HTMLDivElement>(null);
 	//	styles
 	const classes = useStyles.AboutUsSm({});
 
+	/*-*-*-*-* lifeCycles *-*-*-*-*/
+	React.useEffect(() => {
+		if (topRef.current) {
+			topRef.current.scrollIntoView({ behavior: "auto", block: "end" });
+		}
+	}, [topRef]);
+
 	/*-*-*-*-* render *-*-*-*-*/
-	return <div></div>;
+	return (
+		<React.Fragment>
+			{/*-*-*-*-* Top *-*-*-*-*/}
+			<div className={classes.Top} ref={topRef}>
+				<OrigTransitions.SlideLeft in={true}>
+					<Item_Top lang={lang} />
+				</OrigTransitions.SlideLeft>
+			</div>
+
+			{/*-*-*-*-* CompnayInfo *-*-*-*-*/}
+			<div className={classes.CompanyInfo}>
+				<OrigTransitions.SlideLeft in={true}>
+					<CategoryLabel label={selfClass.labels["company-info"][lang]} />
+					<Item_CompanyInfo lang={lang} />
+				</OrigTransitions.SlideLeft>
+			</div>
+
+			{/* Members */}
+			<div className={classes.Members}>
+				<OrigTransitions.SlideLeft in={true}>
+					<CategoryLabel label={selfClass.labels.member[lang]} />
+					<Item_Members lang={lang} />
+				</OrigTransitions.SlideLeft>
+			</div>
+
+			{/* Collaborators */}
+			<div className={classes.Collaborators}>
+				<OrigTransitions.SlideLeft in={true}>
+					<CategoryLabel label={selfClass.labels.collaborators[lang]} />
+					<Item_Collaborators lang={lang} />
+				</OrigTransitions.SlideLeft>
+			</div>
+		</React.Fragment>
+	);
 };
 
 const AboutUsLg: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
 	const { lang, scrollTop } = props;
 	//	states
-	const [inTop, setInTop] = React.useState(true);
-	const [inComInfo, seInComInfo] = React.useState(true);
 	//	refs
 	const topRef = React.useRef<HTMLDivElement>(null);
 	//	styles
@@ -107,14 +147,14 @@ const AboutUsLg: React.FC<ComnProps> = (props) => {
 		<React.Fragment>
 			{/*-*-*-*-* Top *-*-*-*-*/}
 			<div ref={topRef} className={classes.Top}>
-				<OrigTransitions.SlideLeft in={inTop}>
+				<OrigTransitions.SlideLeft in={true}>
 					<Item_Top lang={lang} />
 				</OrigTransitions.SlideLeft>
 			</div>
 
 			{/*-*-*-*-* CompnayInfo *-*-*-*-*/}
 			<div className={classes.CompanyInfo}>
-				<OrigTransitions.SlideLeft in={inComInfo}>
+				<OrigTransitions.SlideLeft in={true}>
 					<CategoryLabel label={selfClass.labels["company-info"][lang]} />
 					<Item_CompanyInfo lang={lang} />
 				</OrigTransitions.SlideLeft>

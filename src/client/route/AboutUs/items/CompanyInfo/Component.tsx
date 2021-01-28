@@ -134,7 +134,7 @@ const InfoItem: React.FC<InfoItemProps> = (props) => {
 				</Grid>
 
 				{/* text */}
-				<Grid item xs={9}>
+				<Grid item xs={9} className={classes.text}>
 					{children}
 				</Grid>
 			</Grid>

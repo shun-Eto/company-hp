@@ -12,11 +12,14 @@
 		"@babel/typescript"
 	],
 	"plugins": [
-		["module-resolver", {
-			"alias": {
-				"@src": "./src"
+		[
+			"module-resolver",
+			{
+				"alias": {
+					"@src": "./src"
+				}
 			}
-		}]
+		]
 	],
 	"env": {
 		"development": {

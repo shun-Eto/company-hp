@@ -20,6 +20,17 @@ export const Root = (params: {}) =>
 		/*-*-*-*-* component *-*-*-*-*/
 		return createStyles({
 			Root: {},
+			Top: {
+				height: "100%",
+			},
+
+			Form: {
+				padding: theme.spacing(5, 0),
+			},
+
+			SNS: {
+				padding: theme.spacing(5, 0),
+			},
 		});
 	})();
 
@@ -39,18 +50,6 @@ export const AboutUsLg = (params: {}) =>
 		return createStyles({
 			AboutUs: {
 				height: "100%",
-			},
-
-			Top: {
-				height: "100%",
-			},
-
-			Form: {
-				padding: theme.spacing(5, 0),
-			},
-
-			SNS: {
-				padding: theme.spacing(5, 0),
 			},
 		});
 	})();

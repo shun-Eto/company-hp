@@ -44,6 +44,10 @@ export const MemberItem = (params: {}) =>
 				width: 100,
 				flexShrink: 0,
 				padding: theme.spacing(0.5),
+				[theme.breakpoints.down("xs")]: {
+					height: 80,
+					width: 80,
+				},
 			},
 
 			/*-*-*-*-* form *-*-*-*-*/
@@ -65,6 +69,7 @@ export const MemberItem = (params: {}) =>
 				fontWeight: "bold",
 				fontFamily: fontFamiPicker("basic"),
 				letterSpacing: 2,
+				textAlign: "left",
 			},
 			"form-position": {
 				fontSize: fontSizePicker("basic"),

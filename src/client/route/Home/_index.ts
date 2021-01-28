@@ -16,18 +16,9 @@ const mapStateToProps = (state: AppStateProps) => {
 };
 
 /* * * * * dispatch * * * * */
-type DispatchProps = RootAction.Update_NavId | RootAction.Update_Footer;
+type DispatchProps = any | any;
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
-	return {
-		rootActions: {
-			update_navId: (nav: string) => {
-				return dispatch(RootAction.update_navId(nav));
-			},
-			update_footer: (active: boolean) => {
-				return dispatch(RootAction.update_footer(active));
-			},
-		},
-	};
+	return {};
 };
 
 /* * * * * default * * * * */

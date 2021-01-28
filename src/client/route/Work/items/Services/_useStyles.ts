@@ -44,6 +44,10 @@ export const MemberItem = (params: {}) =>
 				width: 100,
 				flexShrink: 0,
 				padding: theme.spacing(0.5),
+				[theme.breakpoints.down("xs")]: {
+					height: 80,
+					width: 80,
+				},
 			},
 
 			/*-*-*-*-* form *-*-*-*-*/
@@ -69,9 +73,17 @@ export const MemberItem = (params: {}) =>
 					colorPicker("brandBlack")
 				),
 				color: colorPicker("brandBlack"),
+				textAlign: "left",
+				[theme.breakpoints.down("xs")]: {
+					fontSize: fontSizePicker("md"),
+				},
 			},
 			"form-actions": {
 				textAlign: "right",
+			},
+			"form-contactPath": {
+				textAlign: "right",
+				margin: theme.spacing(0.5, 0),
 			},
 		});
 	})();
@@ -106,6 +118,7 @@ export const FormItem = (params: {}) =>
 				wordBreak: "break-all",
 				fontSize: fontSizePicker("sm"),
 				color: colorPicker("blue-700"),
+				cursor: "pointer",
 				...origStyles["ellipsis-multiLine"](1),
 			},
 			"item-divider": {
@@ -117,6 +130,7 @@ export const FormItem = (params: {}) =>
 				fontSize: fontSizePicker("sm"),
 				padding: theme.spacing(0.5, 1),
 				whiteSpace: "break-spaces",
+				textAlign: "left",
 			},
 		});
 	})();
@@ -147,6 +161,25 @@ export const ActionItem = (params: { type?: string }) =>
 				width: "20px !important",
 				height: "20px !important",
 				color: "white",
+			},
+		});
+	})();
+
+/*-*-*-*-* OrigPathLink *-*-*-*-*/
+export const OrigPathLink = (params: {}) =>
+	makeStyles((theme: Theme) => {
+		const {} = params;
+
+		return createStyles({
+			Link: {
+				color: colorPicker("blue-700"),
+				cursor: "pointer",
+				fontFamily: fontFamiPicker("basic"),
+				fontSize: fontSizePicker("sm"),
+				textUnderlineOffset: "2px",
+			},
+			faIcon: {
+				marginRight: theme.spacing(0.5),
 			},
 		});
 	})();

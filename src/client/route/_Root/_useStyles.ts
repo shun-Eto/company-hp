@@ -4,7 +4,8 @@ import { makeStyles, Theme, createStyles } from "@material-ui/core";
 import * as OrigStylesModule from "@src/client/assets/styles/origStyles";
 
 //	classes
-const origStylesClass = new OrigStylesModule.default();
+const origStyles = new OrigStylesModule.default();
+const { colorPicker } = origStyles;
 
 /*-*-*-*-* Root *-*-*-*-*/
 export const Root = (params: {}) =>
@@ -14,19 +15,49 @@ export const Root = (params: {}) =>
 		return createStyles({
 			Root: {
 				height: "100%",
-				backgroundColor: origStylesClass.colorPicker("brandWhite"),
+				backgroundColor: origStyles.colorPicker("brandWhite"),
 			},
 		});
 	})();
 
 /*-*-*-*-* small : Root *-*-*-*-*/
-export const RootSm = (params: {}) =>
+export const RootSm = (params: { header?: HTMLDivElement | null }) =>
 	makeStyles((theme: Theme) => {
-		const {} = params;
+		const { header } = params;
 
 		return createStyles({
 			Root: {
 				height: "100%",
+				position: "relative",
+			},
+
+			/*-*-*-*-* header *-*-*-*-*/
+			header: {
+				position: "fixed",
+				top: 0,
+				left: 0,
+				width: "100%",
+				zIndex: 1000,
+			},
+
+			/*-*-*-*-* container *-*-*-*-*/
+			container: {
+				paddingTop: header?.clientHeight,
+				height: "100%",
+				...origStyles.scrollVisibled({ scrollY: true }),
+			},
+
+			/*-*-*-*-* footer *-*-*-*-*/
+			footer: {
+				padding: theme.spacing(2, 0),
+			},
+
+			/*-*-*-*-* navigator *-*-*-*-*/
+			navigator: {
+				position: "fixed",
+				bottom: 8,
+				right: 8,
+				zIndex: 1000,
 			},
 		});
 	})();
@@ -39,6 +70,8 @@ export const RootLg = (params: {
 }) =>
 	makeStyles((theme: Theme) => {
 		const { header, nav, footer } = params;
+		console.log("nav?.clientHeight", nav?.clientHeight);
+		console.log("footer?.clientHeight", footer?.clientHeight);
 
 		return createStyles({
 			Root: {
@@ -60,7 +93,7 @@ export const RootLg = (params: {
 				height: "100%",
 				paddingTop: header?.clientHeight,
 				paddingBottom: (footer?.clientHeight || 0) + (nav?.clientHeight || 0),
-				...origStylesClass.scrollVisibled({ scrollY: true }),
+				...origStyles.scrollVisibled({ scrollY: true }),
 			},
 
 			/*-*-*-*-* nav *-*-*-*-*/
@@ -69,6 +102,7 @@ export const RootLg = (params: {
 				bottom: 0,
 				left: 0,
 				marginBottom: footer?.clientHeight,
+				height: "auto",
 				width: "100%",
 				zIndex: 1000,
 			},
@@ -80,6 +114,9 @@ export const RootLg = (params: {
 				left: 0,
 				width: "100%",
 				zIndex: 1000,
+				background: colorPicker("brandWhite", 0.5),
+				...origStyles.backdropFilter(),
+				textShadow: origStyles["textShadow-color"](colorPicker("brandWhite")),
 			},
 		});
 	})();

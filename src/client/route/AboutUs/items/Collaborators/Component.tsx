@@ -6,6 +6,7 @@ import * as OrigDividier from "@src/client/assets/items/OrigDividers/Component";
 //	materials
 import {
 	Avatar,
+	ButtonBase,
 	Container,
 	Divider,
 	FormLabel,
@@ -50,6 +51,8 @@ interface Member {
 		birthday?: Date;
 		description?: string;
 		hobbies?: EnvTypes.Languages[];
+		twitter?: string;
+		instagram?: string;
 	};
 }
 const Component: React.FC<Props> = (props) => {
@@ -69,6 +72,8 @@ const Component: React.FC<Props> = (props) => {
 				hobbies: [{ jp: "絵描き", en: "Panting" }],
 				description:
 					"会社ロゴやアイコン、デザインに関しアドバイスや製作や協力をお願いしています。",
+				twitter: "https://twitter.com/himeringo_0115",
+				instagram: "https://www.instagram.com/himeringo_0115",
 			},
 		},
 	];
@@ -186,6 +191,7 @@ const MemberItem: React.FC<MemberItemProps> = (props) => {
 						</FormItem>
 					)}
 
+					{/* description */}
 					{form.description && (
 						<FormItem
 							faIcon={{ icon: ["fas", "signature"] }}
@@ -194,9 +200,62 @@ const MemberItem: React.FC<MemberItemProps> = (props) => {
 							type="description"
 						/>
 					)}
+
+					{/* actions */}
+					<div className={classes["form-actions"]}>
+						{form.twitter && (
+							<ActionItem
+								faIcon={{ icon: ["fab", "twitter"] }}
+								pathname={form.twitter}
+								type={"twitter"}
+							/>
+						)}
+
+						{form.instagram && (
+							<ActionItem
+								faIcon={{ icon: ["fab", "instagram"] }}
+								pathname={form.instagram}
+								type={"instagram"}
+							/>
+						)}
+					</div>
 				</div>
 			</Paper>
 		</Grid>
+	);
+};
+
+/*-*-*-*-* ActionItem *-*-*-*-*/
+interface ActionItemProps {
+	faIcon: FontAwesomeIconProps;
+	pathname: string;
+	type?: string;
+}
+const ActionItem = (props: ActionItemProps) => {
+	/*-*-*-*-* properties *-*-*-*-*/
+	const { pathname, faIcon, type } = props;
+	//	styles
+	const classes = useStyles.ActionItem({ type });
+
+	/*-*-*-*-* handlers *-*-*-*-*/
+	const handleOnClick = () => {
+		const elm_a = document.createElement("a");
+		elm_a.setAttribute("target", "_blank");
+		elm_a.setAttribute("href", pathname);
+		elm_a.click();
+	};
+
+	/*-*-*-*-* render *-*-*-*-*/
+	return (
+		<ButtonBase
+			className={classes.ActionItem}
+			//	handlers
+			onClick={handleOnClick}
+		>
+			<Paper className={classes.Paper}>
+				<FontAwesomeIcon {...faIcon} fixedWidth className={classes.faIcon} />
+			</Paper>
+		</ButtonBase>
 	);
 };
 

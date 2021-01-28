@@ -20,37 +20,14 @@ export const Root = (params: {}) =>
 		/*-*-*-*-* component *-*-*-*-*/
 		return createStyles({
 			Root: {},
-		});
-	})();
-
-export const AboutUsSm = (params: {}) =>
-	makeStyles((theme: Theme) => {
-		const {} = params;
-
-		return createStyles({
-			AboutUs: {},
-		});
-	})();
-
-export const AboutUsLg = (params: {}) =>
-	makeStyles((theme: Theme) => {
-		const {} = params;
-
-		return createStyles({
-			AboutUs: {
-				height: "100%",
-			},
-
 			Top: {
 				height: "100%",
 			},
-
-			CompanyInfo: {
+			Services: {
 				padding: theme.spacing(5, 0),
 				marginBottom: theme.spacing(2),
 			},
-
-			Services: {
+			PartnerCompany: {
 				padding: theme.spacing(5, 0),
 				marginBottom: theme.spacing(2),
 			},
@@ -74,6 +51,7 @@ export const CategoryLabel = (params: {}) =>
 				borderBottom: `double 3px ${colorPicker("gray")}`,
 				paddingBottom: theme.spacing(1),
 				color: colorPicker("brandBlack"),
+				letterSpacing: 2,
 			},
 		});
 	})();

@@ -3,10 +3,12 @@ import { withRouter, RouteComponentProps } from "react-router";
 import * as H from "history";
 
 //	components
+import * as OrigTransitions from "@src/client/assets/items/OrigTranstions/Component";
 
 //	item compoentns
 import Item_Top from "./items/Top/Component";
 import Item_Services from "./items/Services/Component";
+import Item_PartnerCompany from "./items/PartnerCompany/Component";
 
 //	materials
 import {
@@ -34,6 +36,10 @@ const selfClass = new (class {
 			jp: "サービス",
 			en: "Service",
 		},
+		"partner-company": {
+			jp: "提携先企業",
+			en: "Partner Company",
+		},
 	};
 })();
 
@@ -49,16 +55,21 @@ interface ComnProps {
 }
 const Component: React.FC<Props> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
-	const {} = props;
 	const { root } = props;
 	const { lang } = root.env;
 	//	states
+	const topRef = React.useRef<HTMLDivElement>(null);
 	//	styles
 	const classes = useStyles.Root({});
 
 	/*-*-*-*-* handlers *-*-*-*-*/
 
 	/*-*-*-*-* lifeCycles *-*-*-*-*/
+	React.useEffect(() => {
+		if (topRef.current) {
+			topRef.current.scrollIntoView({ behavior: "auto", block: "end" });
+		}
+	}, [topRef]);
 
 	/*-*-*-*-* comnPorps *-*-*-*-*/
 	const comnProps: ComnProps = {
@@ -68,47 +79,27 @@ const Component: React.FC<Props> = (props) => {
 	/*-*-*-*-* component *-*-*-*-*/
 	return (
 		<React.Fragment>
-			{/*-*-*-*-* small *-*-*-*-*/}
-			<Hidden smUp>
-				<AboutUsSm {...comnProps} />
-			</Hidden>
-
-			{/*-*-*-*-* large *-*-*-*-*/}
-			<Hidden>
-				<AboutUsLg {...comnProps} />
-			</Hidden>
-		</React.Fragment>
-	);
-};
-
-const AboutUsSm: React.FC<ComnProps> = (props) => {
-	/*-*-*-*-* properties *-*-*-*-*/
-	const {} = props;
-	//	styles
-	const classes = useStyles.AboutUsSm({});
-
-	/*-*-*-*-* render *-*-*-*-*/
-	return <div></div>;
-};
-
-const AboutUsLg: React.FC<ComnProps> = (props) => {
-	/*-*-*-*-* properties *-*-*-*-*/
-	const { lang } = props;
-	//	styles
-	const classes = useStyles.AboutUsLg({});
-
-	/*-*-*-*-* render *-*-*-*-*/
-	return (
-		<React.Fragment>
-			{/*-*-*-*-* Top *-*-*-*-*/}
-			<div className={classes.Top}>
-				<Item_Top lang={lang} />
+			{/* Top */}
+			<div ref={topRef} className={classes.Top}>
+				<OrigTransitions.SlideLeft in={true}>
+					<Item_Top lang={lang} />
+				</OrigTransitions.SlideLeft>
 			</div>
 
 			{/* Services */}
 			<div className={classes.Services}>
-				<CategoryLabel label={selfClass.labels.service[lang]} />
-				<Item_Services lang={lang} />
+				<OrigTransitions.SlideLeft in={true}>
+					<CategoryLabel label={selfClass.labels.service[lang]} />
+					<Item_Services lang={lang} />
+				</OrigTransitions.SlideLeft>
+			</div>
+
+			{/* Partner Company */}
+			<div className={classes.PartnerCompany}>
+				<OrigTransitions.SlideLeft in={true}>
+					<CategoryLabel label={selfClass.labels["partner-company"][lang]} />
+					<Item_PartnerCompany lang={lang} />
+				</OrigTransitions.SlideLeft>
 			</div>
 		</React.Fragment>
 	);

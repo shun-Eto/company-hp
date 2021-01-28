@@ -12,7 +12,9 @@ export const HomeSm = (params: {}) =>
 		const {} = params;
 
 		return createStyles({
-			Home: {},
+			Home: {
+				height: "100%",
+			},
 		});
 	})();
 

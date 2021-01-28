@@ -27,6 +27,9 @@ export const Root = (params: {}) =>
 				display: "flex",
 				flexDirection: "row",
 				alignItems: "center",
+				[theme.breakpoints.down("xs")]: {
+					padding: 0,
+				},
 			},
 
 			Logo: {

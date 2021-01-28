@@ -20,8 +20,38 @@ export const Root = (params: {}) =>
 		return createStyles({
 			Root: {
 				padding: theme.spacing(0.5, 1),
-				background: colorPicker("brandWhite", 0.5),
-				...origStylesClass.backdropFilter(),
+				textShadow: origStylesClass["textShadow-color"](
+					colorPicker("brandWhite")
+				),
+				textAlign: "center",
+				minHeight: 58,
+			},
+		});
+	})();
+
+export const NavigatorSm = (params: {}) =>
+	makeStyles((theme: Theme) => {
+		const {} = params;
+
+		return createStyles({
+			Navigator: {},
+			staticTooltipLabel: {
+				whiteSpace: "nowrap",
+			},
+			actions: {
+				height: 0,
+			},
+		});
+	})();
+
+export const NavigatorLg = (params: {}) =>
+	makeStyles((theme: Theme) => {
+		const {} = params;
+
+		return createStyles({
+			Navigator: {
+				minHeight: 58,
+				padding: theme.spacing(0.5, 1),
 				textShadow: origStylesClass["textShadow-color"](
 					colorPicker("brandWhite")
 				),
@@ -37,10 +67,11 @@ export const NavItem = (params: {}) =>
 		return createStyles({
 			ButtonBase: {
 				borderRadius: theme.shape.borderRadius,
+				width: "100%",
 			},
 			NavItem: {
 				display: "inline-block",
-				minWidth: 150,
+				width: "100%",
 			},
 			Typography: {
 				fontWeight: "bold",

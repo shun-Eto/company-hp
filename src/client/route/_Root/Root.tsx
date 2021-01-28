@@ -110,11 +110,43 @@ const Root: React.FC<RootProps> = (props) => {
 /*-*-*-*-* small : Root *-*-*-*-*/
 const RootSm: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
+	const [header, setHeader] = React.useState<HTMLDivElement>();
+	const headerRef = React.useRef<HTMLDivElement>(null);
 	//	styles
-	const classes = useStyles.RootSm({});
+	const classes = useStyles.RootSm({ header });
+
+	/*-*-*-*-* lifeCycles *-*-*-*-*/
+	React.useEffect(() => {
+		if (headerRef.current) {
+			setHeader(headerRef.current);
+		}
+	}, [headerRef]);
 
 	/*-*-*-*-* component *-*-*-*-*/
-	return <div className={classes.Root}>{props.children}</div>;
+	return (
+		<div className={classes.Root}>
+			{/*-*-*-*-* header *-*-*-*-*/}
+			<div ref={headerRef} className={classes.header}>
+				<Header />
+			</div>
+
+			{/*-*-*-*-* container *-*-*-*-*/}
+			<div className={classes.container}>
+				{/*-*-*-*-* body *-*-*-*-*/}
+				{props.children}
+
+				{/*-*-*-*-* footer *-*-*-*-*/}
+				<div className={classes.footer}>
+					<Footer />
+				</div>
+			</div>
+
+			{/*-*-*-*-* navigator *-*-*-*-*/}
+			<div className={classes.navigator}>
+				<Navigator />
+			</div>
+		</div>
+	);
 };
 
 /*-*-*-*-* large : Root *-*-*-*-*/
@@ -127,7 +159,6 @@ const RootLg: React.FC<ComnProps> = (props) => {
 	const [footer, setFooter] = React.useState<HTMLDivElement>();
 	//	refs
 	const headerRef = React.useRef<HTMLDivElement>(null);
-	const navRef = React.useRef<HTMLDivElement>(null);
 	const footerRef = React.useRef<HTMLDivElement>(null);
 	//	styles
 	const classes = useStyles.RootLg({ header, nav, footer });
@@ -135,12 +166,11 @@ const RootLg: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* lifeCycles *-*-*-*-*/
 	//	headerRef , navRef , footerRef
 	React.useEffect(() => {
-		if (headerRef.current && navRef.current && footerRef.current) {
+		if (headerRef.current && footerRef.current) {
 			setHeader(headerRef.current);
-			setNav(navRef.current);
 			setFooter(footerRef.current);
 		}
-	}, [headerRef, navRef, footerRef]);
+	}, [headerRef, footerRef]);
 
 	/*-*-*-*-* component *-*-*-*-*/
 	return (
@@ -153,13 +183,9 @@ const RootLg: React.FC<ComnProps> = (props) => {
 			{/*-*-*-*-* body *-*-*-*-*/}
 			<div className={classes.body}>{props.children}</div>
 
-			{/*-*-*-*-* navigator *-*-*-*-*/}
-			<div className={classes.navigator} ref={navRef}>
-				<Navigator />
-			</div>
-
 			{/*-*-*-*-* footer *-*-*-*-*/}
 			<div className={classes.footer} ref={footerRef}>
+				<Navigator />
 				<Footer />
 			</div>
 		</div>

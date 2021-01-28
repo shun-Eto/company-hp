@@ -34,6 +34,9 @@ export const Item = (params: {}) =>
 				objectFit: "cover",
 				width: "80%",
 				maxWidth: 600,
+				[theme.breakpoints.down("xs")]: {
+					width: "100%",
+				},
 			},
 		});
 	})();

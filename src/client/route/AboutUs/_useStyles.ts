@@ -29,6 +29,25 @@ export const AboutUsSm = (params: {}) =>
 
 		return createStyles({
 			AboutUs: {},
+
+			Top: {
+				height: "100%",
+			},
+
+			CompanyInfo: {
+				padding: theme.spacing(5, 0),
+				marginBottom: theme.spacing(2),
+			},
+
+			Members: {
+				padding: theme.spacing(5, 0),
+				marginBottom: theme.spacing(2),
+			},
+
+			Collaborators: {
+				padding: theme.spacing(5, 0),
+				marginBottom: theme.spacing(2),
+			},
 		});
 	})();
 

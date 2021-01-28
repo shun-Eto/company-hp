@@ -1,4 +1,5 @@
 import moment from "moment";
+import queryString from "query-string";
 
 //	modules
 import * as EnvModile from "@src/client/assets/modules/envModule";
@@ -249,6 +250,7 @@ export default class {
 		);
 	}
 
+	//	get_yearsOld
 	get_yearsOld(date: Date): number {
 		const targetDate = new Date();
 		var age = targetDate.getFullYear() - date.getFullYear();
@@ -259,5 +261,11 @@ export default class {
 		);
 		if (targetDate < birthday) age--;
 		return age;
+	}
+
+	//	get_urlQuery
+	get_query(target: string): string {
+		const query = queryString.parse(window.location.search);
+		return typeof query[target] === "string" ? (query[target] as string) : "";
 	}
 }

@@ -44,6 +44,10 @@ export const MemberItem = (params: {}) =>
 				width: 100,
 				flexShrink: 0,
 				padding: theme.spacing(0.5),
+				[theme.breakpoints.down("xs")]: {
+					height: 80,
+					width: 80,
+				},
 			},
 
 			/*-*-*-*-* form *-*-*-*-*/
@@ -65,6 +69,7 @@ export const MemberItem = (params: {}) =>
 				fontWeight: "bold",
 				fontFamily: fontFamiPicker("basic"),
 				letterSpacing: 2,
+				textAlign: "left",
 			},
 			"form-name-honorific": {
 				fontSize: fontSizePicker("basic"),
@@ -73,6 +78,7 @@ export const MemberItem = (params: {}) =>
 				fontSize: fontSizePicker("basic"),
 				fontFamily: fontFamiPicker("basic"),
 				letterSpacing: 1.5,
+				textAlign: "left",
 			},
 			"form-birthday": {},
 			"form-hobby": {
@@ -84,6 +90,37 @@ export const MemberItem = (params: {}) =>
 				margin: theme.spacing(0.5, 0.5, 0.5, 0),
 				whiteSpace: "nowrap",
 				display: "inline-block",
+			},
+			"form-actions": {
+				textAlign: "right",
+			},
+		});
+	})();
+
+/*-*-*-*-* ActionItem *-*-*-*-*/
+export const ActionItem = (params: { type?: string }) =>
+	makeStyles((theme: Theme) => {
+		const { type } = params;
+
+		return createStyles({
+			ActionItem: {
+				margin: theme.spacing(0.5),
+			},
+			Paper: {
+				padding: theme.spacing(1),
+				borderRadius: "50%",
+				lineHeight: 1,
+				backgroundColor:
+					type === "twitter"
+						? colorPicker("blue-500")
+						: type === "instagram"
+						? colorPicker("pink-400")
+						: colorPicker("blueGray-600"),
+			},
+			faIcon: {
+				width: "20px !important",
+				height: "20px !important",
+				color: "white",
 			},
 		});
 	})();
