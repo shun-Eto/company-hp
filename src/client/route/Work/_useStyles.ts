@@ -20,36 +20,9 @@ export const Root = (params: {}) =>
 		/*-*-*-*-* component *-*-*-*-*/
 		return createStyles({
 			Root: {},
-		});
-	})();
-
-export const AboutUsSm = (params: {}) =>
-	makeStyles((theme: Theme) => {
-		const {} = params;
-
-		return createStyles({
-			AboutUs: {},
-		});
-	})();
-
-export const AboutUsLg = (params: {}) =>
-	makeStyles((theme: Theme) => {
-		const {} = params;
-
-		return createStyles({
-			AboutUs: {
-				height: "100%",
-			},
-
 			Top: {
 				height: "100%",
 			},
-
-			CompanyInfo: {
-				padding: theme.spacing(5, 0),
-				marginBottom: theme.spacing(2),
-			},
-
 			Services: {
 				padding: theme.spacing(5, 0),
 				marginBottom: theme.spacing(2),

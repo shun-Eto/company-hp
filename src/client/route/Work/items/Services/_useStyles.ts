@@ -69,6 +69,7 @@ export const MemberItem = (params: {}) =>
 					colorPicker("brandBlack")
 				),
 				color: colorPicker("brandBlack"),
+				textAlign: "left",
 			},
 			"form-actions": {
 				textAlign: "right",
@@ -122,6 +123,7 @@ export const FormItem = (params: {}) =>
 				fontSize: fontSizePicker("sm"),
 				padding: theme.spacing(0.5, 1),
 				whiteSpace: "break-spaces",
+				textAlign: "left",
 			},
 		});
 	})();

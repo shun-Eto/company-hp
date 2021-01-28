@@ -55,8 +55,8 @@ export const RootSm = (params: { header?: HTMLDivElement | null }) =>
 			/*-*-*-*-* navigator *-*-*-*-*/
 			navigator: {
 				position: "fixed",
-				bottom: 16,
-				right: 16,
+				bottom: 8,
+				right: 8,
 				zIndex: 1000,
 			},
 		});

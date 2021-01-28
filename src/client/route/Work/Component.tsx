@@ -50,16 +50,20 @@ interface ComnProps {
 }
 const Component: React.FC<Props> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
-	const {} = props;
 	const { root } = props;
 	const { lang } = root.env;
 	//	states
+	const topRef = React.useRef<HTMLDivElement>(null);
 	//	styles
 	const classes = useStyles.Root({});
 
 	/*-*-*-*-* handlers *-*-*-*-*/
 
 	/*-*-*-*-* lifeCycles *-*-*-*-*/
+	React.useEffect(() => {
+		if (topRef.current)
+			topRef.current.scrollIntoView({ behavior: "auto", block: "end" });
+	}, [topRef]);
 
 	/*-*-*-*-* comnPorps *-*-*-*-*/
 	const comnProps: ComnProps = {
@@ -69,40 +73,8 @@ const Component: React.FC<Props> = (props) => {
 	/*-*-*-*-* component *-*-*-*-*/
 	return (
 		<React.Fragment>
-			{/*-*-*-*-* small *-*-*-*-*/}
-			<Hidden smUp>
-				<AboutUsSm {...comnProps} />
-			</Hidden>
-
-			{/*-*-*-*-* large *-*-*-*-*/}
-			<Hidden>
-				<AboutUsLg {...comnProps} />
-			</Hidden>
-		</React.Fragment>
-	);
-};
-
-const AboutUsSm: React.FC<ComnProps> = (props) => {
-	/*-*-*-*-* properties *-*-*-*-*/
-	const {} = props;
-	//	styles
-	const classes = useStyles.AboutUsSm({});
-
-	/*-*-*-*-* render *-*-*-*-*/
-	return <div></div>;
-};
-
-const AboutUsLg: React.FC<ComnProps> = (props) => {
-	/*-*-*-*-* properties *-*-*-*-*/
-	const { lang } = props;
-	//	styles
-	const classes = useStyles.AboutUsLg({});
-
-	/*-*-*-*-* render *-*-*-*-*/
-	return (
-		<React.Fragment>
 			{/*-*-*-*-* Top *-*-*-*-*/}
-			<div className={classes.Top}>
+			<div ref={topRef} className={classes.Top}>
 				<OrigTransitions.SlideLeft in={true}>
 					<Item_Top lang={lang} />
 				</OrigTransitions.SlideLeft>

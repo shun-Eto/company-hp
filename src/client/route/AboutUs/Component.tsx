@@ -79,14 +79,23 @@ const Component: React.FC<Props> = (props) => {
 const AboutUsSm: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
 	const { lang } = props;
+	//	refs
+	const topRef = React.useRef<HTMLDivElement>(null);
 	//	styles
 	const classes = useStyles.AboutUsSm({});
+
+	/*-*-*-*-* lifeCycles *-*-*-*-*/
+	React.useEffect(() => {
+		if (topRef.current) {
+			topRef.current.scrollIntoView({ behavior: "auto", block: "end" });
+		}
+	}, [topRef]);
 
 	/*-*-*-*-* render *-*-*-*-*/
 	return (
 		<React.Fragment>
 			{/*-*-*-*-* Top *-*-*-*-*/}
-			<div className={classes.Top}>
+			<div className={classes.Top} ref={topRef}>
 				<OrigTransitions.SlideLeft in={true}>
 					<Item_Top lang={lang} />
 				</OrigTransitions.SlideLeft>
@@ -102,14 +111,18 @@ const AboutUsSm: React.FC<ComnProps> = (props) => {
 
 			{/* Members */}
 			<div className={classes.Members}>
-				<CategoryLabel label={selfClass.labels.member[lang]} />
-				<Item_Members lang={lang} />
+				<OrigTransitions.SlideLeft in={true}>
+					<CategoryLabel label={selfClass.labels.member[lang]} />
+					<Item_Members lang={lang} />
+				</OrigTransitions.SlideLeft>
 			</div>
 
 			{/* Collaborators */}
 			<div className={classes.Collaborators}>
-				<CategoryLabel label={selfClass.labels.collaborators[lang]} />
-				<Item_Collaborators lang={lang} />
+				<OrigTransitions.SlideLeft in={true}>
+					<CategoryLabel label={selfClass.labels.collaborators[lang]} />
+					<Item_Collaborators lang={lang} />
+				</OrigTransitions.SlideLeft>
 			</div>
 		</React.Fragment>
 	);

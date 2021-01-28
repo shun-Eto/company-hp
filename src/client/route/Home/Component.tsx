@@ -70,9 +70,12 @@ const Component: React.FC<Props> = (props) => {
 const HomeSm: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
 	const {} = props;
+	//	refs
 	const homeRef = React.useRef<HTMLDivElement>(null);
+	//	styles
 	const classes = useStyles.HomeSm({});
 
+	/*-*-*-*-* lifeCycles *-*-*-*-*/
 	React.useEffect(() => {
 		if (homeRef.current) {
 			homeRef.current.scrollIntoView({ behavior: "smooth", block: "end" });

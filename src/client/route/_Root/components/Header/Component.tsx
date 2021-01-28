@@ -68,7 +68,7 @@ const Component: React.FC<Props> = (props) => {
 			value: "sophic",
 			label: { jp: "Sophic", en: "Sophic" },
 			img: Img_Sophic_Icon,
-			pathname: "https://www.sophic.com",
+			pathname: "https://sophic.sopherre.com",
 		},
 	];
 	//	styles
@@ -204,7 +204,13 @@ const OrigMenu = (props: OrigMenuProps) => {
 					{/* apps */}
 					<div className={classes["Menu-Paper-apps"]}>
 						{menuItems.map((item, i) => (
-							<MenuIcon key={i} item={item} lang={lang} />
+							<MenuIcon
+								key={i}
+								item={item}
+								lang={lang}
+								//	handlers
+								onClose={() => setActive(false)}
+							/>
 						))}
 					</div>
 				</Paper>
@@ -216,6 +222,8 @@ const OrigMenu = (props: OrigMenuProps) => {
 interface MenuIconProps {
 	lang: keyof EnvTypes.Languages;
 	item: EnvTypes.MenuItem;
+	//	handlers
+	onClose: () => void;
 }
 const MenuIcon = (props: MenuIconProps) => {
 	/*-*-*-*-* properties *-*-*-*-*/
@@ -231,6 +239,7 @@ const MenuIcon = (props: MenuIconProps) => {
 			elm_a.setAttribute("target", "_blank");
 			elm_a.setAttribute("href", item.pathname);
 			elm_a.click();
+			props.onClose();
 		}
 	};
 

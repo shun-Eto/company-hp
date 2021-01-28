@@ -44,74 +44,34 @@ interface OwnProps extends RouteComponentProps {
 }
 interface ComponentProps {}
 type Props = OwnProps & ComponentProps;
-interface ComnProps {
-	lang: keyof EnvTypes.Languages;
-}
 const Component: React.FC<Props> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
-	const {} = props;
 	const { root } = props;
 	const { lang } = root.env;
 	//	states
+	const subject = origClass.get_query("subject");
+	//	refs
+	const topRef = React.useRef<HTMLDivElement>(null);
+	const formRef = React.useRef<HTMLDivElement>(null);
 	//	styles
 	const classes = useStyles.Root({});
 	/*-*-*-*-* handlers *-*-*-*-*/
-
-	/*-*-*-*-* lifeCycles *-*-*-*-*/
-
-	/*-*-*-*-* comnPorps *-*-*-*-*/
-	const comnProps: ComnProps = {
-		lang,
-	};
-
-	/*-*-*-*-* component *-*-*-*-*/
-	return (
-		<React.Fragment>
-			{/*-*-*-*-* small *-*-*-*-*/}
-			<Hidden smUp>
-				<AboutUsSm {...comnProps} />
-			</Hidden>
-
-			{/*-*-*-*-* large *-*-*-*-*/}
-			<Hidden>
-				<AboutUsLg {...comnProps} />
-			</Hidden>
-		</React.Fragment>
-	);
-};
-
-const AboutUsSm: React.FC<ComnProps> = (props) => {
-	/*-*-*-*-* properties *-*-*-*-*/
-	const {} = props;
-	//	styles
-	const classes = useStyles.AboutUsSm({});
-
-	/*-*-*-*-* render *-*-*-*-*/
-	return <div></div>;
-};
-
-const AboutUsLg: React.FC<ComnProps> = (props) => {
-	/*-*-*-*-* properties *-*-*-*-*/
-	const { lang } = props;
-	//	styles
-	const classes = useStyles.AboutUsLg({});
-	const subject = origClass.get_query("subject");
-	//	refs
-	const formRef = React.useRef<HTMLDivElement>(null);
 
 	/*-*-*-*-* lifeCycles *-*-*-*-*/
 	//	subject
 	React.useEffect(() => {
 		if (subject && formRef.current) {
 			formRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+		} else if (topRef.current) {
+			topRef.current.scrollIntoView({ behavior: "auto", block: "center" });
 		}
 	}, [subject, formRef]);
 
-	/*-*-*-*-* render *-*-*-*-*/
+	/*-*-*-*-* component *-*-*-*-*/
 	return (
 		<React.Fragment>
 			{/*-*-*-*-* Top *-*-*-*-*/}
-			<div className={classes.Top}>
+			<div ref={topRef} className={classes.Top}>
 				<OrigTransitions.SlideLeft in={true}>
 					<Item_Top lang={lang} />
 				</OrigTransitions.SlideLeft>

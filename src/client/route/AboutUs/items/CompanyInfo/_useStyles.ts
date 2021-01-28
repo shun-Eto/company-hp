@@ -62,10 +62,13 @@ export const InfoItem = (params: {}) =>
 			},
 			"label-Typography": {
 				fontFamily: fontFamiPicker("basic"),
+				wordBreak: "break-all",
 			},
 
 			/*-*-*-*-* text *-*-*-*-*/
-			text: {},
+			text: {
+				paddingLeft: theme.spacing(1),
+			},
 		});
 	})();
 
