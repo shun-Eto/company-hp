@@ -1,3 +1,4 @@
-/dist/
+/dist/server/
 /node_modules/
-src/server
+/src/server/
+/webpack/server/
