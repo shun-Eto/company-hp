@@ -63,6 +63,7 @@ export const MemberItem = (params: {}) =>
 				wordBreak: "break-all",
 				letterSpacing: 1.3,
 				fontSize: fontSizePicker("sm"),
+				textAlign: "left",
 			},
 			"form-name": {
 				fontSize: fontSizePicker("md"),
