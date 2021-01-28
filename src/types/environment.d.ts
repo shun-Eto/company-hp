@@ -47,3 +47,8 @@ export interface Theme {
 	padding?: string;
 	margin?: string;
 }
+
+export interface Status {
+	error: boolean;
+	errorList: { [key: string]: Languages };
+}
