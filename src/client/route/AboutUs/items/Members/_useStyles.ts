@@ -63,6 +63,7 @@ export const MemberItem = (params: {}) =>
 				wordBreak: "break-all",
 				letterSpacing: 1.3,
 				fontSize: fontSizePicker("sm"),
+				textAlign: "left",
 			},
 			"form-name": {
 				fontSize: fontSizePicker("lg"),
@@ -75,6 +76,7 @@ export const MemberItem = (params: {}) =>
 				fontSize: fontSizePicker("basic"),
 				fontFamily: fontFamiPicker("basic"),
 				letterSpacing: 1.5,
+				textAlign: "left",
 			},
 			"form-birthday": {},
 			"form-hobby": {
@@ -86,6 +88,7 @@ export const MemberItem = (params: {}) =>
 				margin: theme.spacing(0.5, 0.5, 0.5, 0),
 				whiteSpace: "nowrap",
 				display: "inline-block",
+				textAlign: "left",
 			},
 		});
 	})();
@@ -114,6 +117,7 @@ export const MemberFormItem = (params: {}) =>
 			},
 			"item-children": {
 				color: colorPicker("brandBlack"),
+				textAlign: "left",
 			},
 			"item-children-link": {
 				letterSpacing: 1.3,
