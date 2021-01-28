@@ -3,30 +3,22 @@ import { makeStyles, Theme, createStyles } from "@material-ui/core";
 //	modules
 import * as OrigStylesModule from "@src/client/assets/styles/origStyles";
 
+//	types
+import * as EnvTypes from "@src/types/environment";
+
 //	classes
-const origStylesClass = new OrigStylesModule.default();
+const origStyles = new OrigStylesModule.default();
+const { colorPicker, fontFamiPicker, fontSizePicker } = origStyles;
 
-/*-*-*-*-* HomeSm *-*-*-*-*/
-export const HomeSm = (params: {}) =>
+/*-*-*-*-* Item *-*-*-*-*/
+export const Item = (params: {}) =>
 	makeStyles((theme: Theme) => {
+		/*-*-*-*-* properties *-*-*-*-*/
 		const {} = params;
 
+		/*-*-*-*-* component *-*-*-*-*/
 		return createStyles({
-			Home: {
-				height: "100%",
-			},
-		});
-	})();
-
-/*-*-*-*-* HomeLg *-*-*-*-*/
-export const HomeLg = (params: {}) =>
-	makeStyles((theme: Theme) => {
-		const {} = params;
-
-		return createStyles({
-			Home: {
-				height: "100%",
-			},
+			Item: {},
 		});
 	})();
 

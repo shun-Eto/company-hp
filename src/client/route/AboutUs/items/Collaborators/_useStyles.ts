@@ -85,6 +85,37 @@ export const MemberItem = (params: {}) =>
 				whiteSpace: "nowrap",
 				display: "inline-block",
 			},
+			"form-actions": {
+				textAlign: "right",
+			},
+		});
+	})();
+
+/*-*-*-*-* ActionItem *-*-*-*-*/
+export const ActionItem = (params: { type?: string }) =>
+	makeStyles((theme: Theme) => {
+		const { type } = params;
+
+		return createStyles({
+			ActionItem: {
+				margin: theme.spacing(0.5),
+			},
+			Paper: {
+				padding: theme.spacing(1),
+				borderRadius: "50%",
+				lineHeight: 1,
+				backgroundColor:
+					type === "twitter"
+						? colorPicker("blue-500")
+						: type === "instagram"
+						? colorPicker("pink-400")
+						: colorPicker("blueGray-600"),
+			},
+			faIcon: {
+				width: "20px !important",
+				height: "20px !important",
+				color: "white",
+			},
 		});
 	})();
 

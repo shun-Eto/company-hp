@@ -20,11 +20,6 @@ export const Root = (params: {}) =>
 		return createStyles({
 			Root: {
 				padding: theme.spacing(0.5, 1),
-				background: colorPicker("brandWhite", 0.5),
-				...origStylesClass.backdropFilter(),
-				textShadow: origStylesClass["textShadow-color"](
-					colorPicker("brandWhite")
-				),
 			},
 
 			Copyright: {

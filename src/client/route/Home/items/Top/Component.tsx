@@ -31,15 +31,11 @@ const Component: React.FC<Props> = (props) => {
 
 	/*-*-*-*-* component *-*-*-*-*/
 	return (
-		<Slide direction="left" in={true} timeout={1000}>
-			<Container maxWidth="md" className={classes.Item}>
-				<Fade in={true} timeout={3000}>
-					<Paper className={classes.wrapper} elevation={10}>
-						<img src={Img_homeMain} alt="" className={classes.img} />
-					</Paper>
-				</Fade>
-			</Container>
-		</Slide>
+		<Container maxWidth="md" className={classes.Item}>
+			<Paper className={classes.wrapper} elevation={10}>
+				<img src={Img_homeMain} alt="" className={classes.img} />
+			</Paper>
+		</Container>
 	);
 };
 

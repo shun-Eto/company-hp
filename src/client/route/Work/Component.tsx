@@ -3,6 +3,7 @@ import { withRouter, RouteComponentProps } from "react-router";
 import * as H from "history";
 
 //	components
+import * as OrigTransitions from "@src/client/assets/items/OrigTranstions/Component";
 
 //	item compoentns
 import Item_Top from "./items/Top/Component";
@@ -100,15 +101,19 @@ const AboutUsLg: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* render *-*-*-*-*/
 	return (
 		<React.Fragment>
-			{/* Services */}
-			<div className={classes.Services}>
-				<CategoryLabel label={selfClass.labels.service[lang]} />
-				<Item_Services lang={lang} />
-			</div>
-
 			{/*-*-*-*-* Top *-*-*-*-*/}
 			<div className={classes.Top}>
-				<Item_Top lang={lang} />
+				<OrigTransitions.SlideLeft in={true}>
+					<Item_Top lang={lang} />
+				</OrigTransitions.SlideLeft>
+			</div>
+
+			{/* Services */}
+			<div className={classes.Services}>
+				<OrigTransitions.SlideLeft in={true}>
+					<CategoryLabel label={selfClass.labels.service[lang]} />
+					<Item_Services lang={lang} />
+				</OrigTransitions.SlideLeft>
 			</div>
 		</React.Fragment>
 	);

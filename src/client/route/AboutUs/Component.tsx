@@ -69,7 +69,7 @@ const Component: React.FC<Props> = (props) => {
 			</Hidden>
 
 			{/*-*-*-*-* large *-*-*-*-*/}
-			<Hidden>
+			<Hidden xsDown>
 				<AboutUsLg {...comnProps} />
 			</Hidden>
 		</React.Fragment>
@@ -78,12 +78,41 @@ const Component: React.FC<Props> = (props) => {
 
 const AboutUsSm: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
-	const {} = props;
+	const { lang } = props;
 	//	styles
 	const classes = useStyles.AboutUsSm({});
 
 	/*-*-*-*-* render *-*-*-*-*/
-	return <div></div>;
+	return (
+		<React.Fragment>
+			{/*-*-*-*-* Top *-*-*-*-*/}
+			<div className={classes.Top}>
+				<OrigTransitions.SlideLeft in={true}>
+					<Item_Top lang={lang} />
+				</OrigTransitions.SlideLeft>
+			</div>
+
+			{/*-*-*-*-* CompnayInfo *-*-*-*-*/}
+			<div className={classes.CompanyInfo}>
+				<OrigTransitions.SlideLeft in={true}>
+					<CategoryLabel label={selfClass.labels["company-info"][lang]} />
+					<Item_CompanyInfo lang={lang} />
+				</OrigTransitions.SlideLeft>
+			</div>
+
+			{/* Members */}
+			<div className={classes.Members}>
+				<CategoryLabel label={selfClass.labels.member[lang]} />
+				<Item_Members lang={lang} />
+			</div>
+
+			{/* Collaborators */}
+			<div className={classes.Collaborators}>
+				<CategoryLabel label={selfClass.labels.collaborators[lang]} />
+				<Item_Collaborators lang={lang} />
+			</div>
+		</React.Fragment>
+	);
 };
 
 const AboutUsLg: React.FC<ComnProps> = (props) => {

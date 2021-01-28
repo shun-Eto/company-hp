@@ -21,6 +21,9 @@ export const Item = (params: {}) =>
 			Item: {},
 			Paper: {
 				padding: theme.spacing(3, 6),
+				[theme.breakpoints.down("xs")]: {
+					padding: theme.spacing(3, 3),
+				},
 			},
 
 			"children-text": {
@@ -29,8 +32,11 @@ export const Item = (params: {}) =>
 				margin: theme.spacing(1, 0),
 				fontSize: fontSizePicker("md"),
 				letterSpacing: 1.3,
+				textAlign: "left",
 			},
-			"children-wrapper": {},
+			"children-wrapper": {
+				textAlign: "left",
+			},
 		});
 	})();
 
@@ -41,12 +47,18 @@ export const InfoItem = (params: {}) =>
 		return createStyles({
 			InfoItem: {
 				padding: theme.spacing(3, 0),
+				[theme.breakpoints.down("xs")]: {
+					padding: theme.spacing(2, 0),
+				},
 			},
 
 			/*-*-*-*-* label *-*-*-*-*/
 			label: {
 				margin: theme.spacing(1, 0),
 				paddingLeft: theme.spacing(1),
+				[theme.breakpoints.down("xs")]: {
+					textAlign: "left",
+				},
 			},
 			"label-Typography": {
 				fontFamily: fontFamiPicker("basic"),

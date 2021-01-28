@@ -4,7 +4,7 @@ import { Dispatch } from "redux";
 import { AppStateProps } from "@src/client/redux/store";
 
 //	actions
-import * as RootAction from "@src/client/redux/actions/rootAction";
+import * as TestAction from "@src/client/redux/actions/testAction";
 
 //	reducers
 
@@ -12,13 +12,20 @@ import * as RootAction from "@src/client/redux/actions/rootAction";
 const mapStateToProps = (state: AppStateProps) => {
 	return {
 		root: state.root,
+		test: state.test,
 	};
 };
 
 /* * * * * dispatch * * * * */
-type DispatchProps = any | any;
+type DispatchProps = TestAction.Update_Value;
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
-	return {};
+	return {
+		testActions: {
+			update_value: (value: string) => {
+				dispatch(TestAction.update_value(value));
+			},
+		},
+	};
 };
 
 /* * * * * default * * * * */
