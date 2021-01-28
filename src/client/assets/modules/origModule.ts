@@ -161,15 +161,15 @@ export default class {
 		});
 	}
 
-	//	fetchSopherre
-	fetchSopherre<B, R>(
+	//	fetchCompany
+	fetchCompany<B, R>(
 		body: B,
 		pathname: string,
 		reqInit?: RequestInit
 	): Promise<R> {
 		return new Promise((resolve, reject) => {
 			//	fetch propertis
-			const fetchURL = `${envClass.config.DOMAIN_SERVER_SOPHERRE}${pathname}`;
+			const fetchURL = `${envClass.config.DOMAIN_SERVER_COMPANY}${pathname}`;
 			const fetchInit: RequestInit = {
 				method: "post",
 				headers: { "Content-type": "application/json" },

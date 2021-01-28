@@ -1,4 +1,4 @@
-node_modules/
-webpack/index/
-src/server
-webpack/server
+/dist/server/
+/node_modules/
+/src/server/
+/webpack/server/
