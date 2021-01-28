@@ -42,8 +42,12 @@ app.get(/^(?!\/server).*$/, (req, res, next) =>
 	res.sendFile(rootDir + "/dist/client/index.html")
 );
 
+/*-*-*-*-* Server Routing *-*-*-*-*/
+import * as contactRouter from "./routes/contact/index";
+app.use("/contact", contactRouter.default);
+
 /********** listen **********/
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 3000;
 const server = http.createServer(app);
 server.listen(port, () => {
 	console.log(`Success Connected Server : port ==> ${port}`);

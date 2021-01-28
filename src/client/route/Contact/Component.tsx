@@ -63,25 +63,25 @@ const Component: React.FC<Props> = (props) => {
 		if (subject && formRef.current) {
 			formRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
 		} else if (topRef.current) {
-			topRef.current.scrollIntoView({ behavior: "auto", block: "center" });
+			//	topRef.current.scrollIntoView({ behavior: "auto", block: "center" });
 		}
 	}, [subject, formRef]);
 
 	/*-*-*-*-* component *-*-*-*-*/
 	return (
 		<React.Fragment>
-			{/*-*-*-*-* Top *-*-*-*-*/}
-			<div ref={topRef} className={classes.Top}>
-				<OrigTransitions.SlideLeft in={true}>
-					<Item_Top lang={lang} />
-				</OrigTransitions.SlideLeft>
-			</div>
-
 			{/*-*-*-*-* Form *-*-*-*-*/}
 			<div ref={formRef} className={classes.Form}>
 				<OrigTransitions.SlideLeft in={true}>
 					<CategoryLabel label={selfClass.labels.form[lang]} />
 					<Item_Form lang={lang} />
+				</OrigTransitions.SlideLeft>
+			</div>
+
+			{/*-*-*-*-* Top *-*-*-*-*/}
+			<div ref={topRef} className={classes.Top}>
+				<OrigTransitions.SlideLeft in={true}>
+					<Item_Top lang={lang} />
 				</OrigTransitions.SlideLeft>
 			</div>
 
