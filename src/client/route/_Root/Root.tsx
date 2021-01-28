@@ -16,7 +16,6 @@ import Home from "@src/client/route/Home/_index";
 import AboutUs from "@src/client/route/AboutUs/_index";
 import Work from "@src/client/route/Work/_index";
 import Contact from "@src/client/route/Contact/_index";
-import Test from "@src/client/route/Test/_index";
 
 //	materials
 import { Hidden } from "@material-ui/core";
@@ -75,11 +74,6 @@ const Component: React.FC<Props> = (props) => {
 
 				{/*-*-*-*-* Contact *-*-*-*-*/}
 				<Route exact path={"/contact"} component={Contact} />
-
-				{/*-*-*-*-* Test *-*-*-*-*/}
-				<Route exact path={"/test"}>
-					<Test />
-				</Route>
 			</Switch>
 		</Root>
 	);

@@ -8,6 +8,7 @@ import * as OrigTransitions from "@src/client/assets/items/OrigTranstions/Compon
 //	item compoentns
 import Item_Top from "./items/Top/Component";
 import Item_Services from "./items/Services/Component";
+import Item_PartnerCompany from "./items/PartnerCompany/Component";
 
 //	materials
 import {
@@ -35,6 +36,10 @@ const selfClass = new (class {
 			jp: "サービス",
 			en: "Service",
 		},
+		"partner-company": {
+			jp: "提携先企業",
+			en: "Partner Company",
+		},
 	};
 })();
 
@@ -61,8 +66,9 @@ const Component: React.FC<Props> = (props) => {
 
 	/*-*-*-*-* lifeCycles *-*-*-*-*/
 	React.useEffect(() => {
-		if (topRef.current)
+		if (topRef.current) {
 			topRef.current.scrollIntoView({ behavior: "auto", block: "end" });
+		}
 	}, [topRef]);
 
 	/*-*-*-*-* comnPorps *-*-*-*-*/
@@ -73,7 +79,7 @@ const Component: React.FC<Props> = (props) => {
 	/*-*-*-*-* component *-*-*-*-*/
 	return (
 		<React.Fragment>
-			{/*-*-*-*-* Top *-*-*-*-*/}
+			{/* Top */}
 			<div ref={topRef} className={classes.Top}>
 				<OrigTransitions.SlideLeft in={true}>
 					<Item_Top lang={lang} />
@@ -85,6 +91,14 @@ const Component: React.FC<Props> = (props) => {
 				<OrigTransitions.SlideLeft in={true}>
 					<CategoryLabel label={selfClass.labels.service[lang]} />
 					<Item_Services lang={lang} />
+				</OrigTransitions.SlideLeft>
+			</div>
+
+			{/* Partner Company */}
+			<div className={classes.PartnerCompany}>
+				<OrigTransitions.SlideLeft in={true}>
+					<CategoryLabel label={selfClass.labels["partner-company"][lang]} />
+					<Item_PartnerCompany lang={lang} />
 				</OrigTransitions.SlideLeft>
 			</div>
 		</React.Fragment>

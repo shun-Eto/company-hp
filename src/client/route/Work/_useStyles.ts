@@ -27,6 +27,10 @@ export const Root = (params: {}) =>
 				padding: theme.spacing(5, 0),
 				marginBottom: theme.spacing(2),
 			},
+			PartnerCompany: {
+				padding: theme.spacing(5, 0),
+				marginBottom: theme.spacing(2),
+			},
 		});
 	})();
 
@@ -47,6 +51,7 @@ export const CategoryLabel = (params: {}) =>
 				borderBottom: `double 3px ${colorPicker("gray")}`,
 				paddingBottom: theme.spacing(1),
 				color: colorPicker("brandBlack"),
+				letterSpacing: 2,
 			},
 		});
 	})();

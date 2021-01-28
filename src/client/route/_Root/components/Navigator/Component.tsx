@@ -112,7 +112,7 @@ const Component: React.FC<Props> = (props) => {
 		<div className={classes.Root}>
 			{/*-*-*-*-* small *-*-*-*-*/}
 			<Hidden smUp>
-				<NavigatorSm lang={lang} navItems={navItems} />
+				<NavigatorSm lang={lang} navItems={navItems.reverse()} />
 			</Hidden>
 
 			{/*-*-*-*-* large *-*-*-*-*/}

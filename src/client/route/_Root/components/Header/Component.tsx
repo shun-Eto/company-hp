@@ -15,7 +15,6 @@ import {
 	Icon,
 	IconButton,
 	Menu,
-	MenuItem,
 	Paper,
 	Toolbar,
 } from "@material-ui/core";
@@ -219,6 +218,7 @@ const OrigMenu = (props: OrigMenuProps) => {
 	);
 };
 
+/*-*-*-*-* MenuIcon *-*-*-*-*/
 interface MenuIconProps {
 	lang: keyof EnvTypes.Languages;
 	item: EnvTypes.MenuItem;
