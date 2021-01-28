@@ -16,15 +16,18 @@ import {} from "@fortawesome/react-fontawesome";
 
 //	modules
 import * as OrigModule from "@src/client/assets/modules/origModule";
+import * as ContactMethodModule from "@src/client/route/Contact/modules/methodsModule";
 
 //	styles
 import * as useStyles from "./_useStyles";
 
 //	types
 import * as EnvTypes from "@src/types/environment";
+import * as ContactMethodTypes from "@src/types/contact/methods";
 
 //	classes
 const origClass = new OrigModule.default();
+const contactMethod = new ContactMethodModule.default();
 
 /*-*-*-*-* component props *-*-*-*-*/
 interface ComponentProps {
@@ -35,10 +38,10 @@ const Component: React.FC<Props> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
 	const { lang } = props;
 	//	states
-	const [name, setName] = React.useState("");
-	const [email, setEmail] = React.useState("");
+	const [name, setName] = React.useState("test");
+	const [email, setEmail] = React.useState("prog.shun0830@gmail.com");
 	const [subject, setSubject] = React.useState(origClass.get_query("subject"));
-	const [message, setMessage] = React.useState("");
+	const [message, setMessage] = React.useState("message");
 	//	styles
 	const classes = useStyles.Item({});
 	const subjects: EnvTypes.MenuItem[] = [
@@ -71,6 +74,20 @@ const Component: React.FC<Props> = (props) => {
 	];
 
 	/*-*-*-*-* handlers *-*-*-*-*/
+	const handleOnClick_submit = () => {
+		const body: ContactMethodTypes.Submit_Message_Body = {
+			lang,
+			form: { name, email, message, subject },
+		};
+		contactMethod
+			.submit_message(body)
+			.then((val) => {
+				console.log("val", val);
+			})
+			.catch((err) => {
+				console.log("err", err);
+			});
+	};
 
 	/*-*-*-*-* lifeCycles *-*-*-*-*/
 
@@ -86,6 +103,8 @@ const Component: React.FC<Props> = (props) => {
 				variant="outlined"
 				className={classes["item-root"]}
 				InputProps={{ className: classes["item-input"] }}
+				//	handlers
+				onChange={(e) => setName(e.target.value)}
 			/>
 
 			{/*-*-*-*-* email *-*-*-*-*/}
@@ -97,6 +116,8 @@ const Component: React.FC<Props> = (props) => {
 				variant="outlined"
 				className={classes["item-root"]}
 				InputProps={{ className: classes["item-input"] }}
+				//	handlers
+				onChange={(e) => setEmail(e.target.value)}
 			/>
 
 			{/*-*-*-*-* subject *-*-*-*-*/}
@@ -119,7 +140,7 @@ const Component: React.FC<Props> = (props) => {
 					onChange={(e) => setSubject(e.target.value as string)}
 				>
 					{subjects.map((item, i) => (
-						<MenuItem key={i} value={item.value}>
+						<MenuItem key={i} value={item.label[lang]}>
 							{item.label[lang]}
 						</MenuItem>
 					))}
@@ -137,10 +158,18 @@ const Component: React.FC<Props> = (props) => {
 				variant="outlined"
 				className={classes["item-root"]}
 				InputProps={{ className: classes["item-input"] }}
+				//	handlers
+				onChange={(e) => setMessage(e.target.value)}
 			/>
 
 			{/*-*-*-*-* submit *-*-*-*-*/}
-			<Button variant="contained" className={classes.submit} color="primary">
+			<Button
+				variant="contained"
+				className={classes.submit}
+				color="primary"
+				//	handlers
+				onClick={handleOnClick_submit}
+			>
 				Submit
 			</Button>
 		</Container>
