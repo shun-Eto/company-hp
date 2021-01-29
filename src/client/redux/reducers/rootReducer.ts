@@ -21,7 +21,7 @@ export interface Environment {
 const initEnvironment: Environment = {
 	id: localStorage.getItem("id") || "",
 	token: localStorage.getItem("token") || "",
-	lang: "jp",
+	lang: (localStorage.getItem("lang") as "jp" | "en") || "jp",
 	scrollTop: 0,
 	device: {
 		sizeType: navigator.userAgent.match(/iphone|ipad|ipod|android/i)

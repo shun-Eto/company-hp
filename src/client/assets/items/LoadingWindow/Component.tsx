@@ -14,6 +14,9 @@ import {
 	FontAwesomeIconProps,
 } from "@fortawesome/react-fontawesome";
 
+//	assets
+import Img_Icon from "@src/client/assets/images/icon.png";
+
 //	styles
 import * as useStyles from "./_useStyles";
 
@@ -101,7 +104,9 @@ export const OrigModal: React.FC<OrigModalProps> = (props) => {
 	const { open } = props;
 	return (
 		<Modal open={open}>
-			<div></div>
+			<React.Fragment>
+				<Basic img={Img_Icon} theme={{ color: "white", iconColor: "white" }} />
+			</React.Fragment>
 		</Modal>
 	);
 };
