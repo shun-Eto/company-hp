@@ -18,7 +18,7 @@ import {
 	OutlinedInput,
 	Select,
 } from "@material-ui/core";
-import {} from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 //	modules
 import * as OrigModule from "@src/client/assets/modules/origModule";
@@ -62,10 +62,10 @@ const Component: React.FC<Props> = (props) => {
 	const { lang, store, contactActions } = props;
 	const message_status = store.contact.status.message;
 	//	states
-	const [name, setName] = React.useState("test");
-	const [email, setEmail] = React.useState("prog.shun0830@gmail.com");
+	const [name, setName] = React.useState("");
+	const [email, setEmail] = React.useState("");
 	const [subject, setSubject] = React.useState(origClass.get_query("subject"));
-	const [message, setMessage] = React.useState("message");
+	const [message, setMessage] = React.useState("");
 	const [nameError, setNameError] = React.useState<EnvTypes.Languages>();
 	const [emailError, setEmailError] = React.useState<EnvTypes.Languages>();
 	const [subjectError, setSubjectError] = React.useState<EnvTypes.Languages>();
@@ -81,7 +81,7 @@ const Component: React.FC<Props> = (props) => {
 	const snack = useSnackbar().enqueueSnackbar;
 	const snackbar_props = contactMethod.default.snackbar;
 	//	styles
-	const classes = useStyles.Item({});
+	const classes = useStyles.Item({ submitted: message_status.fetched });
 	//	const list
 	const subjects: EnvTypes.MenuItem[] = [
 		{
@@ -136,7 +136,12 @@ const Component: React.FC<Props> = (props) => {
 					if (status.error) {
 						set_errorComponent(status);
 					} else {
+						contactActions.update_fetched("message", true);
 						snack(snackbar_props.message.success[lang], { variant: "success" });
+						setName("");
+						setEmail("");
+						setSubject("");
+						setMessage("");
 					}
 				})
 				.catch((err) => {
@@ -286,15 +291,29 @@ const Component: React.FC<Props> = (props) => {
 				</FormControl>
 
 				{/*-*-*-*-* submit *-*-*-*-*/}
-				<Button
-					variant="contained"
-					className={classes.submit}
-					color="primary"
-					//	handlers
-					onClick={handleOnClick_submit}
-				>
-					Submit
-				</Button>
+				{!message_status.fetched ? (
+					<Button
+						variant="contained"
+						className={classes.submit}
+						color="primary"
+						//	handlers
+						onClick={handleOnClick_submit}
+					>
+						Submit
+					</Button>
+				) : (
+					<Button
+						variant="contained"
+						className={`${classes.submitted} ${classes.submit}`}
+						color="primary"
+					>
+						<FontAwesomeIcon
+							icon={["fas", "check"]}
+							className={classes["submit-faIcon"]}
+						/>
+						Submitted
+					</Button>
+				)}
 			</Container>
 		</React.Fragment>
 	);

@@ -5,8 +5,7 @@ export default class {
 		DOMAIN_CLIENT_COMPANY:
 			process.env["DOMAIN_CLIENT_COMPANY"] || "https://company.sopherre.com",
 		DOMAIN_SERVER_COMPANY:
-			process.env["DOMAIN_SERVER_COMPANY"] ||
-			"https://company-server.sopherre.com",
+			process.env["DOMAIN_SERVER_COMPANY"] || "https://company.sopherre.com",
 	};
 
 	/*-*-*-*-* constructor *-*-*-*-*/
