@@ -5,10 +5,11 @@ import queryString from "query-string";
 
 //	components
 import * as OrigTransitions from "@src/client/assets/items/OrigTranstions/Component";
+import * as LoadingWindow from "@src/client/assets/items/LoadingWindow/Component";
 
 //	item compoentns
 import Item_Top from "./items/Top/Component";
-import Item_Form from "./items/Form/Component";
+import Item_Form from "./items/Form/_index";
 import Item_SNS from "./items/SNS/Component";
 
 //	materials
@@ -20,6 +21,12 @@ import * as RootReducer from "@src/client/redux/reducers/rootReducer";
 
 //	modules
 import * as OrigModule from "@src/client/assets/modules/origModule";
+
+//	actions
+import * as ContactAction from "@src/client/redux/actions/contactAction";
+
+//	reducers
+import * as ContactReducer from "@src/client/redux/reducers/contactReducer";
 
 //	styles
 import * as useStyles from "./_useStyles";
@@ -41,6 +48,11 @@ const selfClass = new (class {
 interface OwnProps extends RouteComponentProps {
 	history: H.History;
 	root: RootReducer.StateProps;
+	//	actions
+	contactActions: {
+		update_fetching: typeof ContactAction.update_fetching;
+		update_fetched: typeof ContactAction.update_fetched;
+	};
 }
 interface ComponentProps {}
 type Props = OwnProps & ComponentProps;

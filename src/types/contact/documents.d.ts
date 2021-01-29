@@ -1,5 +1,10 @@
 export interface Message {
-	date: Date;
+	id: string;
+	date: {
+		orig: Date;
+		jp: string;
+		en: string;
+	};
 	form: {
 		name: string;
 		email: string;

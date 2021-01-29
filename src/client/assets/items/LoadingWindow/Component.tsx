@@ -3,7 +3,12 @@ import * as React from "react";
 //	components
 
 //	materials
-import { CircularProgress, FormLabel, LinearProgress } from "@material-ui/core";
+import {
+	CircularProgress,
+	FormLabel,
+	LinearProgress,
+	Modal,
+} from "@material-ui/core";
 import {
 	FontAwesomeIcon,
 	FontAwesomeIconProps,
@@ -86,5 +91,17 @@ export const Basic: React.FC<BasicProps> = (props) => {
 				/>
 			)}
 		</div>
+	);
+};
+
+interface OrigModalProps {
+	open: boolean;
+}
+export const OrigModal: React.FC<OrigModalProps> = (props) => {
+	const { open } = props;
+	return (
+		<Modal open={open}>
+			<div></div>
+		</Modal>
 	);
 };

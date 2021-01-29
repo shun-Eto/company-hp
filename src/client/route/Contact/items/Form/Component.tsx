@@ -1,22 +1,34 @@
 import * as React from "react";
+import { withRouter, RouteComponentProps } from "react-router";
+import * as H from "history";
+import { useSnackbar } from "notistack";
 
 //	components
+import * as LoadingWindow from "@src/client/assets/items/LoadingWindow/Component";
 
 //	materials
 import {
 	Button,
 	Container,
 	FormControl,
+	FormHelperText,
+	FormLabel,
 	InputLabel,
 	MenuItem,
+	OutlinedInput,
 	Select,
-	TextField,
 } from "@material-ui/core";
 import {} from "@fortawesome/react-fontawesome";
 
 //	modules
 import * as OrigModule from "@src/client/assets/modules/origModule";
 import * as ContactMethodModule from "@src/client/route/Contact/modules/methodsModule";
+
+//	actions
+import * as ContactAction from "@src/client/redux/actions/contactAction";
+
+//	reducers
+import * as ContactReducer from "@src/client/redux/reducers/contactReducer";
 
 //	styles
 import * as useStyles from "./_useStyles";
@@ -30,18 +42,44 @@ const origClass = new OrigModule.default();
 const contactMethod = new ContactMethodModule.default();
 
 /*-*-*-*-* component props *-*-*-*-*/
-interface ComponentProps {
+interface OwnProps extends RouteComponentProps {
+	history: H.History;
 	lang: keyof EnvTypes.Languages;
+	//	store
+	store: {
+		contact: ContactReducer.StateProps;
+	};
+	//	actions
+	contactActions: {
+		update_fetching: typeof ContactAction.update_fetching;
+		update_fetched: typeof ContactAction.update_fetched;
+	};
 }
-type Props = ComponentProps;
+interface ComponentProps {}
+type Props = OwnProps & ComponentProps;
 const Component: React.FC<Props> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
-	const { lang } = props;
+	const { lang, store, contactActions } = props;
+	const message_status = store.contact.status.message;
 	//	states
 	const [name, setName] = React.useState("test");
 	const [email, setEmail] = React.useState("prog.shun0830@gmail.com");
 	const [subject, setSubject] = React.useState(origClass.get_query("subject"));
 	const [message, setMessage] = React.useState("message");
+	const [nameError, setNameError] = React.useState<EnvTypes.Languages>();
+	const [emailError, setEmailError] = React.useState<EnvTypes.Languages>();
+	const [subjectError, setSubjectError] = React.useState<EnvTypes.Languages>();
+	const [messageError, setMessageError] = React.useState<EnvTypes.Languages>();
+	//	memo
+	const nameCount = React.useMemo(() => {
+		return `[ ${name.length} / ${contactMethod.default.maxCount.name} ]`;
+	}, [name]);
+	const messageCount = React.useMemo(() => {
+		return `[ ${message.length} / ${contactMethod.default.maxCount.message} ]`;
+	}, [message]);
+	//	useSnackbar
+	const snack = useSnackbar().enqueueSnackbar;
+	const snackbar_props = contactMethod.default.snackbar;
 	//	styles
 	const classes = useStyles.Item({});
 	const subjects: EnvTypes.MenuItem[] = [
@@ -74,107 +112,188 @@ const Component: React.FC<Props> = (props) => {
 	];
 
 	/*-*-*-*-* handlers *-*-*-*-*/
+	//	handleOnClick_submit
 	const handleOnClick_submit = () => {
 		const body: ContactMethodTypes.Submit_Message_Body = {
 			lang,
 			form: { name, email, message, subject },
 		};
-		contactMethod
-			.submit_message(body)
-			.then((val) => {
-				console.log("val", val);
-			})
-			.catch((err) => {
-				console.log("err", err);
-			});
+
+		const valid_status = contactMethod.validation_submit_message(body);
+
+		if (valid_status.error) {
+			/*-*-*-*-* exist error *-*-*-*-*/
+			set_errorComponent(valid_status);
+		} else {
+			/*-*-*-*-* submit messasge *-*-*-*-*/
+			contactActions.update_fetching("message", true);
+			contactMethod
+				.submit_message(body)
+				.then((val) => {
+					contactActions.update_fetching("message", false);
+					const { status } = val;
+					if (status.error) {
+						set_errorComponent(status);
+					} else {
+						snack(snackbar_props.message.success[lang], { variant: "success" });
+					}
+				})
+				.catch((err) => {
+					contactActions.update_fetching("message", false);
+					snack(snackbar_props.message.error[lang], { variant: "error" });
+					props.history.push("/");
+				});
+		}
 	};
+
+	/*-*-*-*-* functions *-*-*-*-*/
+	//	set_errorComponent
+	function set_errorComponent(error_status: EnvTypes.Status) {
+		if (error_status?.errorList?.["name"])
+			setNameError(error_status.errorList["name"]);
+		if (error_status?.errorList?.["email"])
+			setEmailError(error_status.errorList["email"]);
+		if (error_status?.errorList?.["subject"])
+			setSubjectError(error_status.errorList["subject"]);
+		if (error_status?.errorList?.["message"])
+			setMessageError(error_status.errorList["message"]);
+
+		//	snackbar
+		snack(snackbar_props.message.error[lang], { variant: "warning" });
+	}
 
 	/*-*-*-*-* lifeCycles *-*-*-*-*/
 
 	/*-*-*-*-* component *-*-*-*-*/
 	return (
-		<Container maxWidth="sm" className={classes.Item}>
-			{/*-*-*-*-* name *-*-*-*-*/}
-			<TextField
-				value={name}
-				fullWidth
-				label="Name"
-				type="text"
-				variant="outlined"
-				className={classes["item-root"]}
-				InputProps={{ className: classes["item-input"] }}
-				//	handlers
-				onChange={(e) => setName(e.target.value)}
-			/>
+		<React.Fragment>
+			<LoadingWindow.OrigModal open={message_status.fetching} />
 
-			{/*-*-*-*-* email *-*-*-*-*/}
-			<TextField
-				value={email}
-				fullWidth
-				label="Email"
-				type="email"
-				variant="outlined"
-				className={classes["item-root"]}
-				InputProps={{ className: classes["item-input"] }}
-				//	handlers
-				onChange={(e) => setEmail(e.target.value)}
-			/>
-
-			{/*-*-*-*-* subject *-*-*-*-*/}
-			<FormControl
-				variant="outlined"
-				fullWidth
-				className={classes["item-root"]}
-			>
-				<InputLabel>{"Subject"}</InputLabel>
-				<Select
-					value={subject}
-					label={"Subject"}
-					classes={{ select: classes["item-input"] }}
-					MenuProps={{
-						getContentAnchorEl: null,
-						anchorOrigin: { horizontal: "left", vertical: "bottom" },
-						transformOrigin: { horizontal: "left", vertical: "top" },
-					}}
-					//	handlers
-					onChange={(e) => setSubject(e.target.value as string)}
+			<Container maxWidth="sm" className={classes.Item}>
+				{/*-*-*-*-* name *-*-*-*-*/}
+				<FormControl
+					fullWidth
+					variant="outlined"
+					className={classes["item-root"]}
+					error={!!nameError}
 				>
-					{subjects.map((item, i) => (
-						<MenuItem key={i} value={item.label[lang]}>
-							{item.label[lang]}
-						</MenuItem>
-					))}
-				</Select>
-			</FormControl>
+					<InputLabel>Name</InputLabel>
+					<FormLabel className={classes["item-countLabel"]}>
+						{nameCount}
+					</FormLabel>
+					<OutlinedInput
+						value={name}
+						label="Name"
+						className={classes["item-input"]}
+						type="text"
+						//	handlers
+						onChange={(e) => {
+							setName(e.target.value);
+							setNameError(undefined);
+						}}
+					/>
+					{!!nameError && <FormHelperText>{nameError[lang]}</FormHelperText>}
+				</FormControl>
 
-			{/*-*-*-*-* message *-*-*-*-*/}
-			<TextField
-				value={message}
-				multiline
-				fullWidth
-				rows={8}
-				type="text"
-				label="Message"
-				variant="outlined"
-				className={classes["item-root"]}
-				InputProps={{ className: classes["item-input"] }}
-				//	handlers
-				onChange={(e) => setMessage(e.target.value)}
-			/>
+				{/*-*-*-*-* email *-*-*-*-*/}
+				<FormControl
+					fullWidth
+					variant="outlined"
+					className={classes["item-root"]}
+					error={!!emailError}
+				>
+					<InputLabel>Email</InputLabel>
+					<OutlinedInput
+						value={email}
+						label="Email"
+						className={classes["item-input"]}
+						type="email"
+						//	handlers
+						onChange={(e) => {
+							setEmail(e.target.value);
+							setEmailError(undefined);
+						}}
+					/>
+					{!!emailError && <FormHelperText>{emailError[lang]}</FormHelperText>}
+				</FormControl>
 
-			{/*-*-*-*-* submit *-*-*-*-*/}
-			<Button
-				variant="contained"
-				className={classes.submit}
-				color="primary"
-				//	handlers
-				onClick={handleOnClick_submit}
-			>
-				Submit
-			</Button>
-		</Container>
+				{/*-*-*-*-* subject *-*-*-*-*/}
+				<FormControl
+					variant="outlined"
+					fullWidth
+					className={classes["item-root"]}
+					error={!!subjectError}
+				>
+					<InputLabel>{"Subject"}</InputLabel>
+					<Select
+						value={subject}
+						label={"Subject"}
+						classes={{ select: classes["item-input"] }}
+						MenuProps={{
+							getContentAnchorEl: null,
+							anchorOrigin: { horizontal: "left", vertical: "bottom" },
+							transformOrigin: { horizontal: "left", vertical: "top" },
+						}}
+						//	handlers
+						onChange={(e) => {
+							setSubject(e.target.value as string);
+							setSubjectError(undefined);
+						}}
+					>
+						{subjects.map((item, i) => (
+							<MenuItem key={i} value={item.label[lang]}>
+								{item.label[lang]}
+							</MenuItem>
+						))}
+					</Select>
+					{!!subjectError && (
+						<FormHelperText>{subjectError[lang]}</FormHelperText>
+					)}
+				</FormControl>
+
+				{/*-*-*-*-* message *-*-*-*-*/}
+				<FormControl
+					fullWidth
+					variant="outlined"
+					className={classes["item-root"]}
+					error={!!messageError}
+				>
+					<InputLabel>Message</InputLabel>
+					<FormLabel className={classes["item-countLabel"]}>
+						{messageCount}
+					</FormLabel>
+					<OutlinedInput
+						value={message}
+						label="Message"
+						className={classes["item-input"]}
+						type="text"
+						multiline
+						rows={8}
+						//	handlers
+						onChange={(e) => {
+							setMessage(e.target.value);
+							setMessageError(undefined);
+						}}
+					/>
+					{!!messageError && (
+						<FormHelperText>{messageError[lang]}</FormHelperText>
+					)}
+				</FormControl>
+
+				{/*-*-*-*-* submit *-*-*-*-*/}
+				<Button
+					variant="contained"
+					className={classes.submit}
+					color="primary"
+					//	handlers
+					onClick={handleOnClick_submit}
+				>
+					Submit
+				</Button>
+			</Container>
+		</React.Fragment>
 	);
 };
 
 /*-*-*-*-* default *-*-*-*-*/
-export default Component;
+export default withRouter(Component);
