@@ -21,7 +21,7 @@ import {
 } from "@fortawesome/react-fontawesome";
 
 //	assets
-import Img_Member_Eto from "@src/client/assets/images/aboutUs-member-eto.png";
+import Img_Member_Himeringo from "@src/client/assets/images/aboutUs-member-himeringo.png";
 
 //	modules
 import * as OrigModule from "@src/client/assets/modules/origModule";
@@ -65,13 +65,16 @@ const Component: React.FC<Props> = (props) => {
 		{
 			id: "himeringo",
 			form: {
-				icon: "",
+				icon: Img_Member_Himeringo,
 				name: { jp: "ひめりんご", en: "Himeringo" },
 				position: { jp: "デザイナー", en: "Designer" },
 				birthday: new Date(1996, 1 - 1, 15),
-				hobbies: [{ jp: "絵描き", en: "Panting" }],
+				hobbies: [
+					{ jp: "絵描き", en: "Panting" },
+					{ jp: "スイーツめぐり", en: "Sweets" },
+				],
 				description:
-					"会社ロゴやアイコン、デザインに関しアドバイスや製作や協力をお願いしています。",
+					"会社ロゴやアイコン、デザインに関しアドバイスや製作をお願いしています。",
 				twitter: "https://twitter.com/himeringo_0115",
 				instagram: "https://www.instagram.com/himeringo_0115",
 			},
