@@ -11,10 +11,10 @@ const origStyles = new OrigStylesModule.default();
 const { fontFamiPicker, fontSizePicker, colorPicker } = origStyles;
 
 /*-*-*-*-* Item *-*-*-*-*/
-export const Item = (params: {}) =>
+export const Item = (params: { submitted: boolean }) =>
 	makeStyles((theme: Theme) => {
 		/*-*-*-*-* properties *-*-*-*-*/
-		const {} = params;
+		const { submitted } = params;
 
 		/*-*-*-*-* component *-*-*-*-*/
 		return createStyles({
@@ -44,6 +44,15 @@ export const Item = (params: {}) =>
 			submit: {
 				marginTop: theme.spacing(4),
 				minWidth: 200,
+			},
+			"submit-faIcon": {
+				marginRight: theme.spacing(1),
+			},
+			submitted: {
+				...origStyles.btnColor({
+					color: colorPicker("brandWhite"),
+					backgroundColor: colorPicker("green"),
+				}),
 			},
 		});
 	})();
