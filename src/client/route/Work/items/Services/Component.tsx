@@ -103,7 +103,7 @@ const Component: React.FC<Props> = (props) => {
 			form: {
 				icon: Img_Service_Web,
 				name: {
-					jp: "Webサイト作成",
+					jp: "Webサイト製作",
 					en: "Web Site",
 				},
 				gitHub: "https://github.com/shun-Eto/company-hp",

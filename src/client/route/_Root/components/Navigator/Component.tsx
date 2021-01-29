@@ -127,7 +127,7 @@ const NavigatorSm: React.FC<ComnProps> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
 	const { lang, navItems } = props;
 	const [active, setActive] = React.useState(false);
-	const classes = useStyles.NavigatorSm({});
+	const classes = useStyles.NavigatorSm({ active });
 
 	/*-*-*-*-* render *-*-*-*-*/
 	return (

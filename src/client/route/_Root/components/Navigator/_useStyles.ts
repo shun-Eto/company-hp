@@ -29,9 +29,9 @@ export const Root = (params: {}) =>
 		});
 	})();
 
-export const NavigatorSm = (params: {}) =>
+export const NavigatorSm = (params: { active: boolean }) =>
 	makeStyles((theme: Theme) => {
-		const {} = params;
+		const { active } = params;
 
 		return createStyles({
 			Navigator: {},
@@ -39,7 +39,7 @@ export const NavigatorSm = (params: {}) =>
 				whiteSpace: "nowrap",
 			},
 			actions: {
-				height: 0,
+				height: active ? "auto" : 0,
 			},
 		});
 	})();
