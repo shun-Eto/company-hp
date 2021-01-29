@@ -50,5 +50,5 @@ export interface Theme {
 
 export interface Status {
 	error: boolean;
-	errorList: { [key: string]: Languages };
+	errorList?: { [key: string]: Languages };
 }
