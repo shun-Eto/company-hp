@@ -82,6 +82,7 @@ const Component: React.FC<Props> = (props) => {
 	const snackbar_props = contactMethod.default.snackbar;
 	//	styles
 	const classes = useStyles.Item({});
+	//	const list
 	const subjects: EnvTypes.MenuItem[] = [
 		{
 			id: "education",
@@ -116,7 +117,7 @@ const Component: React.FC<Props> = (props) => {
 	const handleOnClick_submit = () => {
 		const body: ContactMethodTypes.Submit_Message_Body = {
 			lang,
-			form: { name, email, message, subject },
+			form: { name, email, message, subject: get_subjectLabel(subject) },
 		};
 
 		const valid_status = contactMethod.validation_submit_message(body);
@@ -160,6 +161,10 @@ const Component: React.FC<Props> = (props) => {
 
 		//	snackbar
 		snack(snackbar_props.message.error[lang], { variant: "warning" });
+	}
+	//	get_subjectLabel
+	function get_subjectLabel(value: string): string {
+		return subjects.filter((val) => val.value === value)[0]?.label[lang] || "";
 	}
 
 	/*-*-*-*-* lifeCycles *-*-*-*-*/
@@ -241,7 +246,7 @@ const Component: React.FC<Props> = (props) => {
 						}}
 					>
 						{subjects.map((item, i) => (
-							<MenuItem key={i} value={item.label[lang]}>
+							<MenuItem key={i} value={item.value}>
 								{item.label[lang]}
 							</MenuItem>
 						))}

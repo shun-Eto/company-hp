@@ -77,6 +77,7 @@ export const Basic = (params: { origTheme?: EnvTypes.Theme }) =>
 			"Basic-label": {
 				marginTop: theme.spacing(1),
 				fontFamily: fontFamiPicker("basic"),
+				color: origTheme?.color,
 			},
 
 			/*-*-*-*-* linear *-*-*-*-*/

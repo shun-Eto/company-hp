@@ -132,6 +132,7 @@ const OrigMenu = (props: OrigMenuProps) => {
 	/*-*-*-*-* handlers *-*-*-*-*/
 	const handleOnClick_lang = (lang: keyof EnvTypes.Languages) => {
 		props.onChange_lang(lang);
+		localStorage.setItem("lang", lang);
 		setTimeout(() => {
 			setActive(false);
 		}, 250);
