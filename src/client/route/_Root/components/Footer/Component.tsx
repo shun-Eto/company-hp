@@ -79,7 +79,7 @@ const Copyright = (props: CopyrightProps) => {
 				size="1x"
 				className={classes["Typography-faIcon"]}
 			/>
-			2021 Apple Inc. All rights reserved.
+			2021 Sopherre Inc. All rights reserved.
 		</Typography>
 	);
 };

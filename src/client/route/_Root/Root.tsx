@@ -42,9 +42,7 @@ const { colorPicker } = origStyles;
 interface OwnProps extends RouteComponentProps {
 	root: RootReducer.StateProps;
 	//	actions
-	rootActions: {
-		update_deviceHeight: typeof RootAction.update_deviceHeight;
-	};
+	rootActions: {};
 }
 interface FunctionProps {}
 type Props = OwnProps & FunctionProps;
@@ -86,26 +84,16 @@ interface ComnProps {}
 const Root: React.FC<Props> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
 	const { root, rootActions } = props;
-	const { height } = root.env.device;
+	const {} = root.env.device;
 	//	states
 	const [init, setInit] = React.useState(true);
 	//	styles
-	const classes = useStyles.Root({ height });
+	const classes = useStyles.Root({});
 
 	/*-*-*-*-* common props *-*-*-*-*/
 	const comnProps: ComnProps = {};
 
 	/*-*-*-*-* lifeCycles *-*-*-*-*/
-	//	init
-	React.useEffect(() => {
-		if (init) {
-			setInit(false);
-			window.addEventListener("resize", () => {
-				const height = window.innerHeight;
-				rootActions.update_deviceHeight(height);
-			});
-		}
-	}, [init]);
 
 	/*-*-*-*-* component *-*-*-*-*/
 	return (

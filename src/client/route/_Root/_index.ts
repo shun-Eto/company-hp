@@ -22,11 +22,7 @@ const mapStateToProps = (state: AppStateProps) => {
 type DispatchProps = RootAction.Update_DeviceHeight;
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
 	return {
-		rootActions: {
-			update_deviceHeight: (height: number) => {
-				return dispatch(RootAction.update_deviceHeight(height));
-			},
-		},
+		rootActions: {},
 	};
 };
 
