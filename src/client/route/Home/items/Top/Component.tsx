@@ -9,11 +9,17 @@ import {} from "@fortawesome/react-fontawesome";
 //	styles
 import * as useStyles from "./_useStyles";
 
+//	modules
+import * as EnvModule from "@src/client/assets/modules/envModule";
+
 //	assets
 import Img_homeMain from "@src/client/assets/images/home-main.png";
 
 //	types
 import * as EnvTypes from "@src/types/environment";
+
+//	classes
+const envClass = new EnvModule.default();
 
 /*-*-*-*-* component props *-*-*-*-*/
 interface ComponentProps {}

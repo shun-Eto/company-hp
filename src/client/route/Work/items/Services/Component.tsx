@@ -24,6 +24,7 @@ import {
 import Img_Service_Sopherre from "@src/client/assets/images/work-service-sopherre.png";
 import Img_Service_Sophic from "@src/client/assets/images/work-service-sophic.png";
 import Img_Service_LedgerAble from "@src/client/assets/images/work-service-ledgerAble.png";
+import Img_Service_Redger from "@src/client/assets/images/work-service-redger.png";
 import Img_Service_Web from "@src/client/assets/images/work-service-web.png";
 import Img_Service_Education from "@src/client/assets/images/work-service-education.png";
 
@@ -90,10 +91,10 @@ const Component: React.FC<Props> = (props) => {
 			},
 		},
 		{
-			id: "ledgerAble",
+			id: "Redger",
 			form: {
-				icon: Img_Service_LedgerAble,
-				name: { jp: "LedgerAble", en: "LedgerAble" },
+				icon: Img_Service_Redger,
+				name: { jp: "Redger", en: "Redger" },
 				description:
 					"工数管理等、業務効率化システムの開発。\nダッシュボードやグラフィクスを多分に使い、他にはないオリジナルの付加価値を提供します。",
 			},
