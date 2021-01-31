@@ -19,7 +19,7 @@ const mapStateToProps = (state: AppStateProps) => {
 };
 
 /*-*-*-*-* Dispatch *-*-*-*-*/
-type DispatchProps = RootAction.Update_ScrollTop;
+type DispatchProps = RootAction.Update_DeviceHeight;
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
 	return {
 		rootActions: {},

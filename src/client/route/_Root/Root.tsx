@@ -61,7 +61,7 @@ const Component: React.FC<Props> = (props) => {
 
 	/*-*-*-*-* return *-*-*-*-*/
 	return (
-		<Root>
+		<Root {...props}>
 			<Switch>
 				{/*-*-*-*-* Home *-*-*-*-*/}
 				<Route exact path={"/"} component={Home} />
@@ -80,16 +80,20 @@ const Component: React.FC<Props> = (props) => {
 };
 
 /*-*-*-*-* Root *-*-*-*-*/
-interface RootProps {}
 interface ComnProps {}
-const Root: React.FC<RootProps> = (props) => {
+const Root: React.FC<Props> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
-
+	const { root, rootActions } = props;
+	const {} = root.env.device;
+	//	states
+	const [init, setInit] = React.useState(true);
 	//	styles
 	const classes = useStyles.Root({});
 
 	/*-*-*-*-* common props *-*-*-*-*/
 	const comnProps: ComnProps = {};
+
+	/*-*-*-*-* lifeCycles *-*-*-*-*/
 
 	/*-*-*-*-* component *-*-*-*-*/
 	return (
