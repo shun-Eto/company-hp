@@ -6,8 +6,9 @@ import * as EnvTypes from "@src/types/environment";
 
 /*-*-*-*-* action types *-*-*-*-*/
 export const types = {
-	update_lang: "[ Root ] update_lang",
-	update_scrollTop: "[ Root ] update_scrollTop",
+	update_lang: "[ Root ] : update_lang",
+	update_scrollTop: "[ Root ] : update_scrollTop",
+	update_deviceHeight: "[ Root ] : update_deviceHeight",
 };
 
 /*-*-*-*-* methods *-*-*-*-*/
@@ -33,6 +34,17 @@ export function update_scrollTop(scrollTop: number): Update_ScrollTop {
 		payload: { scrollTop },
 	};
 }
+//	Update_DeviceHeight
+export interface Update_DeviceHeight {
+	type: typeof types.update_deviceHeight;
+	payload: { height: number };
+}
+export function update_deviceHeight(height: number): Update_DeviceHeight {
+	return {
+		type: types.update_deviceHeight,
+		payload: { height },
+	};
+}
 
 /*-*-*-*-* ActionProps *-*-*-*-*/
-export type ActionProps = Update_Lang & Update_ScrollTop;
+export type ActionProps = Update_Lang & Update_ScrollTop & Update_DeviceHeight;

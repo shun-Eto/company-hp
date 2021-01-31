@@ -42,7 +42,9 @@ const { colorPicker } = origStyles;
 interface OwnProps extends RouteComponentProps {
 	root: RootReducer.StateProps;
 	//	actions
-	rootActions: {};
+	rootActions: {
+		update_deviceHeight: typeof RootAction.update_deviceHeight;
+	};
 }
 interface FunctionProps {}
 type Props = OwnProps & FunctionProps;
@@ -61,7 +63,7 @@ const Component: React.FC<Props> = (props) => {
 
 	/*-*-*-*-* return *-*-*-*-*/
 	return (
-		<Root>
+		<Root {...props}>
 			<Switch>
 				{/*-*-*-*-* Home *-*-*-*-*/}
 				<Route exact path={"/"} component={Home} />
@@ -80,16 +82,30 @@ const Component: React.FC<Props> = (props) => {
 };
 
 /*-*-*-*-* Root *-*-*-*-*/
-interface RootProps {}
 interface ComnProps {}
-const Root: React.FC<RootProps> = (props) => {
+const Root: React.FC<Props> = (props) => {
 	/*-*-*-*-* properties *-*-*-*-*/
-
+	const { root, rootActions } = props;
+	const { height } = root.env.device;
+	//	states
+	const [init, setInit] = React.useState(true);
 	//	styles
-	const classes = useStyles.Root({});
+	const classes = useStyles.Root({ height });
 
 	/*-*-*-*-* common props *-*-*-*-*/
 	const comnProps: ComnProps = {};
+
+	/*-*-*-*-* lifeCycles *-*-*-*-*/
+	//	init
+	React.useEffect(() => {
+		if (init) {
+			setInit(false);
+			window.addEventListener("resize", () => {
+				const height = window.innerHeight;
+				rootActions.update_deviceHeight(height);
+			});
+		}
+	}, [init]);
 
 	/*-*-*-*-* component *-*-*-*-*/
 	return (

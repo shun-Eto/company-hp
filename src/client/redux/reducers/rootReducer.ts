@@ -15,6 +15,7 @@ export interface Environment {
 	lang: keyof EnvTypes.Languages;
 	scrollTop: number;
 	device: {
+		height: number;
 		sizeType: "sp" | "pc";
 	};
 }
@@ -24,6 +25,7 @@ const initEnvironment: Environment = {
 	lang: (localStorage.getItem("lang") as "jp" | "en") || "jp",
 	scrollTop: 0,
 	device: {
+		height: window.innerHeight,
 		sizeType: navigator.userAgent.match(/iphone|ipad|ipod|android/i)
 			? "sp"
 			: "pc",
@@ -65,6 +67,18 @@ const reducer = (
 				env: {
 					...state.env,
 					scrollTop: action.payload.scrollTop,
+				},
+			};
+		//	update_deviceHeight
+		case RootAction.types.update_deviceHeight:
+			return {
+				...state,
+				env: {
+					...state.env,
+					device: {
+						...state.env.device,
+						height: action.payload.height,
+					},
 				},
 			};
 

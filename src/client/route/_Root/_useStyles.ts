@@ -8,13 +8,13 @@ const origStyles = new OrigStylesModule.default();
 const { colorPicker } = origStyles;
 
 /*-*-*-*-* Root *-*-*-*-*/
-export const Root = (params: {}) =>
+export const Root = (params: { height: number }) =>
 	makeStyles((theme: Theme) => {
-		const {} = params;
+		const { height } = params;
 
 		return createStyles({
 			Root: {
-				height: "100%",
+				height,
 				backgroundColor: origStyles.colorPicker("brandWhite"),
 			},
 		});
