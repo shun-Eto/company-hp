@@ -70,7 +70,7 @@ export const MemberItem = (params: {}) =>
 				fontFamily: fontFamiPicker("basic"),
 				letterSpacing: 2,
 				textShadow: origStyles["textShadow-paleColor"](
-					colorPicker("brandBlack")
+					colorPicker("brandBlack", 0.5)
 				),
 				color: colorPicker("brandBlack"),
 				textAlign: "left",
