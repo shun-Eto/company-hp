@@ -23,7 +23,8 @@
 		"_comment_git": "========= git =========",
 		"git_add": "git add .",
 		"git_commit": "git commit -m 'commit'",
-		"commit": "run-s git_add git_commit"
+		"git_push": "git push origin head",
+		"push": "run-s git_add git_commit git_push"
 	},
 	"dependencies": {
 		"@babel/core": "^7.9.0",

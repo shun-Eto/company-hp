@@ -70,7 +70,7 @@ const Component: React.FC<Props> = (props) => {
 				position: { jp: "デザイナー", en: "Designer" },
 				birthday: new Date(1996, 1 - 1, 15),
 				hobbies: [
-					{ jp: "絵描き", en: "Panting" },
+					{ jp: "お絵描き", en: "Panting" },
 					{ jp: "スイーツめぐり", en: "Sweets" },
 				],
 				description:

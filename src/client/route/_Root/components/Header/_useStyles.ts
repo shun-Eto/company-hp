@@ -49,6 +49,12 @@ export const Logo = (params: {}) =>
 			Logo: {
 				display: "inline-block",
 				height: "100%",
+				padding: theme.spacing(0, 1),
+				borderRadius: theme.shape.borderRadius,
+			},
+			img: {
+				display: "inline-block",
+				height: "100%",
 				objectFit: "contain",
 			},
 		});

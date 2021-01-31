@@ -74,6 +74,9 @@ const Component: React.FC<Props> = (props) => {
 	const classes = useStyles.Root({});
 
 	/*-*-*-*-* handlers *-*-*-*-*/
+	const handleOnClick_logo = () => {
+		props.history.push("/");
+	};
 
 	/*-*-*-*-* lifeCycles *-*-*-*-*/
 
@@ -84,7 +87,7 @@ const Component: React.FC<Props> = (props) => {
 				<Container className={classes.Container}>
 					{/*-*-*-*-* Logo *-*-*-*-*/}
 					<div className={classes.Logo}>
-						<Logo />
+						<Logo onClick={handleOnClick_logo} />
 					</div>
 
 					{/*-*-*-*-* Menu *-*-*-*-*/}
@@ -103,12 +106,18 @@ const Component: React.FC<Props> = (props) => {
 };
 
 /*-*-*-*-* Logo *-*-*-*-*/
-const Logo = () => {
+const Logo = (props: { onClick: () => void }) => {
 	/*-*-*-*-* properties *-*-*-*-*/
 	const classes = useStyles.Logo({});
 
+	/*-*-*-*-* handlers *-*-*-*-*/
+
 	/*-*-*-*-* render *-*-*-*-*/
-	return <img src={Img_Logo} className={classes.Logo} />;
+	return (
+		<ButtonBase className={classes.Logo} onClick={props.onClick}>
+			<img src={Img_Logo} className={classes.img} />
+		</ButtonBase>
+	);
 };
 
 /*-*-*-*-* Menu *-*-*-*-*/
