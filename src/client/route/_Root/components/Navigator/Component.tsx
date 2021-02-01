@@ -129,6 +129,12 @@ const NavigatorSm: React.FC<ComnProps> = (props) => {
 	const [active, setActive] = React.useState(false);
 	const classes = useStyles.NavigatorSm({ active });
 
+	/*-*-*-*-* handlers *-*-*-*-*/
+	const handleOnClick_item = (onClick?: () => void) => {
+		setActive(false);
+		if (onClick) onClick();
+	};
+
 	/*-*-*-*-* render *-*-*-*-*/
 	return (
 		<div className={classes.Navigator}>
@@ -163,7 +169,7 @@ const NavigatorSm: React.FC<ComnProps> = (props) => {
 						}}
 						FabProps={{ style: { backgroundColor: item.theme?.bgColor } }}
 						//	handlers
-						onClick={item.onClick}
+						onClick={() => handleOnClick_item(item.onClick)}
 					/>
 				))}
 			</SpeedDial>
