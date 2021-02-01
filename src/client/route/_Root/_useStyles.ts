@@ -14,8 +14,11 @@ export const Root = (params: {}) =>
 
 		return createStyles({
 			Root: {
+				position: "fixed",
 				height: "100%",
+				width: "100%",
 				backgroundColor: origStyles.colorPicker("brandWhite"),
+				transition: origStyles.transition("height"),
 			},
 		});
 	})();

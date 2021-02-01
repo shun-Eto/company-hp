@@ -1,4 +1,4 @@
-import { makeStyles, Theme, createStyles } from "@material-ui/core";
+import { makeStyles, Theme, createStyles, Hidden } from "@material-ui/core";
 
 //	modules
 import * as OrigStylesModule from "@src/client/assets/styles/origStyles";
@@ -32,14 +32,15 @@ export const Root = (params: {}) =>
 export const NavigatorSm = (params: { active: boolean }) =>
 	makeStyles((theme: Theme) => {
 		const { active } = params;
-
 		return createStyles({
 			Navigator: {},
 			staticTooltipLabel: {
 				whiteSpace: "nowrap",
 			},
-			actions: {
-				height: active ? "auto" : 0,
+			staticTooltipClosed: {},
+			actions: {},
+			actionsClosed: {
+				height: 0,
 			},
 		});
 	})();

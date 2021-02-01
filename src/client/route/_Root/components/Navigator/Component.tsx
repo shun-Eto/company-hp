@@ -129,6 +129,12 @@ const NavigatorSm: React.FC<ComnProps> = (props) => {
 	const [active, setActive] = React.useState(false);
 	const classes = useStyles.NavigatorSm({ active });
 
+	/*-*-*-*-* handlers *-*-*-*-*/
+	const handleOnClick_item = (onClick?: () => void) => {
+		setActive(false);
+		if (onClick) onClick();
+	};
+
 	/*-*-*-*-* render *-*-*-*-*/
 	return (
 		<div className={classes.Navigator}>
@@ -137,9 +143,13 @@ const NavigatorSm: React.FC<ComnProps> = (props) => {
 				open={active}
 				icon={<SpeedDialIcon />}
 				direction={"up"}
-				classes={{ actions: classes.actions }}
+				classes={{
+					actions: classes.actions,
+					actionsClosed: classes.actionsClosed,
+				}}
 				//	handlers
-				onClick={() => setActive(!active)}
+				onOpen={() => setActive(true)}
+				onClose={() => setActive(false)}
 			>
 				{navItems.map((item, i) => (
 					<SpeedDialAction
@@ -153,10 +163,13 @@ const NavigatorSm: React.FC<ComnProps> = (props) => {
 						}
 						tooltipTitle={item.label[lang]}
 						tooltipOpen
-						classes={{ staticTooltipLabel: classes.staticTooltipLabel }}
+						classes={{
+							staticTooltipLabel: classes.staticTooltipLabel,
+							staticTooltipClosed: classes.staticTooltipClosed,
+						}}
 						FabProps={{ style: { backgroundColor: item.theme?.bgColor } }}
 						//	handlers
-						onClick={item.onClick}
+						onClick={() => handleOnClick_item(item.onClick)}
 					/>
 				))}
 			</SpeedDial>
