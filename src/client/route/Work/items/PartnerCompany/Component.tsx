@@ -21,11 +21,6 @@ import {
 } from "@fortawesome/react-fontawesome";
 
 //	assets
-import Img_Service_Sopherre from "@src/client/assets/images/work-service-sopherre.png";
-import Img_Service_Sophic from "@src/client/assets/images/work-service-sophic.png";
-import Img_Service_LedgerAble from "@src/client/assets/images/work-service-ledgerAble.png";
-import Img_Service_Web from "@src/client/assets/images/work-service-web.png";
-import Img_Service_Education from "@src/client/assets/images/work-service-education.png";
 
 //	modules
 import * as OrigModule from "@src/client/assets/modules/origModule";
@@ -69,7 +64,10 @@ const Component: React.FC<Props> = (props) => {
 			id: "ginga",
 			form: {
 				icon: "",
-				name: { jp: "銀河ソフトウェア株式会社", en: "Ginga Software Co.,Ltd." },
+				name: {
+					jp: "銀河ソフトウェア株式会社",
+					en: "Ginga Software Co.,Ltd.",
+				},
 				pathname: "https://www.ginga.co.jp/",
 			},
 		},
@@ -82,18 +80,22 @@ const Component: React.FC<Props> = (props) => {
 			},
 		},
 		{
-			id: "advancer",
+			id: "techbeans",
 			form: {
 				icon: "",
 				name: { jp: "株式会社テックビーンズ", en: "techbeans inc." },
 				pathname: "https://techbeans.co.jp/",
 			},
 		},
+		{
+			id: "sapeet",
+			form: {
+				icon: "",
+				name: { jp: "株式会社Sapeet", en: "Sapeet inc." },
+				pathname: "https://about.sapeet.com/",
+			},
+		},
 	];
-
-	/*-*-*-*-* handlers *-*-*-*-*/
-
-	/*-*-*-*-* lifeCycles *-*-*-*-*/
 
 	/*-*-*-*-* component *-*-*-*-*/
 	return (
@@ -140,7 +142,9 @@ const MemberItem: React.FC<MemberItemProps> = (props) => {
 				<div className={classes.form}>
 					{/* name */}
 					{form.name && (
-						<Typography className={classes["form-name"]}>{name}</Typography>
+						<Typography className={classes["form-name"]}>
+							{name}
+						</Typography>
 					)}
 
 					<OrigDividier.Mesh
@@ -198,7 +202,10 @@ const MemberItem: React.FC<MemberItemProps> = (props) => {
 					{/* contact */}
 					{form["contact-pathname"] && (
 						<div className={classes["form-contactPath"]}>
-							<OrigPathLink lang={lang} pathname={form["contact-pathname"]} />
+							<OrigPathLink
+								lang={lang}
+								pathname={form["contact-pathname"]}
+							/>
 						</div>
 					)}
 				</div>
@@ -235,7 +242,11 @@ const ActionItem = (props: ActionItemProps) => {
 			onClick={handleOnClick}
 		>
 			<Paper className={classes.Paper}>
-				<FontAwesomeIcon {...faIcon} fixedWidth className={classes.faIcon} />
+				<FontAwesomeIcon
+					{...faIcon}
+					fixedWidth
+					className={classes.faIcon}
+				/>
 			</Paper>
 		</ButtonBase>
 	);
@@ -297,7 +308,9 @@ const FormItem: React.FC<FormItemProps> = (props) => {
 			</div>
 
 			{type === "description" && (
-				<Typography className={classes["item-description"]}>{value}</Typography>
+				<Typography className={classes["item-description"]}>
+					{value}
+				</Typography>
 			)}
 
 			<Divider className={classes["item-divider"]} />
