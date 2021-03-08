@@ -72,7 +72,7 @@ const Component: React.FC<Props> = (props) => {
 			label: { jp: "資本金", en: "Capital" },
 			children: (
 				<Typography className={classes["children-text"]}>
-					500,000 円 ( 2019年11月末現在 )
+					10,000,000 円 ( 2021年2月末現在 )
 				</Typography>
 			),
 		},
@@ -105,7 +105,12 @@ const Component: React.FC<Props> = (props) => {
 		<Container className={classes.Item} maxWidth="md" ref={anchor}>
 			<Paper className={classes.Paper} elevation={6}>
 				{infoItems.map((item, i) => (
-					<InfoItem key={i} lang={lang} item={item} children={item.children} />
+					<InfoItem
+						key={i}
+						lang={lang}
+						item={item}
+						children={item.children}
+					/>
 				))}
 			</Paper>
 		</Container>
